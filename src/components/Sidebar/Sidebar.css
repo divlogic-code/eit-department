@@ -1,0 +1,172 @@
+/* =========================================
+   LUXURY EMERALD SIDEBAR
+========================================= */
+
+.sidebar {
+  position: fixed;
+
+  top: 82px;
+  left: 0;
+
+  width: 270px;
+  height: calc(100vh - 82px);
+
+  z-index: 900;
+
+  padding: 42px 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #063f34 0%,
+      #052f28 50%,
+      #021f1a 100%
+    );
+
+  border-right: 1px solid rgba(202, 166, 92, 0.35);
+
+  box-shadow:
+    15px 0 50px rgba(0, 0, 0, 0.22);
+
+  overflow-y: auto;
+
+  /* Hidden initially */
+  transform: translateX(-100%);
+
+  opacity: 0;
+
+  transition:
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.5s ease;
+}
+
+
+/* SIDEBAR APPEARS */
+
+.sidebar.sidebar-show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
+/* LABEL */
+
+.sidebar-label {
+  margin-bottom: 30px;
+
+  color: #d7b866;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 4px;
+}
+
+
+/* LINKS */
+
+.sidebar-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  min-height: 58px;
+
+  padding: 0 14px;
+
+  margin-bottom: 4px;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  text-decoration: none;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  border-left: 1px solid transparent;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    padding-left 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* NUMBER */
+
+.sidebar-number {
+  min-width: 25px;
+
+  color: rgba(215, 184, 102, 0.5);
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+}
+
+
+/* HOVER */
+
+.sidebar-link:hover {
+  color: #ffffff;
+
+  padding-left: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(215, 184, 102, 0.12),
+      transparent
+    );
+
+  border-left-color: #d7b866;
+}
+
+
+/* ACTIVE */
+
+.sidebar-link.active {
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(215, 184, 102, 0.18),
+      transparent
+    );
+
+  border-left-color: #d7b866;
+}
+
+
+/* SCROLLBAR */
+
+.sidebar::-webkit-scrollbar {
+  width: 3px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(215, 184, 102, 0.5);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+
+  .sidebar {
+    width: 250px;
+  }
+
+}

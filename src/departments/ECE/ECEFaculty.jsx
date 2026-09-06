@@ -1,0 +1,1 @@
+import FacultyDirectory from '../shared/FacultyDirectory'; import {restDepartments} from '../shared/restDepartments'; export default function ECEFaculty(){return <FacultyDirectory department={restDepartments.ECE}/>}

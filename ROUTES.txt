@@ -1,0 +1,13 @@
+import ECE from './departments/ECE/ECE'; import ECEFaculty from './departments/ECE/ECEFaculty';
+import Mechanical from './departments/Mechanical/Mechanical'; import MechanicalFaculty from './departments/Mechanical/MechanicalFaculty';
+import Civil from './departments/Civil/Civil'; import CivilFaculty from './departments/Civil/CivilFaculty';
+import Humanities from './departments/Humanities/Humanities'; import HumanitiesFaculty from './departments/Humanities/HumanitiesFaculty';
+import Management from './departments/DMS/Management'; import ManagementFaculty from './departments/DMS/ManagementFaculty';
+import ComputerApplications from './departments/DCA/ComputerApplications'; import ComputerApplicationsFaculty from './departments/DCA/ComputerApplicationsFaculty';
+
+<Route path='/ece' element={<ECE/>}/><Route path='/ece/faculty' element={<ECEFaculty/>}/>
+<Route path='/mechanical' element={<Mechanical/>}/><Route path='/mechanical/faculty' element={<MechanicalFaculty/>}/>
+<Route path='/civil' element={<Civil/>}/><Route path='/civil/faculty' element={<CivilFaculty/>}/>
+<Route path='/humanities' element={<Humanities/>}/><Route path='/humanities/faculty' element={<HumanitiesFaculty/>}/>
+<Route path='/management' element={<Management/>}/><Route path='/management/faculty' element={<ManagementFaculty/>}/>
+<Route path='/computer-applications' element={<ComputerApplications/>}/><Route path='/computer-applications/faculty' element={<ComputerApplicationsFaculty/>}/>

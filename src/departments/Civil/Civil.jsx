@@ -1,0 +1,1 @@
+import DepartmentPage from '../shared/DepartmentPage'; import {restDepartments} from '../shared/restDepartments'; export default function Civil(){return <DepartmentPage department={restDepartments.Civil}/>}

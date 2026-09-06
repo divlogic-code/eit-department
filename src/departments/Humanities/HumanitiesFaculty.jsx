@@ -1,0 +1,1 @@
+import FacultyDirectory from '../shared/FacultyDirectory'; import {restDepartments} from '../shared/restDepartments'; export default function HumanitiesFaculty(){return <FacultyDirectory department={restDepartments.Humanities}/>}

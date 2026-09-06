@@ -1,0 +1,296 @@
+.faculty-page {
+  min-height: 100vh;
+  background: #eee8d9;
+  color: #12382f;
+}
+
+.faculty-main {
+  padding-top: 82px;
+}
+
+/* HERO */
+
+.faculty-hero {
+  min-height: 58vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 80px 8vw;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #12382f 0%,
+      #1c493d 55%,
+      #0d2923 100%
+    );
+
+  color: #eee8d9;
+}
+
+.faculty-hero::after {
+  content: "FACULTY";
+  position: absolute;
+  right: -30px;
+  bottom: -80px;
+
+  font-size: clamp(120px, 18vw, 300px);
+  font-weight: 700;
+  letter-spacing: -0.08em;
+
+  color: rgba(238, 232, 217, 0.04);
+}
+
+.faculty-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.faculty-hero-content span {
+  display: block;
+  margin-bottom: 25px;
+
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  opacity: 0.7;
+}
+
+.faculty-hero-content h1 {
+  margin: 0;
+
+  font-family: Georgia, serif;
+  font-size: clamp(70px, 9vw, 150px);
+  line-height: 0.85;
+  font-weight: 400;
+}
+
+.faculty-hero-content p {
+  max-width: 500px;
+  margin-top: 40px;
+
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0.75;
+}
+
+/* DIRECTORY */
+
+.faculty-directory {
+  padding: 110px 8vw;
+}
+
+.faculty-directory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 50px;
+
+  margin-bottom: 70px;
+}
+
+.section-kicker {
+  display: block;
+  margin-bottom: 18px;
+
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  color: #9b7a38;
+}
+
+.faculty-directory-header h2 {
+  margin: 0;
+
+  font-family: Georgia, serif;
+  font-size: clamp(45px, 5vw, 80px);
+  font-weight: 400;
+}
+
+/* SEARCH */
+
+.faculty-search input {
+  width: 280px;
+
+  padding: 16px 20px;
+
+  border: none;
+  border-bottom: 1px solid rgba(18, 56, 47, 0.4);
+
+  background: transparent;
+
+  outline: none;
+
+  font-size: 15px;
+  color: #12382f;
+}
+
+.faculty-search input::placeholder {
+  color: rgba(18, 56, 47, 0.55);
+}
+
+/* GRID */
+
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+
+  background: rgba(18, 56, 47, 0.2);
+}
+
+.faculty-card {
+  min-height: 210px;
+
+  padding: 30px;
+
+  background: #eee8d9;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: relative;
+
+  transition:
+    transform 0.4s ease,
+    background 0.4s ease;
+}
+
+.faculty-card:hover {
+  background: #e5ddca;
+  transform: translateY(-4px);
+}
+
+.faculty-card-number {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #9b7a38;
+}
+
+.faculty-card-info h3 {
+  margin: 35px 0 8px;
+
+  font-family: Georgia, serif;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.faculty-card-info span {
+  display: block;
+
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.faculty-card-info small {
+  display: block;
+  margin-top: 8px;
+
+  font-size: 12px;
+  opacity: 0.55;
+}
+
+.faculty-card-arrow {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+
+  font-size: 24px;
+
+  transition: transform 0.3s ease;
+}
+
+.faculty-card:hover .faculty-card-arrow {
+  transform: translate(5px, -5px);
+}
+
+/* FACULTY LINK ON MAIN PAGE */
+
+.faculty-link-section {
+  padding: 100px 8vw;
+  background: #12382f;
+  color: #eee8d9;
+}
+
+.faculty-link-content {
+  max-width: 850px;
+}
+
+.faculty-link-content h2 {
+  margin: 0;
+
+  font-family: Georgia, serif;
+  font-size: clamp(50px, 7vw, 100px);
+  font-weight: 400;
+}
+
+.faculty-link-content p {
+  max-width: 550px;
+  margin: 30px 0 40px;
+
+  line-height: 1.7;
+  opacity: 0.7;
+}
+
+.faculty-link-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+
+  padding: 17px 25px;
+
+  border: 1px solid rgba(238, 232, 217, 0.4);
+
+  color: #eee8d9;
+  text-decoration: none;
+
+  font-size: 11px;
+  letter-spacing: 0.2em;
+
+  transition: all 0.3s ease;
+}
+
+.faculty-link-button:hover {
+  background: #eee8d9;
+  color: #12382f;
+}
+
+.faculty-link-button span {
+  font-size: 18px;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .faculty-hero {
+    min-height: 65vh;
+    padding: 60px 7vw;
+  }
+
+  .faculty-directory {
+    padding: 70px 7vw;
+  }
+
+  .faculty-directory-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .faculty-search input {
+    width: 100%;
+  }
+
+  .faculty-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faculty-card {
+    min-height: 190px;
+  }
+
+}
