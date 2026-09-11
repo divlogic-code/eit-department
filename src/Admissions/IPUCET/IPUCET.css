@@ -1,0 +1,751 @@
+/* =========================================================
+   IPU CET 2026-27
+   Premium Admissions Page
+   ========================================================= */
+
+.ipu-cet-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(16, 185, 129, 0.055),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 88% 65%,
+      rgba(37, 99, 235, 0.045),
+      transparent 30%
+    ),
+    #f8fafc;
+
+  color: #10231d;
+  overflow-x: hidden;
+}
+
+.ipu-cet-page:has(
+  .admissions-sidebar.sidebar-visible
+) {
+  padding-left: 280px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.ipu-cet-hero {
+  position: relative;
+
+  height: 680px;
+  min-height: 680px;
+
+  display: flex;
+  align-items: flex-end;
+
+  overflow: hidden;
+}
+
+.ipu-cet-hero-video {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.ipu-cet-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 20, 15, 0.89) 0%,
+      rgba(3, 20, 15, 0.65) 43%,
+      rgba(3, 20, 15, 0.25) 78%,
+      rgba(3, 20, 15, 0.38) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(2, 16, 12, 0.8) 0%,
+      transparent 57%
+    );
+}
+
+.ipu-cet-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(1180px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding-bottom: 100px;
+
+  color: #ffffff;
+}
+
+.ipu-cet-eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 22px;
+  padding: 9px 16px;
+
+  border: 1px solid rgba(212, 175, 55, 0.48);
+  border-radius: 999px;
+
+  background: rgba(5, 32, 24, 0.4);
+
+  backdrop-filter: blur(12px);
+
+  color: #e6c86a;
+
+  font-size: 0.76rem;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.ipu-cet-hero-content h1 {
+  max-width: 850px;
+
+  margin: 0;
+
+  font-size: clamp(3.3rem, 7vw, 6.2rem);
+
+  line-height: 0.94;
+
+  font-weight: 800;
+
+  letter-spacing: -0.055em;
+}
+
+.ipu-cet-hero-content p {
+  max-width: 680px;
+
+  margin: 28px 0 0;
+
+  color: rgba(255, 255, 255, 0.84);
+
+  font-size: 1.08rem;
+
+  line-height: 1.75;
+}
+
+.ipu-cet-hero-line {
+  width: 95px;
+  height: 3px;
+
+  margin-top: 32px;
+
+  border-radius: 999px;
+
+  background: #d4af37;
+}
+
+/* =========================================================
+   GENERAL
+   ========================================================= */
+
+.section-shell {
+  width: min(1180px, calc(100% - 80px));
+
+  margin: 0 auto;
+}
+
+.section-kicker {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #15805c;
+
+  font-size: 0.74rem;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.ipu-cet-intro {
+  display: grid;
+
+  grid-template-columns: auto 1fr;
+
+  gap: 25px;
+
+  align-items: center;
+
+  padding-top: 90px;
+  padding-bottom: 55px;
+}
+
+.ipu-cet-intro-icon {
+  width: 62px;
+  height: 62px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(212, 175, 55, 0.5);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #062e23,
+      #0c513c
+    );
+
+  color: #e8ca67;
+
+  box-shadow:
+    0 15px 35px rgba(4, 38, 28, 0.16);
+}
+
+.ipu-cet-intro h2 {
+  margin: 0;
+
+  color: #10231d;
+
+  font-size: clamp(2rem, 4vw, 3rem);
+
+  line-height: 1.05;
+
+  letter-spacing: -0.045em;
+}
+
+.ipu-cet-intro h2 span {
+  color: #17815d;
+}
+
+.ipu-cet-intro p {
+  max-width: 760px;
+
+  margin: 15px 0 0;
+
+  color: #61716c;
+
+  font-size: 1rem;
+
+  line-height: 1.75;
+}
+
+/* =========================================================
+   BROCHURE SECTION
+   ========================================================= */
+
+.ipu-cet-brochures {
+  padding-bottom: 75px;
+}
+
+.ipu-cet-section-heading {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 28px;
+}
+
+.ipu-cet-section-heading h2 {
+  margin: 0;
+
+  color: #10231d;
+
+  font-size: clamp(2rem, 4vw, 3rem);
+
+  line-height: 1;
+
+  letter-spacing: -0.045em;
+}
+
+.ipu-cet-document-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 15px;
+
+  border: 1px solid rgba(212, 175, 55, 0.32);
+
+  border-radius: 10px;
+
+  background: rgba(255, 251, 235, 0.8);
+
+  color: #85690d;
+
+  font-size: 0.74rem;
+
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   BROCHURE GRID
+   ========================================================= */
+
+.ipu-cet-brochure-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 24px;
+}
+
+.ipu-cet-brochure-card {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-height: 420px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(15, 76, 58, 0.1);
+
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 18px 50px rgba(15, 53, 43, 0.07);
+
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease;
+}
+
+.ipu-cet-brochure-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #073b2d,
+      #d4af37,
+      #073b2d
+    );
+}
+
+.ipu-cet-brochure-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(212, 175, 55, 0.32);
+
+  box-shadow:
+    0 25px 65px rgba(15, 53, 43, 0.11);
+}
+
+/* =========================================================
+   CARD TOP
+   ========================================================= */
+
+.ipu-cet-card-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 30px 30px 20px;
+}
+
+.ipu-cet-card-icon {
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #073b2d,
+      #0b5741
+    );
+
+  color: #e7c960;
+
+  box-shadow:
+    0 12px 25px rgba(7, 59, 45, 0.16);
+}
+
+.ipu-cet-card-label {
+  padding: 7px 11px;
+
+  border: 1px solid rgba(20, 128, 91, 0.14);
+
+  border-radius: 999px;
+
+  background: rgba(20, 128, 91, 0.06);
+
+  color: #137957;
+
+  font-size: 0.67rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   CARD BODY
+   ========================================================= */
+
+.ipu-cet-card-body {
+  flex: 1;
+
+  padding: 10px 30px 28px;
+}
+
+.ipu-cet-card-body h3 {
+  margin: 0;
+
+  color: #132e25;
+
+  font-size: 1.65rem;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.025em;
+}
+
+.ipu-cet-card-body p {
+  max-width: 470px;
+
+  margin: 14px 0 25px;
+
+  color: #65746e;
+
+  font-size: 0.94rem;
+
+  line-height: 1.75;
+}
+
+.ipu-cet-card-meta {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 10px 13px;
+
+  border-radius: 10px;
+
+  background: #f4f8f6;
+
+  color: #4d6259;
+
+  font-size: 0.76rem;
+
+  font-weight: 700;
+}
+
+.ipu-cet-card-meta svg {
+  color: #16815d;
+}
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.ipu-cet-brochure-button {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin: 0 24px 24px;
+
+  padding: 16px 18px;
+
+  border: 1px solid rgba(212, 175, 55, 0.32);
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #073b2d,
+      #0b5741
+    );
+
+  color: #f1d66b;
+
+  font-size: 0.84rem;
+
+  font-weight: 800;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.ipu-cet-brochure-button svg {
+  transition: transform 0.22s ease;
+}
+
+.ipu-cet-brochure-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 28px rgba(7, 59, 45, 0.18);
+
+  background:
+    linear-gradient(
+      135deg,
+      #084936,
+      #0d654a
+    );
+}
+
+.ipu-cet-brochure-button:hover svg {
+  transform: translate(3px, -3px);
+}
+
+/* =========================================================
+   NOTE
+   ========================================================= */
+
+.ipu-cet-note {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 18px;
+
+  margin-bottom: 90px;
+
+  padding: 28px 30px;
+
+  border: 1px solid rgba(212, 175, 55, 0.28);
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 251, 235, 0.94),
+      rgba(255, 255, 255, 0.96)
+    );
+}
+
+.ipu-cet-note-icon {
+  flex: 0 0 auto;
+
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #d4af37;
+
+  color: #ffffff;
+}
+
+.ipu-cet-note h3 {
+  margin: 0 0 7px;
+
+  color: #5d4b10;
+
+  font-size: 1rem;
+}
+
+.ipu-cet-note p {
+  max-width: 900px;
+
+  margin: 0;
+
+  color: #746c51;
+
+  font-size: 0.88rem;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .ipu-cet-page:has(
+    .admissions-sidebar.sidebar-visible
+  ) {
+    padding-left: 0;
+  }
+
+  .section-shell {
+    width: min(100% - 40px, 760px);
+  }
+
+  .ipu-cet-hero {
+    height: 620px;
+    min-height: 620px;
+  }
+
+  .ipu-cet-hero-content {
+    width: calc(100% - 40px);
+
+    padding-bottom: 75px;
+  }
+
+  .ipu-cet-intro {
+    padding-top: 65px;
+  }
+
+  .ipu-cet-brochure-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .section-shell {
+    width: calc(100% - 28px);
+  }
+
+  .ipu-cet-hero {
+    height: 560px;
+    min-height: 560px;
+  }
+
+  .ipu-cet-hero-content {
+    width: calc(100% - 28px);
+
+    padding-bottom: 58px;
+  }
+
+  .ipu-cet-eyebrow {
+    padding: 8px 12px;
+
+    font-size: 0.64rem;
+  }
+
+  .ipu-cet-hero-content h1 {
+    font-size: clamp(3rem, 15vw, 4.5rem);
+  }
+
+  .ipu-cet-hero-content p {
+    margin-top: 20px;
+
+    font-size: 0.92rem;
+
+    line-height: 1.65;
+  }
+
+  .ipu-cet-intro {
+    grid-template-columns: 1fr;
+
+    gap: 17px;
+
+    padding-top: 50px;
+
+    padding-bottom: 35px;
+  }
+
+  .ipu-cet-intro-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .ipu-cet-intro h2 {
+    font-size: 2rem;
+  }
+
+  .ipu-cet-section-heading {
+    display: block;
+
+    margin-bottom: 22px;
+  }
+
+  .ipu-cet-document-badge {
+    width: fit-content;
+
+    margin-top: 15px;
+
+    font-size: 0.68rem;
+  }
+
+  .ipu-cet-brochure-card {
+    min-height: 390px;
+
+    border-radius: 20px;
+  }
+
+  .ipu-cet-card-top {
+    padding: 24px 22px 16px;
+  }
+
+  .ipu-cet-card-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .ipu-cet-card-body {
+    padding: 8px 22px 25px;
+  }
+
+  .ipu-cet-card-body h3 {
+    font-size: 1.4rem;
+  }
+
+  .ipu-cet-card-body p {
+    font-size: 0.87rem;
+  }
+
+  .ipu-cet-brochure-button {
+    margin: 0 18px 18px;
+
+    padding: 15px 16px;
+  }
+
+  .ipu-cet-note {
+    gap: 13px;
+
+    margin-bottom: 50px;
+
+    padding: 21px;
+  }
+}

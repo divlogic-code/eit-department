@@ -1,13 +1,65 @@
-import ECE from './departments/ECE/ECE'; import ECEFaculty from './departments/ECE/ECEFaculty';
-import Mechanical from './departments/Mechanical/Mechanical'; import MechanicalFaculty from './departments/Mechanical/MechanicalFaculty';
-import Civil from './departments/Civil/Civil'; import CivilFaculty from './departments/Civil/CivilFaculty';
-import Humanities from './departments/Humanities/Humanities'; import HumanitiesFaculty from './departments/Humanities/HumanitiesFaculty';
-import Management from './departments/DMS/Management'; import ManagementFaculty from './departments/DMS/ManagementFaculty';
-import ComputerApplications from './departments/DCA/ComputerApplications'; import ComputerApplicationsFaculty from './departments/DCA/ComputerApplicationsFaculty';
-
-<Route path='/ece' element={<ECE/>}/><Route path='/ece/faculty' element={<ECEFaculty/>}/>
-<Route path='/mechanical' element={<Mechanical/>}/><Route path='/mechanical/faculty' element={<MechanicalFaculty/>}/>
-<Route path='/civil' element={<Civil/>}/><Route path='/civil/faculty' element={<CivilFaculty/>}/>
-<Route path='/humanities' element={<Humanities/>}/><Route path='/humanities/faculty' element={<HumanitiesFaculty/>}/>
-<Route path='/management' element={<Management/>}/><Route path='/management/faculty' element={<ManagementFaculty/>}/>
-<Route path='/computer-applications' element={<ComputerApplications/>}/><Route path='/computer-applications/faculty' element={<ComputerApplicationsFaculty/>}/>
+HOME /
+ABOUT /about
+CHAIRMAN /chairman-message
+DIRECTOR /director-message
+ORGANISATIONAL STRUCTURE /organisational-structure
+BOARD OF GOVERNORS /board-of-governors
+AFFILIATIONS /affiliations-approvals
+ISO /iso-certifications
+PHILOSOPHY /philosophy
+PROGRAMMES /programmes
+ACADEMIC CALENDAR /academic-calendar
+SCHEME CALENDAR /scheme-calendar
+NBA-NAAC /nba-naac
+WHY ECHELON /why-echelon
+ADMISSION BROCHURE /admission-brochure
+ADMISSION PROCEDURE /admission-procedure
+DOCUMENT CHECKLIST /document-checklist
+ELIGIBILITY /eligibility
+REFUND POLICY /refund-policy
+ANTI-RAGGING /anti-ragging
+SCHOLARSHIP /scholarship
+PLACEMENT /placement
+PLACEMENT VISION /placement-vision
+PLACEMENT HEAD /placement-head
+PLACEMENT POLICY /policyofplacement.php
+RESEARCH /research
+JOURNAL PAPERS /journal-papers
+BOOK CHAPTERS /book-chapters
+PATENTS /patents
+RESEARCH MOUS /research-mous
+FDPS /fdps-funding
+IIC /iic
+EDC /edc-cell
+IPR /ipr-cell
+VIRTUAL TOUR /virtual-tour
+CAREER /career
+IQAC /iqac
+NIRF /nirf
+NOTICES /notices
+MANDATORY DISCLOSURE /mandatory-disclosure
+GRIEVANCE /grievance-portal
+INTERNAL COMMITTEE /internal-committee-and-women-cell.php
+SC-ST CELL /sc-st-cell.php
+PROFESSIONAL SOCIETY /professional-society.php
+LIBRARY /eit-library.php
+EVENTS /events
+PODCASTS /podcasts.php
+SHOOTING /shooting-at-echelon.php
+CELEBRITIES /celebrities-at-eit.php
+ACHIEVERS /achievers.php
+SPORTS /sports-achievers.php
+CSE /cse
+CSE FACULTY /cse/faculty
+ECE /ece
+ECE FACULTY /ece/faculty
+MECHANICAL /mechanical
+MECHANICAL FACULTY /mechanical/faculty
+CIVIL /civil
+CIVIL FACULTY /civil/faculty
+HUMANITIES /humanities
+HUMANITIES FACULTY /humanities/faculty
+MANAGEMENT /management
+MANAGEMENT FACULTY /management/faculty
+DCA /computer-applications
+DCA FACULTY /computer-applications/faculty

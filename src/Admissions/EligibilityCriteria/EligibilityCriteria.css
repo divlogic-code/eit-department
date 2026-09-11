@@ -1,0 +1,884 @@
+/* =========================================================
+   ELIGIBILITY CRITERIA PAGE
+   ========================================================= */
+
+.eligibility-criteria-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background: #f6f7f4;
+  color: #071827;
+
+  overflow-x: hidden;
+
+  transition:
+    padding-left 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.eligibility-criteria-page:has(
+  .admissions-sidebar.sidebar-visible
+) {
+  padding-left: 280px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.eligibility-criteria-hero {
+  position: relative;
+
+  min-height: 680px;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 0 8vw 92px;
+
+  overflow: hidden;
+
+  isolation: isolate;
+}
+
+.eligibility-criteria-hero-video {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: -3;
+}
+
+.eligibility-criteria-hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 17, 31, 0.94) 0%,
+      rgba(3, 17, 31, 0.74) 42%,
+      rgba(3, 17, 31, 0.28) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(3, 17, 31, 0.72) 0%,
+      transparent 60%
+    );
+
+  z-index: -2;
+}
+
+.eligibility-criteria-hero-content {
+  max-width: 780px;
+
+  color: #ffffff;
+
+  animation:
+    eligibilityHeroIn 0.9s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    both;
+}
+
+.eligibility-criteria-eyebrow {
+  display: inline-block;
+
+  margin-bottom: 24px;
+
+  color: #c7a96b;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.22em;
+}
+
+.eligibility-criteria-hero h1 {
+  margin: 0;
+
+  font-size: clamp(58px, 7vw, 104px);
+
+  line-height: 0.91;
+
+  font-weight: 500;
+
+  letter-spacing: -0.055em;
+}
+
+.eligibility-criteria-hero h1 em {
+  color: #d8c28e;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-weight: 400;
+
+  letter-spacing: -0.035em;
+}
+
+.eligibility-criteria-hero p {
+  max-width: 570px;
+
+  margin: 30px 0 0;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 16px;
+
+  line-height: 1.75;
+}
+
+.eligibility-criteria-hero-number {
+  position: absolute;
+
+  right: 7vw;
+  bottom: 70px;
+
+  color: rgba(255, 255, 255, 0.16);
+
+  font-size: clamp(100px, 15vw, 220px);
+
+  font-weight: 700;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.08em;
+
+  user-select: none;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.eligibility-criteria-main {
+  width: 100%;
+
+  padding: 95px 8vw 110px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.eligibility-criteria-intro {
+  max-width: 1000px;
+
+  display: grid;
+
+  grid-template-columns: 58px 1fr;
+
+  gap: 25px;
+
+  margin-bottom: 85px;
+}
+
+.eligibility-criteria-intro-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #c7a96b;
+
+  background: #03111f;
+
+  border: 1px solid rgba(199, 169, 107, 0.4);
+}
+
+.eligibility-criteria-section-label {
+  display: block;
+
+  margin-bottom: 13px;
+
+  color: #8b7446;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
+}
+
+.eligibility-criteria-intro h2 {
+  max-width: 800px;
+
+  margin: 0;
+
+  color: #071827;
+
+  font-size: clamp(32px, 4vw, 54px);
+
+  line-height: 1.04;
+
+  font-weight: 500;
+
+  letter-spacing: -0.045em;
+}
+
+.eligibility-criteria-intro p {
+  max-width: 790px;
+
+  margin: 23px 0 0;
+
+  color: #64717b;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   DIRECTORY HEADER
+   ========================================================= */
+
+.eligibility-criteria-directory {
+  max-width: 1350px;
+
+  margin: 0 auto;
+}
+
+.eligibility-criteria-directory-header {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding-bottom: 24px;
+
+  border-bottom: 1px solid #d7ddd9;
+}
+
+.eligibility-criteria-directory-header span {
+  color: #8b7446;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
+}
+
+.eligibility-criteria-directory-header h2 {
+  margin: 10px 0 0;
+
+  color: #071827;
+
+  font-size: clamp(32px, 4vw, 50px);
+
+  line-height: 1;
+
+  font-weight: 500;
+
+  letter-spacing: -0.045em;
+}
+
+.eligibility-criteria-total {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding-bottom: 3px;
+}
+
+.eligibility-criteria-total strong {
+  color: #0d6957;
+
+  font-size: 42px;
+
+  line-height: 1;
+
+  font-weight: 500;
+}
+
+.eligibility-criteria-total span {
+  color: #7a858c;
+
+  font-size: 9px;
+
+  line-height: 1.3;
+
+  letter-spacing: 0.13em;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.eligibility-criteria-table {
+  margin-top: 15px;
+
+  border-top: 1px solid #e0e4e1;
+}
+
+.eligibility-criteria-table-head {
+  display: grid;
+
+  grid-template-columns:
+    60px
+    minmax(200px, 1.2fr)
+    100px
+    170px
+    minmax(330px, 2fr);
+
+  align-items: center;
+
+  min-height: 48px;
+
+  padding: 0 18px;
+
+  color: #8b7446;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.17em;
+
+  text-transform: uppercase;
+
+  border-bottom: 1px solid #d7ddd9;
+}
+
+.eligibility-criteria-row {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    60px
+    minmax(200px, 1.2fr)
+    100px
+    170px
+    minmax(330px, 2fr);
+
+  align-items: center;
+
+  min-height: 115px;
+
+  padding: 20px 18px;
+
+  border-bottom: 1px solid #e0e4e1;
+
+  transition:
+    background 0.25s ease,
+    padding-left 0.25s ease;
+}
+
+.eligibility-criteria-row::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 2px;
+
+  background: #c7a96b;
+
+  transform: scaleY(0);
+
+  transform-origin: center;
+
+  transition: transform 0.25s ease;
+}
+
+.eligibility-criteria-row:hover {
+  background: rgba(3, 17, 31, 0.025);
+
+  padding-left: 23px;
+}
+
+.eligibility-criteria-row:hover::before {
+  transform: scaleY(1);
+}
+
+
+/* =========================================================
+   PROGRAMME
+   ========================================================= */
+
+.eligibility-criteria-code {
+  color: #a1aaa9;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+.eligibility-criteria-programme-title {
+  color: #142733;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+.eligibility-criteria-programme-name {
+  max-width: 260px;
+
+  margin-top: 5px;
+
+  color: #7a858c;
+
+  font-size: 11px;
+
+  line-height: 1.45;
+}
+
+.eligibility-criteria-level {
+  display: inline-flex;
+
+  margin-top: 8px;
+
+  padding: 3px 7px;
+
+  color: #0d6957;
+
+  background: rgba(13, 105, 87, 0.08);
+
+  border: 1px solid rgba(13, 105, 87, 0.16);
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+
+/* =========================================================
+   DURATION
+   ========================================================= */
+
+.eligibility-criteria-duration {
+  color: #52616b;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   ADMISSION
+   ========================================================= */
+
+.eligibility-criteria-admission {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #0d6957;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.eligibility-criteria-admission svg {
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   REQUIREMENT
+   ========================================================= */
+
+.eligibility-criteria-requirement p {
+  margin: 0;
+
+  color: #273a45;
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+.eligibility-criteria-requirement span {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #7a858c;
+
+  font-size: 10px;
+
+  line-height: 1.5;
+}
+
+.eligibility-criteria-requirement strong {
+  color: #66532d;
+}
+
+
+/* =========================================================
+   IMPORTANT NOTE
+   ========================================================= */
+
+.eligibility-criteria-note {
+  position: relative;
+
+  max-width: 1350px;
+
+  display: grid;
+
+  grid-template-columns: 50px 1fr 30px;
+
+  align-items: center;
+
+  gap: 20px;
+
+  margin: 80px auto 0;
+
+  padding: 30px 32px;
+
+  background: #03111f;
+
+  color: #ffffff;
+
+  overflow: hidden;
+}
+
+.eligibility-criteria-note::after {
+  content: "";
+
+  position: absolute;
+
+  right: -80px;
+  bottom: -100px;
+
+  width: 260px;
+  height: 260px;
+
+  border: 1px solid rgba(199, 169, 107, 0.18);
+
+  border-radius: 50%;
+}
+
+.eligibility-criteria-note-icon {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #c7a96b;
+
+  border: 1px solid rgba(199, 169, 107, 0.35);
+}
+
+.eligibility-criteria-note span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #c7a96b;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+.eligibility-criteria-note h3 {
+  max-width: 850px;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 20px;
+
+  font-weight: 500;
+
+  line-height: 1.35;
+}
+
+.eligibility-criteria-note p {
+  max-width: 800px;
+
+  margin: 8px 0 0;
+
+  color: rgba(255, 255, 255, 0.57);
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+.eligibility-criteria-note-arrow {
+  position: relative;
+
+  z-index: 2;
+
+  color: #c7a96b;
+}
+
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes eligibilityHeroIn {
+  from {
+    opacity: 0;
+
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1200px) {
+  .eligibility-criteria-table-head,
+  .eligibility-criteria-row {
+    grid-template-columns:
+      50px
+      minmax(170px, 1.1fr)
+      90px
+      145px
+      minmax(270px, 1.7fr);
+  }
+
+  .eligibility-criteria-main {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .eligibility-criteria-hero {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+}
+
+
+@media (max-width: 900px) {
+  .eligibility-criteria-page {
+    padding-left: 0 !important;
+  }
+
+  .eligibility-criteria-hero {
+    min-height: 620px;
+
+    padding: 0 7vw 70px;
+  }
+
+  .eligibility-criteria-hero h1 {
+    font-size: clamp(52px, 12vw, 80px);
+  }
+
+  .eligibility-criteria-hero-number {
+    right: 6vw;
+    bottom: 45px;
+
+    font-size: 110px;
+  }
+
+  .eligibility-criteria-main {
+    padding: 75px 6vw 90px;
+  }
+
+  .eligibility-criteria-intro {
+    margin-bottom: 65px;
+  }
+
+  .eligibility-criteria-table-head {
+    display: none;
+  }
+
+  .eligibility-criteria-row {
+    grid-template-columns: 42px 1fr;
+
+    gap: 8px;
+
+    min-height: auto;
+
+    padding: 23px 12px;
+  }
+
+  .eligibility-criteria-row:hover {
+    padding-left: 17px;
+  }
+
+  .eligibility-criteria-programme {
+    padding-right: 10px;
+  }
+
+  .eligibility-criteria-duration {
+    grid-column: 2;
+
+    margin-top: 7px;
+  }
+
+  .eligibility-criteria-admission {
+    grid-column: 2;
+
+    margin-top: 7px;
+  }
+
+  .eligibility-criteria-requirement {
+    grid-column: 2;
+
+    margin-top: 8px;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .eligibility-criteria-hero {
+    min-height: 570px;
+
+    padding: 0 24px 55px;
+  }
+
+  .eligibility-criteria-hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 17, 31, 0.93),
+        rgba(3, 17, 31, 0.55)
+      ),
+      linear-gradient(
+        0deg,
+        rgba(3, 17, 31, 0.78),
+        transparent 65%
+      );
+  }
+
+  .eligibility-criteria-eyebrow {
+    font-size: 9px;
+
+    letter-spacing: 0.16em;
+  }
+
+  .eligibility-criteria-hero p {
+    font-size: 14px;
+  }
+
+  .eligibility-criteria-hero-number {
+    display: none;
+  }
+
+  .eligibility-criteria-main {
+    padding: 60px 20px 75px;
+  }
+
+  .eligibility-criteria-intro {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+
+    margin-bottom: 55px;
+  }
+
+  .eligibility-criteria-intro-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .eligibility-criteria-intro h2 {
+    font-size: 34px;
+  }
+
+  .eligibility-criteria-directory-header {
+    align-items: flex-start;
+  }
+
+  .eligibility-criteria-directory-header h2 {
+    font-size: 32px;
+  }
+
+  .eligibility-criteria-total strong {
+    font-size: 32px;
+  }
+
+  .eligibility-criteria-note {
+    grid-template-columns: 44px 1fr;
+
+    gap: 15px;
+
+    margin-top: 60px;
+
+    padding: 25px 20px;
+  }
+
+  .eligibility-criteria-note-arrow {
+    display: none;
+  }
+
+  .eligibility-criteria-note h3 {
+    font-size: 18px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .eligibility-criteria-hero {
+    min-height: 540px;
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .eligibility-criteria-hero h1 {
+    font-size: 52px;
+  }
+
+  .eligibility-criteria-hero p {
+    margin-top: 22px;
+
+    font-size: 13px;
+  }
+
+  .eligibility-criteria-main {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .eligibility-criteria-programme-title {
+    font-size: 13px;
+  }
+
+  .eligibility-criteria-programme-name {
+    font-size: 10.5px;
+  }
+
+  .eligibility-criteria-requirement p {
+    font-size: 11.5px;
+  }
+
+  .eligibility-criteria-requirement span {
+    font-size: 9.5px;
+  }
+}

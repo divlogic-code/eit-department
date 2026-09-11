@@ -1,0 +1,394 @@
+.anti-ragging-affidavit-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background: #f6f7f4;
+  color: #071827;
+
+  overflow-x: hidden;
+
+  transition:
+    padding-left 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.anti-ragging-affidavit-page:has(
+  .admissions-sidebar.sidebar-visible
+) {
+  padding-left: 280px;
+}
+
+/* HERO */
+
+.anti-ragging-affidavit-hero {
+  min-height: 560px;
+
+  display: flex;
+  align-items: center;
+
+  background:
+    radial-gradient(
+      circle at 75% 30%,
+      rgba(22, 129, 94, 0.25),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #03111f,
+      #071e2d 55%,
+      #063d30
+    );
+
+  color: #fff;
+}
+
+.anti-ragging-affidavit-hero-content {
+  width: min(1180px, calc(100% - 80px));
+
+  margin: 0 auto;
+
+  padding-top: 40px;
+}
+
+.anti-ragging-affidavit-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-bottom: 27px;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.anti-ragging-affidavit-eyebrow span:nth-child(2) {
+  width: 45px;
+  height: 1px;
+
+  background: #c7a96b;
+}
+
+.anti-ragging-affidavit-icon {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 24px;
+
+  border: 1px solid rgba(199, 169, 107, 0.4);
+  border-radius: 50%;
+
+  color: #c7a96b;
+}
+
+.anti-ragging-affidavit-hero h1 {
+  margin: 0;
+
+  font-size: clamp(52px, 8vw, 105px);
+  line-height: 0.9;
+
+  letter-spacing: -0.06em;
+}
+
+.anti-ragging-affidavit-hero h1 span {
+  color: #c7a96b;
+  font-weight: 400;
+}
+
+.anti-ragging-affidavit-hero p {
+  max-width: 570px;
+
+  margin: 32px 0 0;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* MAIN */
+
+.anti-ragging-affidavit-main {
+  width: min(1180px, calc(100% - 80px));
+
+  margin: 0 auto;
+}
+
+/* INTRO */
+
+.anti-ragging-affidavit-intro {
+  padding: 105px 0 95px;
+}
+
+.anti-ragging-affidavit-label {
+  display: flex;
+  gap: 13px;
+
+  margin-bottom: 40px;
+
+  color: #72808b;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.anti-ragging-affidavit-label span:first-child {
+  color: #c7a96b;
+}
+
+.anti-ragging-affidavit-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+
+  gap: 90px;
+}
+
+.anti-ragging-affidavit-kicker {
+  margin: 0 0 16px;
+
+  color: #16815e;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.anti-ragging-affidavit-grid h2 {
+  max-width: 620px;
+
+  margin: 0;
+
+  font-size: clamp(40px, 5vw, 65px);
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+}
+
+.anti-ragging-affidavit-grid h2 span {
+  color: #16815e;
+  font-weight: 400;
+}
+
+.anti-ragging-affidavit-description {
+  margin: 5px 0 27px;
+
+  color: #68757f;
+
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.anti-ragging-affidavit-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 15px 19px;
+
+  background: #071827;
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.anti-ragging-affidavit-button:hover {
+  background: #16815e;
+  transform: translateY(-2px);
+}
+
+/* GALLERY */
+
+.anti-ragging-affidavit-gallery {
+  padding-bottom: 120px;
+}
+
+.anti-ragging-affidavit-gallery-heading {
+  margin-bottom: 40px;
+}
+
+.anti-ragging-affidavit-gallery-heading > span {
+  color: #c7a96b;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.anti-ragging-affidavit-gallery-heading h2 {
+  margin: 12px 0 0;
+
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1;
+
+  letter-spacing: -0.045em;
+}
+
+.anti-ragging-affidavit-images {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px;
+}
+
+.anti-ragging-affidavit-image-card {
+  position: relative;
+
+  display: block;
+
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  background: #03111f;
+
+  text-decoration: none;
+}
+
+.anti-ragging-affidavit-image-card img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.4s ease;
+}
+
+.anti-ragging-affidavit-image-card:hover img {
+  transform: scale(1.045);
+
+  filter: brightness(0.68);
+}
+
+.anti-ragging-affidavit-image-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      rgba(3, 17, 31, 0.9)
+    );
+
+  color: #fff;
+
+  opacity: 0;
+
+  transform: translateY(8px);
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.anti-ragging-affidavit-image-card:hover
+.anti-ragging-affidavit-image-overlay {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.anti-ragging-affidavit-image-overlay span {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.anti-ragging-affidavit-image-overlay svg {
+  color: #c7a96b;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .anti-ragging-affidavit-page {
+    padding-left: 0 !important;
+  }
+
+  .anti-ragging-affidavit-hero {
+    min-height: 530px;
+  }
+
+  .anti-ragging-affidavit-hero-content {
+    width: calc(100% - 40px);
+  }
+
+  .anti-ragging-affidavit-main {
+    width: calc(100% - 40px);
+  }
+
+  .anti-ragging-affidavit-grid {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .anti-ragging-affidavit-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .anti-ragging-affidavit-hero {
+    min-height: 500px;
+  }
+
+  .anti-ragging-affidavit-hero-content {
+    width: calc(100% - 34px);
+  }
+
+  .anti-ragging-affidavit-hero h1 {
+    font-size: 52px;
+  }
+
+  .anti-ragging-affidavit-hero p {
+    font-size: 14px;
+  }
+
+  .anti-ragging-affidavit-main {
+    width: calc(100% - 28px);
+  }
+
+  .anti-ragging-affidavit-intro {
+    padding: 75px 0;
+  }
+
+  .anti-ragging-affidavit-grid h2 {
+    font-size: 43px;
+  }
+
+  .anti-ragging-affidavit-gallery {
+    padding-bottom: 80px;
+  }
+
+  .anti-ragging-affidavit-image-overlay {
+    opacity: 1;
+    transform: none;
+  }
+}

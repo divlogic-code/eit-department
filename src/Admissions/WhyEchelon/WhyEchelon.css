@@ -1,0 +1,824 @@
+/* =========================================================
+   WHY ECHELON PAGE
+   ========================================================= */
+
+.why-echelon-page {
+  width: 100%;
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #f7f5ef;
+  color: #071827;
+
+  transition:
+    padding-left 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.why-echelon-page:has(
+  .admissions-sidebar.sidebar-visible
+) {
+  padding-left: 280px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.why-echelon-hero {
+  top: 30px;  
+  position: relative;
+  min-height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: #03111f;
+}
+
+/* Background video */
+.why-echelon-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+/* Dark cinematic overlay */
+.why-echelon-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 17, 31, 0.35) 0%,
+      rgba(3, 17, 31, 0.58) 55%,
+      rgba(3, 17, 31, 0.88) 100%
+    );
+  z-index: -2;
+}
+
+/* Subtle emerald tint */
+.why-echelon-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(4, 80, 61, 0.28),
+    transparent 45%,
+    rgba(13, 42, 82, 0.32)
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+.why-echelon-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  padding: 120px 24px;
+}
+
+.why-echelon-hero-content .eyebrow {
+  color: #c7a96b;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.why-echelon-hero-content h1 {
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  text-shadow: 0 8px 35px rgba(0, 0, 0, 0.45);
+}
+
+.why-echelon-hero-content p {
+  max-width: 700px;
+  margin: 28px auto 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.why-echelon-hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 17, 31, 0.98),
+      rgba(3, 17, 31, 0.78) 45%,
+      rgba(3, 17, 31, 0.15)
+    );
+
+  z-index: 1;
+}
+
+.why-echelon-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.3;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    );
+
+  background-size: 90px 90px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent
+    );
+
+  z-index: 1;
+}
+
+.why-echelon-hero-grid {
+  position: absolute;
+
+  right: -8%;
+  top: 10%;
+
+  width: 560px;
+  height: 560px;
+
+  border: 1px solid rgba(199, 169, 107, 0.22);
+
+  transform: rotate(45deg);
+
+  z-index: 1;
+}
+
+.why-echelon-hero-grid::before,
+.why-echelon-hero-grid::after {
+  content: "";
+
+  position: absolute;
+  inset: 50%;
+
+  border: 1px solid rgba(199, 169, 107, 0.16);
+
+  transform: translate(-50%, -50%);
+}
+
+.why-echelon-hero-grid::before {
+  width: 72%;
+  height: 72%;
+}
+
+.why-echelon-hero-grid::after {
+  width: 43%;
+  height: 43%;
+}
+
+
+/* HERO CONTENT */
+
+.why-echelon-hero-content {
+  position: relative;
+
+  z-index: 3;
+
+  width: min(900px, 90%);
+
+  margin-left: 9%;
+
+  padding-top: 40px;
+}
+
+.why-echelon-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 24px;
+
+  color: #c7a96b;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.24em;
+}
+
+.why-echelon-eyebrow span {
+  width: 36px;
+  height: 1px;
+
+  background: #c7a96b;
+}
+
+.why-echelon-hero h1 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(70px, 9vw, 132px);
+  line-height: 0.82;
+
+  font-weight: 400;
+
+  letter-spacing: -0.06em;
+}
+
+.why-echelon-hero h1 em {
+  color: #c7a96b;
+  font-style: italic;
+}
+
+.why-echelon-hero-content > p {
+  max-width: 520px;
+
+  margin: 40px 0 0;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.why-echelon-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 42px;
+
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+}
+
+.why-echelon-scroll svg {
+  color: #c7a96b;
+}
+
+
+/* HERO NUMBER */
+
+.why-echelon-hero-number {
+  position: absolute;
+
+  right: 7%;
+  bottom: 8%;
+
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+
+  text-align: right;
+}
+
+.why-echelon-hero-number span {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  color: rgba(255, 255, 255, 0.08);
+
+  font-size: clamp(100px, 15vw, 220px);
+  line-height: 0.7;
+}
+
+.why-echelon-hero-number small {
+  margin-top: 20px;
+
+  color: #c7a96b;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.why-echelon-intro {
+  padding: 125px 8% 115px;
+
+  background: #f7f5ef;
+}
+
+.why-echelon-intro-inner {
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.7fr 1.8fr;
+
+  gap: 90px;
+}
+
+.why-echelon-intro-label {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  padding-top: 12px;
+
+  color: #60706f;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.19em;
+}
+
+.why-echelon-intro-label span:first-child {
+  color: #c7a96b;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 30px;
+  font-weight: 400;
+
+  letter-spacing: 0;
+}
+
+.why-echelon-intro-copy h2 {
+  margin: 0 0 32px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(44px, 5vw, 72px);
+  line-height: 0.95;
+
+  font-weight: 400;
+
+  letter-spacing: -0.04em;
+}
+
+.why-echelon-intro-copy h2 em {
+  color: #087f69;
+  font-style: italic;
+}
+
+.why-echelon-intro-copy p {
+  max-width: 760px;
+
+  margin: 0 0 17px;
+
+  color: #5c6868;
+
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+
+/* =========================================================
+   REASONS
+   ========================================================= */
+
+.why-echelon-reasons {
+  padding: 115px 7% 130px;
+
+  background: #ffffff;
+}
+
+.why-echelon-section-header {
+  max-width: 1250px;
+
+  margin: 0 auto 70px;
+
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+
+  gap: 80px;
+
+  align-items: end;
+}
+
+.why-echelon-section-kicker {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: #087f69;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+}
+
+.why-echelon-section-header h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(48px, 5.5vw, 78px);
+  line-height: 0.94;
+
+  font-weight: 400;
+
+  letter-spacing: -0.045em;
+}
+
+.why-echelon-section-header h2 em {
+  color: #087f69;
+  font-style: italic;
+}
+
+.why-echelon-section-header > p {
+  margin: 0;
+
+  color: #697474;
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* GRID */
+
+.why-echelon-grid {
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 1px;
+
+  background: #dce1dd;
+
+  border: 1px solid #dce1dd;
+}
+
+.why-echelon-card {
+  position: relative;
+
+  min-height: 315px;
+
+  padding: 30px 30px 32px;
+
+  background: #ffffff;
+
+  opacity: 0;
+
+  transform: translateY(28px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease;
+}
+
+.why-echelon-card-visible {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.why-echelon-card:hover {
+  background: #f5f8f4;
+}
+
+.why-echelon-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 40px;
+}
+
+.why-echelon-card-number {
+  color: #c7a96b;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 25px;
+
+  line-height: 1;
+}
+
+.why-echelon-card-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #dfe5e0;
+
+  border-radius: 50%;
+
+  color: #087f69;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.why-echelon-card:hover .why-echelon-card-icon {
+  background: #087f69;
+
+  color: #ffffff;
+
+  transform: rotate(5deg);
+}
+
+.why-echelon-card h3 {
+  max-width: 320px;
+
+  margin: 0 0 17px;
+
+  color: #102a2a;
+
+  font-size: 18px;
+  line-height: 1.35;
+
+  font-weight: 650;
+}
+
+.why-echelon-card p {
+  margin: 0;
+
+  color: #687474;
+
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.why-echelon-card-line {
+  position: absolute;
+
+  left: 30px;
+  bottom: 20px;
+
+  width: 35px;
+  height: 1px;
+
+  background: #c7a96b;
+
+  transition: width 0.35s ease;
+}
+
+.why-echelon-card:hover .why-echelon-card-line {
+  width: 70px;
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.why-echelon-cta {
+  padding: 100px 7%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #03111f,
+      #063a36
+    );
+
+  color: #ffffff;
+}
+
+.why-echelon-cta-inner {
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 50px;
+}
+
+.why-echelon-cta-inner > div span {
+  display: block;
+
+  margin-bottom: 17px;
+
+  color: #c7a96b;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+}
+
+.why-echelon-cta h2 {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(45px, 5vw, 72px);
+  line-height: 0.95;
+
+  font-weight: 400;
+
+  letter-spacing: -0.045em;
+}
+
+.why-echelon-cta h2 em {
+  color: #c7a96b;
+  font-style: italic;
+}
+
+.why-echelon-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 18px 23px;
+
+  border: 1px solid rgba(199, 169, 107, 0.5);
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.why-echelon-cta-button svg {
+  color: #c7a96b;
+
+  transition: transform 0.3s ease;
+}
+
+.why-echelon-cta-button:hover {
+  background: rgba(199, 169, 107, 0.1);
+
+  border-color: #c7a96b;
+
+  transform: translateY(-3px);
+}
+
+.why-echelon-cta-button:hover svg {
+  transform: translate(3px, -3px);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .why-echelon-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .why-echelon-intro-inner {
+    grid-template-columns: 0.5fr 1.5fr;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  .why-echelon-page:has(
+    .admissions-sidebar.sidebar-visible
+  ) {
+    padding-left: 0;
+  }
+
+  .why-echelon-hero {
+    min-height: 620px;
+    height: 85vh;
+  }
+
+  .why-echelon-hero-content {
+    width: 84%;
+    margin-left: 8%;
+  }
+
+  .why-echelon-hero-number {
+    right: 6%;
+    bottom: 7%;
+  }
+
+  .why-echelon-intro {
+    padding: 90px 7%;
+  }
+
+  .why-echelon-intro-inner {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .why-echelon-intro-label {
+    padding-top: 0;
+  }
+
+  .why-echelon-section-header {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .why-echelon-reasons {
+    padding: 90px 6%;
+  }
+
+  .why-echelon-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 650px) {
+  .why-echelon-hero {
+    min-height: 600px;
+  }
+
+  .why-echelon-hero h1 {
+    font-size: clamp(64px, 18vw, 100px);
+  }
+
+  .why-echelon-hero-content > p {
+    font-size: 13px;
+  }
+
+  .why-echelon-hero-number {
+    display: none;
+  }
+
+  .why-echelon-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-echelon-card {
+    min-height: 285px;
+  }
+
+  .why-echelon-card-top {
+    margin-bottom: 30px;
+  }
+
+  .why-echelon-cta {
+    padding: 80px 7%;
+  }
+
+  .why-echelon-cta-button {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,421 @@
+/* =========================================================
+   RUBY PREMIUM FOOTER
+   ========================================================= */
+
+.footer {
+    position: relative;
+    width: 100%;
+    margin-top: 90px;
+
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(255, 70, 90, 0.20),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(160, 20, 45, 0.20),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #21060d 0%,
+            #4b0b18 42%,
+            #26050e 100%
+        );
+
+    color: #ffffff;
+
+    border-top: 1px solid rgba(255, 82, 105, 0.45);
+
+    /* Footer stays above fixed sidebars */
+    z-index: 1000;
+
+    isolation: isolate;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   RUBY LIGHT STREAK
+   ========================================================= */
+
+.footer::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            #7f1028 15%,
+            #ff4965 35%,
+            #ff9aa9 50%,
+            #ff4965 65%,
+            #7f1028 85%,
+            transparent 100%
+        );
+
+    box-shadow:
+        0 0 18px rgba(255, 55, 85, 0.55);
+
+    opacity: 0.95;
+}
+
+
+/* =========================================================
+   RUBY AMBIENT GLOW
+   ========================================================= */
+
+.footer::after {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    right: -250px;
+    bottom: -330px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(220, 35, 65, 0.18),
+            transparent 68%
+        );
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.footer-container {
+    position: relative;
+
+    width: min(1500px, 92%);
+
+    margin: auto;
+
+    min-height: 125px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 40px;
+
+    padding: 30px 0;
+}
+
+
+/* =========================================================
+   SUBTLE DIVIDER
+   ========================================================= */
+
+.footer-container::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 90, 110, 0.28),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   LEFT CONTENT
+   ========================================================= */
+
+.footer-left {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.footer-left p {
+    margin: 0;
+
+    color: rgba(255, 235, 238, 0.70);
+
+    font-size: 0.88rem;
+
+    letter-spacing: 0.2px;
+
+    line-height: 1.6;
+}
+
+
+.footer-left p:first-child {
+    color: #ffffff;
+
+    font-size: 0.96rem;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   RUBY BRAND ACCENT
+   ========================================================= */
+
+.footer-left strong {
+    color: #ff7185;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+}
+
+
+.footer-left strong::after {
+    content: "";
+
+    display: block;
+
+    width: 42px;
+    height: 2px;
+
+    margin-top: 6px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4965,
+            transparent
+        );
+
+    box-shadow:
+        0 0 8px rgba(255, 73, 101, 0.35);
+}
+
+
+/* =========================================================
+   SOCIAL AREA
+   ========================================================= */
+
+.footer-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+
+/* =========================================================
+   SOCIAL BUTTON
+   ========================================================= */
+
+.footer-right a {
+    position: relative;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 13px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-decoration: none;
+
+    color: rgba(255, 235, 238, 0.82);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.09),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border: 1px solid rgba(255, 115, 135, 0.18);
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 8px 20px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* =========================================================
+   RUBY HOVER
+   ========================================================= */
+
+.footer-right a:hover {
+    transform:
+        translateY(-6px)
+        scale(1.05);
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b31235,
+            #e52d4f
+        );
+
+    border-color: #ff7185;
+
+    box-shadow:
+        0 12px 30px rgba(207, 30, 60, 0.35),
+        0 0 0 5px rgba(255, 73, 101, 0.07),
+        0 0 22px rgba(255, 60, 85, 0.20);
+}
+
+
+/* =========================================================
+   ICON ANIMATION
+   ========================================================= */
+
+.footer-right a svg {
+    width: 19px;
+    height: 19px;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.footer-right a:hover svg {
+    transform:
+        scale(1.15)
+        rotate(-5deg);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .footer {
+        margin-top: 60px;
+    }
+
+
+    .footer-container {
+        width: 90%;
+
+        min-height: unset;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: center;
+
+        text-align: center;
+
+        gap: 22px;
+
+        padding: 32px 0;
+    }
+
+
+    .footer-left {
+        align-items: center;
+    }
+
+
+    .footer-left p {
+        font-size: 0.82rem;
+
+        max-width: 430px;
+    }
+
+
+    .footer-left strong::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .footer-right {
+        gap: 10px;
+    }
+
+
+    .footer-right a {
+        width: 42px;
+        height: 42px;
+
+        border-radius: 12px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .footer-container {
+        width: 88%;
+
+        padding: 28px 0;
+    }
+
+
+    .footer-left p {
+        font-size: 0.78rem;
+
+        line-height: 1.5;
+    }
+
+
+    .footer-right a {
+        width: 40px;
+        height: 40px;
+    }
+}

@@ -1,16 +1,30 @@
-# React + Vite
+# EIT Faridabad - Luxury React Rebuild
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React + Vite rebuild of the Echelon Institute of Technology public website using the project's luxury sapphire/emerald/beige UI system.
 
-Currently, two official plugins are available:
+## Run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+Build for production:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+npm run build
+```
 
-## Expanding the Oxlint configuration
+## Included
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- Fixed sapphire navbar on institutional and department pages
+- Emerald scroll-in sidebar
+- Luxury beige content system
+- All seven department routes
+- Separate faculty routes
+- Institutional navigation and current-site route structure
+- Current 2026 homepage/programme/placement information verified against the public EIT website
+
+## Important
+
+Some official EIT resources are PDFs, forms, external portals, image galleries, or dynamically updated records. The React implementation preserves the navigation and presents the verified public content collected for this rebuild; it does not copy proprietary backend functionality or private portal data.

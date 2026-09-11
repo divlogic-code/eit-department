@@ -1,0 +1,157 @@
+.research-sidebar {
+  position: fixed;
+  z-index: 100;
+  top: 80px;
+  left: 0;
+  width: 280px;
+  height: calc(100vh - 80px);
+
+  padding: 20px 13px;
+
+  background: rgba(6, 29, 23, 0.98);
+  border-right: 1px solid #526c60;
+
+  /* ALWAYS VISIBLE ON DESKTOP */
+  transform: translateX(0);
+
+  transition: 0.3s ease;
+  overflow: auto;
+
+  scrollbar-width: none;
+}
+
+.research-sidebar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.research-sidebar header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 5px 10px 16px;
+
+  border-bottom: 1px solid #385249;
+  color: #d5b45b;
+}
+
+.research-sidebar header strong {
+  font-size: 14px;
+}
+
+.research-sidebar header button {
+  background: none;
+  border: 0;
+  color: white;
+  cursor: pointer;
+}
+
+.research-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+}
+
+.research-sidebar nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 11px 10px;
+
+  color: #d6e1dd;
+  text-decoration: none;
+
+  font-size: 13px;
+  border-radius: 7px;
+
+  transition: 0.2s ease;
+}
+
+.research-sidebar nav a:hover {
+  background: #173d32;
+  color: white;
+}
+
+.research-sidebar nav a.active {
+  background: #173d32;
+  color: white;
+  box-shadow: inset 3px 0 #d5b45b;
+}
+
+/* Mobile button */
+.research-mobile-menu {
+  display: none;
+}
+
+/* =========================
+   DESKTOP CONTENT OFFSET
+   ========================= */
+
+@media (min-width: 901px) {
+  .research-page {
+    margin-left: 280px;
+  }
+
+  .research-sidebar-close {
+    display: none;
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 900px) {
+  .research-sidebar {
+    top: auto;
+    bottom: 0;
+    left: 12px;
+
+    width: calc(100% - 24px);
+    height: auto;
+    max-height: 70vh;
+
+    border-radius: 16px 16px 0 0;
+
+    transform: translateY(calc(100% - 55px));
+  }
+
+  .research-sidebar.show {
+    transform: translateY(0);
+  }
+
+  .research-sidebar-close {
+    display: none;
+  }
+
+  .research-sidebar nav {
+    max-height: calc(70vh - 60px);
+    overflow: auto;
+  }
+
+  .research-mobile-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+    z-index: 101;
+
+    bottom: 14px;
+    left: 14px;
+    right: 14px;
+
+    height: 48px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: #d5b45b;
+    color: #09231b;
+
+    font-weight: 800;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,379 @@
+@import url("./PlacementShared.css");
+
+/* =========================================================
+   PLACEMENT SIDEBAR
+   Emerald / Sapphire / Gold Theme
+   ========================================================= */
+
+.placement-sidebar {
+  position: fixed;
+  z-index: 100;
+  top: 80px;
+  left: 0;
+
+  width: 280px;
+  height: calc(100vh - 80px);
+
+  padding: 22px 13px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 30, 24, 0.99) 0%,
+      rgba(5, 25, 29, 0.99) 55%,
+      rgba(3, 16, 22, 0.99) 100%
+    );
+
+  border-right: 1px solid rgba(213, 180, 91, 0.28);
+
+  box-shadow:
+    12px 0 40px rgba(0, 0, 0, 0.22),
+    inset -1px 0 rgba(255, 255, 255, 0.025);
+
+  transform: translateX(-105%);
+
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /*
+   * Keep scrolling available when the viewport is small,
+   * but completely hide the browser scrollbar.
+   */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Chrome / Edge / Safari */
+.placement-sidebar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+
+/* =========================================================
+   OPEN STATE
+   ========================================================= */
+
+.placement-sidebar.show {
+  transform: translateX(0);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.placement-sidebar header {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 7px 10px 17px;
+
+  margin-bottom: 8px;
+
+  border-bottom: 1px solid rgba(213, 180, 91, 0.16);
+
+  color: #d5b45b;
+}
+
+.placement-sidebar header::after {
+  content: "";
+
+  position: absolute;
+
+  left: 10px;
+  bottom: -1px;
+
+  width: 42px;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    #d5b45b,
+    transparent
+  );
+}
+
+.placement-sidebar header h2,
+.placement-sidebar header h3 {
+  margin: 0;
+
+  color: #f3efe3;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.placement-sidebar header button {
+  background: transparent;
+
+  border: 0;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.placement-sidebar header button:hover {
+  color: #d5b45b;
+  transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.placement-sidebar nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+
+  padding-top: 7px;
+}
+
+
+/* =========================================================
+   NAV LINKS
+   ========================================================= */
+
+.placement-sidebar nav a {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 43px;
+
+  padding: 10px 13px;
+
+  color: rgba(222, 233, 228, 0.72);
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  transition:
+    background 0.22s ease,
+    color 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+
+/* Gold active indicator */
+
+.placement-sidebar nav a::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 50%;
+
+  width: 3px;
+  height: 0;
+
+  border-radius: 0 4px 4px 0;
+
+  background: #d5b45b;
+
+  transform: translateY(-50%);
+
+  transition: height 0.22s ease;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.placement-sidebar nav a:hover {
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(18, 69, 56, 0.72),
+      rgba(10, 45, 51, 0.38)
+    );
+
+  border-color: rgba(213, 180, 91, 0.13);
+
+  transform: translateX(3px);
+}
+
+.placement-sidebar nav a:hover::before {
+  height: 20px;
+}
+
+
+/* =========================================================
+   ACTIVE
+   ========================================================= */
+
+.placement-sidebar nav a.active {
+  color: #f0d477;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(21, 78, 62, 0.82),
+      rgba(10, 49, 53, 0.46)
+    );
+
+  border-color: rgba(213, 180, 91, 0.24);
+
+  box-shadow:
+    inset 0 0 20px rgba(213, 180, 91, 0.025),
+    0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.placement-sidebar nav a.active::before {
+  height: 27px;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.mobile-menu {
+  display: none;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .placement-sidebar {
+    top: auto;
+    bottom: 0;
+    left: 12px;
+
+    width: calc(100% - 24px);
+
+    height: auto;
+    max-height: 70vh;
+
+    padding: 14px;
+
+    border-right: none;
+
+    border: 1px solid rgba(213, 180, 91, 0.25);
+
+    border-radius: 17px 17px 0 0;
+
+    box-shadow:
+      0 -15px 50px rgba(0, 0, 0, 0.38),
+      inset 0 0 25px rgba(13, 72, 59, 0.12);
+
+    transform: translateY(calc(100% - 55px));
+
+    overflow: hidden;
+  }
+
+  .placement-sidebar.show {
+    transform: translateY(0);
+  }
+
+
+  /* Hide desktop close button */
+
+  .placement-sidebar header button {
+    display: none;
+  }
+
+
+  /* Navigation scrolls invisibly */
+
+  .placement-sidebar nav {
+    max-height: calc(70vh - 65px);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .placement-sidebar nav::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+
+  /* Mobile menu button */
+
+  .mobile-menu {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    width: 100%;
+    height: 46px;
+
+    margin-top: 8px;
+
+    border: 1px solid rgba(213, 180, 91, 0.35);
+
+    border-radius: 9px;
+
+    background:
+      linear-gradient(
+        135deg,
+        #d5b45b,
+        #b9943f
+      );
+
+    color: #09231b;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+      0 7px 20px rgba(0, 0, 0, 0.18);
+
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .mobile-menu:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, 0.25);
+  }
+}

@@ -1,0 +1,5 @@
+import PlacementSidebar from "./PlacementSidebar";import "./HighestPerformers/HighestPerformers.css";
+export default function HighestPerformers(){return <div className="placement-page HighestPerformers-content"><PlacementSidebar/><main><section className="placement-hero"><span>TRAINING & PLACEMENT</span><h1>Highest Performers</h1><p>Student achievements that reflect ambition, preparation, and opportunity.</p></section><section className="placement-container">
+<div className="placement-grid"><div className="placement-dark"><h2>Sameer Ansari</h2><p>Software Developer</p><h2>50.5 LPA</h2></div><div className="placement-card"><h2>Arzoo Malik</h2><p>Software Engineer</p><h2>20 LPA</h2></div><div className="placement-card"><h2>Rohit Redua</h2><p>Sub Divisional Officer (SDO)</p></div><div className="placement-card"><h2>Gaurav Saini</h2><p>Sub Inspector (CBI)</p></div><div className="placement-card"><h2>Rounak Kumar</h2><p>O & M ENGINEER</p></div></div>
+<div className="placement-card"><p>The Placement Overview source states a 52 LPA highest package, while this page specifically lists Sameer Ansari at 50.5 LPA.</p></div>
+</section></main></div>}

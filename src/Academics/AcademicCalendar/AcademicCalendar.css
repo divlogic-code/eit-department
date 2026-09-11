@@ -1,0 +1,362 @@
+/*==========================================================
+AcademicCalendar.css
+==========================================================*/
+
+.calendar-intro{
+    margin-bottom:90px;
+}
+
+/*========================================================*/
+
+.calendar-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+    gap:32px;
+
+}
+
+/*========================================================*/
+
+.calendar-card{
+
+    position:relative;
+
+    background:#fff;
+
+    border-radius:28px;
+
+    padding:38px;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+    box-shadow:
+    0 18px 45px rgba(15,23,42,.08);
+
+}
+
+.calendar-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 28px 60px rgba(0,0,0,.15);
+
+}
+
+.calendar-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:7px;
+
+}
+
+.calendar-card.emerald::before{
+
+    background:#0f766e;
+
+}
+
+.calendar-card.blue::before{
+
+    background:#2563eb;
+
+}
+
+/*========================================================*/
+
+.calendar-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.calendar-top svg{
+
+    color:#0f766e;
+
+}
+
+.calendar-top span{
+
+    background:#eef7ff;
+
+    color:#2563eb;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+}
+
+/*========================================================*/
+
+.calendar-card h3{
+
+    font-size:1.7rem;
+
+    color:#0f172a;
+
+    margin-bottom:18px;
+
+}
+
+.calendar-card p{
+
+    color:#64748b;
+
+    line-height:1.9;
+
+    margin-bottom:35px;
+
+}
+
+/*========================================================*/
+
+.calendar-actions{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.view-btn{
+
+    flex:1;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    padding:15px;
+
+    border-radius:16px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f766e,
+        #2563eb
+    );
+
+    color:#fff;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.view-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.download-btn{
+
+    width:58px;
+    height:58px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:16px;
+
+    text-decoration:none;
+
+    background:#f1f5f9;
+
+    color:#2563eb;
+
+    transition:.3s;
+
+}
+
+.download-btn:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+/*========================================================*/
+
+.calendar-highlights{
+
+    margin:90px 0;
+
+}
+
+.highlight-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+/*========================================================*/
+
+.highlight-card{
+
+    position:relative;
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    transition:.35s;
+
+    box-shadow:
+    0 16px 40px rgba(15,23,42,.08);
+
+}
+
+.highlight-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.highlight-icon{
+
+    width:70px;
+    height:70px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:28px;
+
+    color:white;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0f766e,
+        #2563eb
+    );
+
+}
+
+.highlight-card h3{
+
+    color:#0f172a;
+
+    margin-bottom:16px;
+
+}
+
+.highlight-card p{
+
+    color:#64748b;
+
+    line-height:1.9;
+
+}
+
+.highlight-card svg:last-child{
+
+    position:absolute;
+
+    top:30px;
+    right:30px;
+
+    color:#94a3b8;
+
+}
+
+/*========================================================*/
+
+.calendar-footer{
+
+    margin-top:90px;
+
+}
+
+.calendar-footer-card{
+
+    text-align:center;
+
+}
+
+.calendar-footer-card h2{
+
+    margin-top:15px;
+
+}
+
+.calendar-footer-card p{
+
+    margin:25px auto 0;
+
+}
+
+/*========================================================*/
+
+@media(max-width:768px){
+
+    .calendar-card{
+
+        padding:28px;
+
+    }
+
+    .calendar-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .calendar-actions{
+
+        flex-direction:column;
+
+    }
+
+    .download-btn{
+
+        width:100%;
+
+    }
+
+}

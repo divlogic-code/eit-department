@@ -1,0 +1,772 @@
+/* =========================================================
+   FEE REIMBURSEMENT PAGE
+   ========================================================= */
+
+.fee-reimbursement-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f7f5;
+  color: #071827;
+  overflow-x: hidden;
+  transition: padding-left 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fee-reimbursement-page:has(.admissions-sidebar.sidebar-visible) {
+  padding-left: 280px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.fee-reimbursement-hero {
+  position: relative;
+  height: 680px;
+  min-height: 620px;
+  overflow: hidden;
+  background: #03111f;
+  color: #fff;
+}
+
+.fee-reimbursement-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fee-reimbursement-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 17, 31, 0.95) 0%,
+      rgba(3, 17, 31, 0.78) 43%,
+      rgba(3, 17, 31, 0.38) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(3, 17, 31, 0.85) 0%,
+      transparent 50%
+    );
+}
+
+.fee-reimbursement-hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding-top: 250px;
+}
+
+.fee-reimbursement-eyebrow {
+  display: inline-block;
+
+  color: #c7a96b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.fee-reimbursement-hero h1 {
+  max-width: 850px;
+  margin: 18px 0 20px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(50px, 7vw, 88px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.fee-reimbursement-hero p {
+  max-width: 690px;
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.fee-reimbursement-hero-bottom {
+  position: absolute;
+  z-index: 3;
+
+  left: max(24px, calc((100% - 1180px) / 2));
+  bottom: 34px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+.fee-reimbursement-hero-bottom span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.fee-reimbursement-hero-bottom strong {
+  color: #c7a96b;
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.fee-reimbursement-container {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 95px 0 120px;
+}
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.fee-reimbursement-intro {
+  max-width: 950px;
+  margin: 0 auto 90px;
+}
+
+.fee-reimbursement-kicker {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 18px;
+
+  color: #9b7a3f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.fee-reimbursement-intro h2 {
+  max-width: 900px;
+  margin: 0 0 28px;
+
+  color: #071827;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(35px, 4.5vw, 57px);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.fee-reimbursement-intro p {
+  margin: 0 0 20px;
+
+  color: #53616a;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.fee-reimbursement-intro strong {
+  color: #071827;
+}
+
+.fee-reimbursement-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+
+  margin: 30px 0;
+}
+
+.fee-reimbursement-benefit {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+
+  padding: 24px;
+
+  border: 1px solid #dfe5e1;
+  background: #fff;
+
+  box-shadow: 0 18px 50px rgba(3, 17, 31, 0.045);
+}
+
+.fee-reimbursement-benefit-icon {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  color: #0d705d;
+  background: #edf6f2;
+}
+
+.fee-reimbursement-benefit strong {
+  display: block;
+
+  color: #071827;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 29px;
+  font-weight: 500;
+}
+
+.fee-reimbursement-benefit span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #617078;
+  font-size: 13px;
+}
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.fee-reimbursement-section-heading {
+  margin-bottom: 30px;
+}
+
+.fee-reimbursement-section-heading span {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: #9b7a3f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.fee-reimbursement-section-heading h2 {
+  margin: 0;
+
+  color: #071827;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(33px, 4vw, 48px);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.fee-reimbursement-section-heading p {
+  margin: 15px 0 0;
+
+  color: #637078;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   APPLICATION LINKS
+   ========================================================= */
+
+.fee-reimbursement-applications {
+  margin-bottom: 100px;
+}
+
+.fee-reimbursement-application-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.fee-reimbursement-application-card {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 18px;
+
+  padding: 25px;
+
+  border: 1px solid #dfe5e1;
+  background: #fff;
+
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.fee-reimbursement-application-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(155, 122, 63, 0.4);
+
+  box-shadow: 0 22px 55px rgba(3, 17, 31, 0.09);
+}
+
+.fee-reimbursement-application-icon {
+  width: 60px;
+  height: 60px;
+
+  display: grid;
+  place-items: center;
+
+  background: #03111f;
+  color: #c7a96b;
+}
+
+.fee-reimbursement-application-icon span {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.fee-reimbursement-application-content > span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #9b7a3f;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.fee-reimbursement-application-content h3 {
+  margin: 0 0 5px;
+
+  color: #071827;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 500;
+}
+
+.fee-reimbursement-application-content p {
+  margin: 0;
+
+  color: #69757d;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.fee-reimbursement-application-card > svg {
+  color: #0d705d;
+}
+
+/* =========================================================
+   EXPLAINER
+   ========================================================= */
+
+.fee-reimbursement-explainer {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 28px;
+
+  margin-bottom: 95px;
+  padding: 50px;
+
+  background: #03111f;
+  color: #fff;
+}
+
+.fee-reimbursement-explainer-number {
+  color: #c7a96b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+}
+
+.fee-reimbursement-small-title {
+  margin-bottom: 11px;
+
+  color: #c7a96b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.fee-reimbursement-explainer h2 {
+  max-width: 720px;
+  margin: 0 0 20px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(31px, 4vw, 48px);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.fee-reimbursement-explainer p {
+  max-width: 780px;
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.fee-reimbursement-pill-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 28px;
+}
+
+.fee-reimbursement-pill-grid div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 11px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 11px;
+}
+
+.fee-reimbursement-pill-grid svg {
+  color: #c7a96b;
+}
+
+/* =========================================================
+   JEE / CET PROGRAM BLOCKS
+   ========================================================= */
+
+.fee-reimbursement-program {
+  margin-bottom: 30px;
+
+  border: 1px solid #dfe5e1;
+  background: #fff;
+
+  box-shadow: 0 20px 60px rgba(3, 17, 31, 0.05);
+}
+
+.fee-reimbursement-program-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+
+  padding: 32px 38px;
+
+  background: #fbfcfb;
+  border-bottom: 1px solid #e3e8e4;
+}
+
+.fee-reimbursement-program-header > div:first-child span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #9b7a3f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.fee-reimbursement-program-header h2 {
+  margin: 0;
+
+  color: #071827;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.fee-reimbursement-percentage {
+  text-align: right;
+}
+
+.fee-reimbursement-percentage strong {
+  display: block;
+
+  color: #0d705d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 47px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.fee-reimbursement-percentage span {
+  display: block;
+
+  margin-top: 6px;
+
+  color: #8c969b;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.fee-reimbursement-program-body {
+  padding: 36px 38px 42px;
+}
+
+.fee-reimbursement-program-body > p {
+  max-width: 850px;
+  margin: 0 0 30px;
+
+  color: #53616a;
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.fee-reimbursement-process-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 18px;
+
+  color: #071827;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.fee-reimbursement-process-heading svg {
+  color: #9b7a3f;
+}
+
+.fee-reimbursement-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.fee-reimbursement-program:nth-of-type(2)
+  .fee-reimbursement-steps {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.fee-reimbursement-step {
+  min-height: 130px;
+
+  padding: 18px;
+
+  border: 1px solid #e1e6e3;
+  background: #f8faf8;
+}
+
+.fee-reimbursement-step > span {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: #9b7a3f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.fee-reimbursement-step p {
+  margin: 0;
+
+  color: #4d5a64;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   DOCUMENTS
+   ========================================================= */
+
+.fee-reimbursement-documents {
+  margin-top: 105px;
+}
+
+.fee-reimbursement-document-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.fee-reimbursement-document-card {
+  min-height: 185px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 24px;
+
+  border: 1px solid #dfe5e1;
+  background: #fff;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.fee-reimbursement-document-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 20px 50px rgba(3, 17, 31, 0.08);
+}
+
+.fee-reimbursement-document-number {
+  color: #9b7a3f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+}
+
+.fee-reimbursement-document-card > svg {
+  margin: 20px 0;
+
+  color: #0d705d;
+}
+
+.fee-reimbursement-document-card > span {
+  color: #263641;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .fee-reimbursement-container {
+    width: min(1000px, calc(100% - 40px));
+  }
+
+  .fee-reimbursement-hero-content {
+    width: calc(100% - 40px);
+  }
+
+  .fee-reimbursement-hero-bottom {
+    left: 20px;
+  }
+
+  .fee-reimbursement-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .fee-reimbursement-program:nth-of-type(2)
+    .fee-reimbursement-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .fee-reimbursement-page {
+    padding-left: 0 !important;
+  }
+
+  .fee-reimbursement-hero {
+    height: 600px;
+    min-height: 560px;
+  }
+
+  .fee-reimbursement-hero-content {
+    padding-top: 220px;
+  }
+
+  .fee-reimbursement-container {
+    padding-top: 70px;
+  }
+
+  .fee-reimbursement-explainer {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 38px;
+  }
+}
+
+@media (max-width: 700px) {
+  .fee-reimbursement-container {
+    width: calc(100% - 28px);
+    padding-bottom: 80px;
+  }
+
+  .fee-reimbursement-hero-content {
+    width: calc(100% - 28px);
+    padding-top: 205px;
+  }
+
+  .fee-reimbursement-hero h1 {
+    font-size: 52px;
+  }
+
+  .fee-reimbursement-hero p {
+    font-size: 15px;
+  }
+
+  .fee-reimbursement-hero-bottom {
+    left: 14px;
+    bottom: 22px;
+  }
+
+  .fee-reimbursement-benefits,
+  .fee-reimbursement-application-grid,
+  .fee-reimbursement-document-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fee-reimbursement-program-header {
+    padding: 27px;
+  }
+
+  .fee-reimbursement-program-body {
+    padding: 30px 25px 35px;
+  }
+
+  .fee-reimbursement-steps,
+  .fee-reimbursement-program:nth-of-type(2)
+    .fee-reimbursement-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .fee-reimbursement-step {
+    min-height: auto;
+  }
+
+  .fee-reimbursement-explainer {
+    padding: 30px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fee-reimbursement-hero {
+    height: 550px;
+    min-height: 520px;
+  }
+
+  .fee-reimbursement-hero-content {
+    padding-top: 185px;
+  }
+
+  .fee-reimbursement-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+  }
+
+  .fee-reimbursement-hero h1 {
+    margin-top: 14px;
+    font-size: 45px;
+  }
+
+  .fee-reimbursement-intro h2,
+  .fee-reimbursement-section-heading h2 {
+    font-size: 34px;
+  }
+
+  .fee-reimbursement-program-header h2 {
+    font-size: 26px;
+  }
+
+  .fee-reimbursement-percentage strong {
+    font-size: 38px;
+  }
+
+  .fee-reimbursement-application-card {
+    grid-template-columns: 50px minmax(0, 1fr) 18px;
+    padding: 20px;
+    gap: 13px;
+  }
+
+  .fee-reimbursement-application-icon {
+    width: 50px;
+    height: 50px;
+  }
+}

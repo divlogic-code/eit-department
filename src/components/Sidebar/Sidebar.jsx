@@ -5,7 +5,7 @@ const Sidebar = ({ tabs = [], visible }) => {
     <aside className={`sidebar ${visible ? "sidebar-show" : ""}`}>
 
       <div className="sidebar-label">
-        DEPARTMENT
+        EIT NAVIGATION
       </div>
 
       {tabs.map((tab, index) => (

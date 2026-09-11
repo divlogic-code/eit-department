@@ -1,0 +1,787 @@
+/* =========================================================
+   ANTI RAGGING PAGE
+   ========================================================= */
+
+.anti-ragging-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f7f5;
+  color: #071827;
+  overflow-x: hidden;
+  transition: padding-left 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.anti-ragging-page:has(.admissions-sidebar.sidebar-visible) {
+  padding-left: 280px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.anti-ragging-hero {
+  position: relative;
+  height: 680px;
+  min-height: 620px;
+  overflow: hidden;
+  background: #03111f;
+  color: #fff;
+}
+
+.anti-ragging-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.anti-ragging-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 17, 31, 0.94) 0%,
+      rgba(3, 17, 31, 0.78) 42%,
+      rgba(3, 17, 31, 0.38) 75%,
+      rgba(3, 17, 31, 0.55) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(3, 17, 31, 0.82) 0%,
+      transparent 42%
+    );
+}
+
+.anti-ragging-hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding-top: 250px;
+}
+
+.anti-ragging-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #c7a96b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+}
+
+.anti-ragging-hero h1 {
+  margin: 18px 0 20px;
+  max-width: 780px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(52px, 7vw, 92px);
+  line-height: 0.98;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.anti-ragging-hero p {
+  max-width: 650px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.anti-ragging-hero-bottom {
+  position: absolute;
+  z-index: 3;
+  left: max(24px, calc((100% - 1180px) / 2));
+  bottom: 34px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+
+.anti-ragging-hero-bottom strong {
+  color: #c7a96b;
+  font-size: 12px;
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.anti-ragging-main {
+  width: 100%;
+}
+
+.anti-ragging-container {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 95px 0 120px;
+}
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.anti-ragging-intro {
+  max-width: 920px;
+  margin: 0 auto 58px;
+}
+
+.anti-ragging-section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+
+  color: #9b7a3f;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.anti-ragging-intro h2 {
+  margin: 0 0 24px;
+  color: #071827;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.anti-ragging-intro p {
+  margin: 0 0 18px;
+  color: #52606c;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.anti-ragging-intro a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #0d705d;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(13, 112, 93, 0.25);
+}
+
+.anti-ragging-intro a:hover {
+  color: #9b7a3f;
+  border-color: #9b7a3f;
+}
+
+/* =========================================================
+   WARNING
+   ========================================================= */
+
+.anti-ragging-warning {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 20px;
+
+  margin: 0 auto 80px;
+  padding: 30px;
+
+  border: 1px solid rgba(168, 128, 59, 0.32);
+  background: #fffdf7;
+  box-shadow: 0 20px 55px rgba(3, 17, 31, 0.06);
+}
+
+.anti-ragging-warning-icon {
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(168, 128, 59, 0.35);
+  color: #9b7a3f;
+  background: rgba(199, 169, 107, 0.09);
+}
+
+.anti-ragging-warning span {
+  display: block;
+  margin-bottom: 9px;
+
+  color: #9b7a3f;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.anti-ragging-warning p {
+  margin: 0;
+  color: #172530;
+  font-size: 14px;
+  line-height: 1.8;
+  font-weight: 700;
+}
+
+/* =========================================================
+   DOCUMENT SECTIONS
+   ========================================================= */
+
+.anti-ragging-document {
+  margin-bottom: 85px;
+  background: #fff;
+  border: 1px solid #e1e6e2;
+  box-shadow: 0 24px 70px rgba(3, 17, 31, 0.055);
+}
+
+.anti-ragging-document-heading {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 22px;
+
+  padding: 34px 38px;
+
+  border-bottom: 1px solid #e4e8e5;
+  background: #fbfcfb;
+}
+
+.anti-ragging-document-number {
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  color: #fff;
+  background: #03111f;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.anti-ragging-document-heading span {
+  display: block;
+  margin-bottom: 8px;
+
+  color: #9b7a3f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.anti-ragging-document-heading h2 {
+  margin: 0;
+
+  color: #071827;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(25px, 3vw, 37px);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.anti-ragging-document-body {
+  padding: 42px 50px 50px;
+}
+
+.anti-ragging-document-body > p {
+  margin: 0 0 23px;
+  color: #4d5a64;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.anti-ragging-numbered-clause,
+.anti-ragging-clause {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 12px;
+
+  margin: 0 0 22px;
+}
+
+.anti-ragging-numbered-clause strong,
+.anti-ragging-clause strong {
+  color: #9b7a3f;
+  font-size: 15px;
+}
+
+.anti-ragging-numbered-clause p,
+.anti-ragging-clause p {
+  margin: 0;
+  color: #4d5a64;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.anti-ragging-declaration {
+  margin: 35px 0;
+  padding: 20px 22px;
+
+  border-left: 3px solid #c7a96b;
+  background: #f8faf8;
+}
+
+.anti-ragging-declaration p {
+  margin: 0;
+  color: #172530;
+  font-size: 14px;
+}
+
+.anti-ragging-verification {
+  margin-top: 38px;
+  padding-top: 30px;
+  border-top: 1px solid #e2e7e3;
+}
+
+.anti-ragging-verification h3 {
+  margin: 0 0 22px;
+  color: #071827;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.anti-ragging-verification p {
+  margin: 0 0 18px;
+  color: #4d5a64;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.anti-ragging-fields {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  margin: 20px 0 26px;
+}
+
+.anti-ragging-fields span {
+  min-height: 48px;
+  padding: 14px 15px;
+
+  border-bottom: 1px solid #aeb8b3;
+  color: #65717a;
+  font-size: 13px;
+}
+
+.anti-ragging-appendix {
+  margin-bottom: 25px;
+}
+
+.anti-ragging-appendix span {
+  display: inline-block;
+  padding: 7px 12px;
+
+  color: #9b7a3f;
+  border: 1px solid rgba(155, 122, 63, 0.3);
+  background: #fffdf7;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+/* =========================================================
+   COMMITTEE
+   ========================================================= */
+
+.anti-ragging-committee {
+  margin-top: 110px;
+  margin-bottom: 105px;
+}
+
+.anti-ragging-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+
+  margin-bottom: 35px;
+}
+
+.anti-ragging-section-heading span {
+  display: block;
+  margin-bottom: 10px;
+
+  color: #9b7a3f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.anti-ragging-section-heading h2 {
+  margin: 0;
+  color: #071827;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.anti-ragging-section-line {
+  flex: 1;
+  max-width: 380px;
+  height: 1px;
+  margin-bottom: 7px;
+  background: #d7ddd9;
+}
+
+.anti-ragging-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+
+  border: 1px solid #dfe5e1;
+  background: #fff;
+  box-shadow: 0 20px 60px rgba(3, 17, 31, 0.05);
+}
+
+.anti-ragging-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.anti-ragging-table th {
+  padding: 17px 20px;
+  text-align: left;
+
+  background: #03111f;
+  color: #fff;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.anti-ragging-table td {
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #e4e8e5;
+
+  color: #53616a;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.anti-ragging-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.anti-ragging-table tbody tr:hover {
+  background: #f8faf8;
+}
+
+.anti-ragging-table td:first-child {
+  color: #071827;
+  font-weight: 700;
+}
+
+.anti-ragging-table td:last-child {
+  color: #9b7a3f;
+  font-weight: 700;
+}
+
+/* =========================================================
+   AFFIDAVIT FORMS
+   ========================================================= */
+
+.anti-ragging-affidavit {
+  margin-top: 40px;
+}
+
+.anti-ragging-affidavit-intro {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  margin-bottom: 30px;
+  padding: 19px 22px;
+
+  border: 1px solid #dce3df;
+  background: #fff;
+}
+
+.anti-ragging-affidavit-intro svg {
+  flex-shrink: 0;
+  color: #9b7a3f;
+}
+
+.anti-ragging-affidavit-intro p {
+  flex: 1;
+  margin: 0;
+  color: #5b6871;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.anti-ragging-affidavit-intro a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  flex-shrink: 0;
+
+  padding: 11px 16px;
+
+  background: #03111f;
+  color: #fff;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.anti-ragging-affidavit-intro a:hover {
+  background: #0d705d;
+  transform: translateY(-2px);
+}
+
+.anti-ragging-affidavit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.anti-ragging-affidavit-card {
+  display: block;
+
+  overflow: hidden;
+
+  border: 1px solid #dfe5e1;
+  background: #fff;
+
+  text-decoration: none;
+
+  box-shadow: 0 18px 50px rgba(3, 17, 31, 0.05);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.anti-ragging-affidavit-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(155, 122, 63, 0.45);
+  box-shadow: 0 28px 70px rgba(3, 17, 31, 0.12);
+}
+
+.anti-ragging-affidavit-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #edf1ee;
+}
+
+.anti-ragging-affidavit-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.anti-ragging-affidavit-card:hover
+  .anti-ragging-affidavit-image img {
+  transform: scale(1.035);
+}
+
+.anti-ragging-affidavit-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 18px;
+
+  border-top: 1px solid #e3e8e4;
+}
+
+.anti-ragging-affidavit-card-footer span {
+  color: #9b7a3f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.anti-ragging-affidavit-card-footer svg {
+  color: #0d705d;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .anti-ragging-container {
+    width: min(1000px, calc(100% - 40px));
+  }
+
+  .anti-ragging-hero-content {
+    width: calc(100% - 40px);
+  }
+
+  .anti-ragging-hero-bottom {
+    left: 20px;
+  }
+
+  .anti-ragging-document-body {
+    padding: 38px 38px 44px;
+  }
+}
+
+@media (max-width: 900px) {
+  .anti-ragging-page {
+    padding-left: 0 !important;
+  }
+
+  .anti-ragging-hero {
+    height: 600px;
+    min-height: 560px;
+  }
+
+  .anti-ragging-hero-content {
+    padding-top: 220px;
+  }
+
+  .anti-ragging-container {
+    padding-top: 70px;
+  }
+
+  .anti-ragging-document-heading {
+    padding: 28px;
+  }
+
+  .anti-ragging-document-body {
+    padding: 34px 28px 40px;
+  }
+
+  .anti-ragging-section-line {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 700px) {
+  .anti-ragging-container {
+    width: calc(100% - 28px);
+    padding-bottom: 80px;
+  }
+
+  .anti-ragging-hero-content {
+    width: calc(100% - 28px);
+    padding-top: 205px;
+  }
+
+  .anti-ragging-hero h1 {
+    font-size: 54px;
+  }
+
+  .anti-ragging-hero p {
+    font-size: 15px;
+  }
+
+  .anti-ragging-hero-bottom {
+    left: 14px;
+    bottom: 22px;
+  }
+
+  .anti-ragging-warning {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 16px;
+    margin-bottom: 55px;
+  }
+
+  .anti-ragging-document {
+    margin-bottom: 60px;
+  }
+
+  .anti-ragging-document-heading {
+    grid-template-columns: 54px minmax(0, 1fr);
+    gap: 16px;
+    padding: 23px;
+  }
+
+  .anti-ragging-document-number {
+    width: 48px;
+    height: 48px;
+  }
+
+  .anti-ragging-document-body {
+    padding: 28px 22px 34px;
+  }
+
+  .anti-ragging-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .anti-ragging-section-heading {
+    display: block;
+  }
+
+  .anti-ragging-section-line {
+    width: 100%;
+    max-width: none;
+    margin-top: 22px;
+  }
+
+  .anti-ragging-affidavit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .anti-ragging-affidavit-intro {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .anti-ragging-affidavit-intro a {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .anti-ragging-hero {
+    height: 550px;
+    min-height: 520px;
+  }
+
+  .anti-ragging-hero-content {
+    padding-top: 185px;
+  }
+
+  .anti-ragging-eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+  }
+
+  .anti-ragging-hero h1 {
+    margin-top: 14px;
+    font-size: 46px;
+  }
+
+  .anti-ragging-intro h2,
+  .anti-ragging-section-heading h2 {
+    font-size: 34px;
+  }
+
+  .anti-ragging-document-heading h2 {
+    font-size: 24px;
+  }
+
+  .anti-ragging-warning p,
+  .anti-ragging-document-body > p,
+  .anti-ragging-numbered-clause p,
+  .anti-ragging-clause p {
+    font-size: 14px;
+  }
+}

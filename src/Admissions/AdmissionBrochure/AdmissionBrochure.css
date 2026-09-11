@@ -1,0 +1,410 @@
+.admission-brochure-page {
+  width: 100%;
+  min-width: 0;
+  background: #f7f8f5;
+  color: #071a2b;
+  transition: padding-left 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.admission-brochure-page:has(
+  .admissions-sidebar.sidebar-visible
+) {
+  padding-left: 280px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.admission-brochure-hero {
+  position: relative;
+  min-height: 680px;
+  overflow: hidden;
+  background: #03111f;
+}
+
+.admission-brochure-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 0;
+}
+
+.admission-brochure-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 17, 31, 0.32) 0%,
+      rgba(3, 17, 31, 0.58) 55%,
+      rgba(3, 17, 31, 0.92) 100%
+    );
+}
+
+.admission-brochure-hero-content {
+  position: relative;
+  z-index: 2;
+  min-height: 680px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: #fff;
+  padding: 100px 24px;
+}
+
+.admission-brochure-eyebrow {
+  color: #c7a96b;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  margin-bottom: 22px;
+}
+
+.admission-brochure-hero h1 {
+  margin: 0;
+  font-size: clamp(4rem, 8vw, 7.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  font-weight: 700;
+  text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.admission-brochure-hero h1 em {
+  color: #c7a96b;
+  font-style: normal;
+}
+
+.admission-brochure-hero p {
+  max-width: 680px;
+  margin: 32px auto 0;
+
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   BROCHURE SECTION
+========================================================= */
+
+.admission-brochure-list {
+  padding: 120px 7vw;
+  background: #f7f8f5;
+}
+
+.admission-brochure-section-heading {
+  max-width: 1200px;
+  margin: 0 auto 70px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.admission-brochure-kicker {
+  color: #176b54;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.admission-brochure-section-heading h2 {
+  margin: 16px 0 0;
+
+  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  font-weight: 650;
+}
+
+.admission-brochure-section-heading h2 em {
+  color: #176b54;
+  font-style: normal;
+}
+
+.admission-brochure-section-heading > p {
+  max-width: 430px;
+  margin: 0;
+
+  color: #65717a;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.admission-brochure-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.admission-brochure-card {
+  position: relative;
+
+  min-height: 440px;
+  padding: 34px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+  border: 1px solid rgba(3, 17, 31, 0.08);
+
+  box-shadow:
+    0 12px 35px rgba(3, 17, 31, 0.055);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.admission-brochure-card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(23, 107, 84, 0.35);
+
+  box-shadow:
+    0 25px 55px rgba(3, 17, 31, 0.12);
+}
+
+.admission-brochure-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admission-brochure-number {
+  color: #c7a96b;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.admission-brochure-icon {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #176b54;
+
+  border: 1px solid rgba(23, 107, 84, 0.18);
+  border-radius: 50%;
+}
+
+.admission-brochure-label {
+  margin-top: 55px;
+
+  color: #176b54;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.admission-brochure-card h3 {
+  margin: 15px 0 0;
+
+  font-size: 1.55rem;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.admission-brochure-card p {
+  margin: 18px 0 0;
+
+  color: #69747d;
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+.admission-brochure-button {
+  margin-top: auto;
+  padding-top: 28px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+
+  color: #071a2b;
+  text-decoration: none;
+
+  border-top: 1px solid rgba(3, 17, 31, 0.1);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+}
+
+.admission-brochure-button:hover {
+  color: #176b54;
+  gap: 26px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.admission-brochure-contact {
+  padding: 100px 7vw;
+  background: #03111f;
+  color: #fff;
+}
+
+.admission-brochure-contact-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.admission-brochure-contact-heading > span {
+  color: #c7a96b;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.admission-brochure-contact-heading h2 {
+  margin: 18px 0 0;
+
+  font-size: clamp(2.7rem, 4vw, 4.7rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.admission-brochure-contact-heading h2 em {
+  color: #c7a96b;
+  font-style: normal;
+}
+
+.admission-brochure-contact-details {
+  display: grid;
+  gap: 28px;
+}
+
+.admission-brochure-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+
+  padding-bottom: 26px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.admission-brochure-contact-item svg {
+  flex-shrink: 0;
+  color: #c7a96b;
+  margin-top: 2px;
+}
+
+.admission-brochure-contact-item small {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.admission-brochure-contact-item p {
+  margin: 7px 0 0;
+
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .admission-brochure-grid {
+    grid-template-columns: 1fr;
+    max-width: 650px;
+  }
+
+  .admission-brochure-section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admission-brochure-contact-inner {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .admission-brochure-page {
+    padding-left: 0 !important;
+  }
+
+  .admission-brochure-hero {
+    min-height: 600px;
+  }
+
+  .admission-brochure-hero-content {
+    min-height: 600px;
+    padding: 80px 20px;
+  }
+
+  .admission-brochure-hero h1 {
+    font-size: clamp(3.2rem, 15vw, 5rem);
+  }
+
+  .admission-brochure-list {
+    padding: 80px 20px;
+  }
+
+  .admission-brochure-section-heading {
+    margin-bottom: 45px;
+    gap: 25px;
+  }
+
+  .admission-brochure-card {
+    min-height: 400px;
+    padding: 28px;
+  }
+
+  .admission-brochure-contact {
+    padding: 80px 20px;
+  }
+}

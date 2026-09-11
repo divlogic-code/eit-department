@@ -1,0 +1,324 @@
+/* ===========================================================
+AcademicSidebar.css
+=========================================================== */
+
+.academic-sidebar{
+
+    position:relative;
+
+    width:100%;
+
+    background:#ffffff;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 18px 45px rgba(15,23,42,.08);
+
+    border:1px solid rgba(15,118,110,.08);
+
+}
+
+/* ===================================================== */
+
+.academic-sidebar::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:6px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #0f766e,
+        #2563eb,
+        #d4af37
+    );
+
+}
+
+/* ===================================================== */
+
+.academic-sidebar-top{
+
+    padding:35px 30px 25px;
+
+    text-align:center;
+
+}
+
+.academic-sidebar-top small{
+
+    display:block;
+
+    color:#0f766e;
+
+    letter-spacing:4px;
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+.academic-sidebar-top h3{
+
+    font-size:1.8rem;
+
+    color:#0f172a;
+
+    font-weight:800;
+
+}
+
+/* ===================================================== */
+
+.academic-sidebar-line{
+
+    width:82%;
+
+    height:1px;
+
+    margin:auto;
+
+    background:#e2e8f0;
+
+}
+
+/* ===================================================== */
+
+.academic-sidebar-nav{
+
+    padding:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+/* ===================================================== */
+
+.academic-sidebar-link{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    text-decoration:none;
+
+    padding:18px 20px;
+
+    border-radius:18px;
+
+    background:#f8fafc;
+
+    color:#334155;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    transition:.35s;
+
+    overflow:hidden;
+
+}
+
+/* ===================================================== */
+
+.academic-sidebar-link::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:5px;
+    height:100%;
+
+    background:#0f766e;
+
+    transform:scaleY(0);
+
+    transition:.35s;
+
+}
+
+/* ===================================================== */
+
+.academic-sidebar-link:hover{
+
+    background:white;
+
+    color:#0f766e;
+
+    transform:translateX(6px);
+
+    box-shadow:
+
+    0 12px 30px rgba(15,118,110,.12);
+
+}
+
+/* ===================================================== */
+
+.academic-sidebar-link:hover::before{
+
+    transform:scaleY(1);
+
+}
+
+/* ===================================================== */
+
+.academic-sidebar-link svg{
+
+    transition:.35s;
+
+}
+
+.academic-sidebar-link:hover svg{
+
+    transform:translateX(6px);
+
+}
+
+/* ===================================================== */
+
+.academic-sidebar-link.active{
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #0f766e,
+        #2563eb
+    );
+
+    color:white;
+
+    box-shadow:
+
+    0 18px 35px rgba(37,99,235,.25);
+
+}
+
+.academic-sidebar-link.active::before{
+
+    transform:scaleY(1);
+
+    background:#d4af37;
+
+}
+
+/* ===================================================== */
+
+.academic-sidebar-link.active svg{
+
+    transform:translateX(4px);
+
+}
+
+/* ===================================================== */
+
+.academic-sidebar-footer{
+
+    margin-top:15px;
+
+    padding:28px;
+
+    text-align:center;
+
+    background:#f8fafc;
+
+    border-top:1px solid #e2e8f0;
+
+}
+
+.academic-sidebar-footer span{
+
+    display:block;
+
+    font-size:.85rem;
+
+    font-weight:700;
+
+    color:#0f172a;
+
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+
+}
+
+.academic-sidebar-footer small{
+
+    color:#64748b;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    font-size:.72rem;
+
+}
+
+/* ===================================================== */
+
+@media(max-width:1200px){
+
+    .academic-sidebar{
+
+        margin-bottom:40px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .academic-sidebar{
+
+        border-radius:22px;
+
+    }
+
+    .academic-sidebar-top{
+
+        padding:28px 20px;
+
+    }
+
+    .academic-sidebar-top h3{
+
+        font-size:1.5rem;
+
+    }
+
+    .academic-sidebar-link{
+
+        padding:16px;
+
+        font-size:.95rem;
+
+    }
+
+}
