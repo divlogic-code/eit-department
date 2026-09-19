@@ -1,2 +1,26 @@
-import PlacementSidebar from "./PlacementSidebar";import "./PlacementGallery/PlacementGallery.css";
-export default function PlacementGallery(){return <div className="placement-page PlacementGallery-content"><PlacementSidebar/><main><section className="placement-hero"><span>TRAINING & PLACEMENT</span><h1>Placement Gallery</h1><p>A visual archive of placement and industry engagement.</p></section><section className="placement-container"><div className="placement-card"><h2>Placement Gallery</h2><p>The supplied source contains the page framework/heading, but no readable detailed records were available in the extracted content. No names, dates, testimonials, logos, or event details have been invented.</p></div></section></main></div>}
+import PlacementSidebar from "./PlacementSidebar";
+import placementGallery from "../data/placement/placementGallery";
+import "./PlacementGallery/PlacementGallery.css";
+
+export default function PlacementGallery() {
+  return (
+    <div className="placement-page PlacementGallery-content">
+      <PlacementSidebar />
+
+      <main>
+        <section className="placement-hero">
+          <span>{placementGallery.hero.eyebrow}</span>
+          <h1>{placementGallery.hero.title}</h1>
+          <p>{placementGallery.hero.description}</p>
+        </section>
+
+        <section className="placement-container">
+          <div className="placement-card">
+            <h2>{placementGallery.content.title}</h2>
+            <p>{placementGallery.content.description}</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}

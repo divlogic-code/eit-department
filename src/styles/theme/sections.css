@@ -1,0 +1,207 @@
+.eit-section {
+  position: relative;
+  width: 100%;
+  padding: var(--eit-section-padding) var(--eit-page-padding);
+  overflow: hidden;
+}
+
+.eit-section-light {
+  background: var(--eit-ivory-300);
+  color: var(--eit-text-primary);
+}
+
+.eit-section-ivory {
+  background: var(--eit-ivory-100);
+  color: var(--eit-text-primary);
+}
+
+.eit-section-sapphire {
+  background:
+    radial-gradient(
+      circle at 80% 15%,
+      rgba(190, 159, 80, 0.10),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      var(--eit-sapphire-950),
+      var(--eit-sapphire-900)
+    );
+
+  color: var(--eit-text-light);
+}
+
+.eit-section-emerald {
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(213, 184, 109, 0.12),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      var(--eit-emerald-950),
+      var(--eit-emerald-800),
+      var(--eit-emerald-700)
+    );
+
+  color: var(--eit-text-light);
+}
+
+.eit-section-ruby {
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(213, 184, 109, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      var(--eit-ruby-900),
+      var(--eit-ruby-700)
+    );
+
+  color: var(--eit-text-light);
+}
+
+.eit-section-cinematic {
+  position: relative;
+  isolation: isolate;
+  color: var(--eit-text-light);
+}
+
+.eit-section-cinematic > .eit-cinematic-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eit-section-cinematic::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 19, 27, 0.92),
+      rgba(3, 19, 27, 0.48) 55%,
+      rgba(3, 19, 27, 0.72)
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.72),
+      transparent 60%
+    );
+}
+
+.eit-section-heading {
+  position: relative;
+  max-width: 850px;
+  margin: 0 auto var(--eit-space-10);
+  text-align: center;
+  z-index: 2;
+}
+
+.eit-section-heading .eit-eyebrow {
+  margin-bottom: var(--eit-space-4);
+}
+
+.eit-section-heading h2 {
+  margin: 0;
+
+  color: var(--eit-text-primary);
+
+  font-family: var(--eit-font-display);
+  font-size: clamp(42px, 5vw, 76px);
+  font-weight: var(--eit-weight-regular);
+  line-height: 0.98;
+  letter-spacing: var(--eit-tracking-tight);
+}
+
+.eit-section-dark .eit-section-heading h2,
+.eit-section-sapphire .eit-section-heading h2,
+.eit-section-emerald .eit-section-heading h2,
+.eit-section-ruby .eit-section-heading h2,
+.eit-section-cinematic .eit-section-heading h2 {
+  color: var(--eit-text-light);
+}
+
+.eit-section-heading p {
+  max-width: 680px;
+  margin: 25px auto 0;
+
+  color: var(--eit-text-secondary);
+
+  font-size: var(--eit-text-md);
+  line-height: var(--eit-leading-body);
+}
+
+.eit-section-dark .eit-section-heading p,
+.eit-section-sapphire .eit-section-heading p,
+.eit-section-emerald .eit-section-heading p,
+.eit-section-ruby .eit-section-heading p,
+.eit-section-cinematic .eit-section-heading p {
+  color: var(--eit-text-light-muted);
+}
+
+.eit-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--eit-space-7);
+}
+
+.eit-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--eit-space-7);
+}
+
+.eit-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--eit-space-6);
+}
+
+.eit-marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.eit-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.eit-marquee-track > * {
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .eit-grid-3,
+  .eit-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .eit-section {
+    padding: 70px 25px;
+  }
+
+  .eit-grid-2,
+  .eit-grid-3,
+  .eit-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .eit-section-heading {
+    margin-bottom: 50px;
+  }
+}

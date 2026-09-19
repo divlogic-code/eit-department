@@ -529,3 +529,155 @@
     display: none;
   }
 }
+
+/* ==========================================================================
+   MODERN NAVBAR OVERRIDES
+========================================================================== */
+
+.navbar {
+  height: 82px;
+  padding-inline: clamp(22px, 5vw, 72px);
+  background:
+    linear-gradient(110deg, rgba(5, 23, 29, 0.97), rgba(8, 48, 52, 0.9) 58%, rgba(8, 29, 35, 0.96)),
+    radial-gradient(circle at 76% 0%, rgba(131, 216, 189, 0.18), transparent 22rem);
+  border-bottom-color: rgba(185, 240, 221, 0.22);
+  box-shadow: 0 14px 50px rgba(3, 20, 26, 0.25);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.navbar::before {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(185, 240, 221, 0.8), transparent);
+}
+
+.navbar-logo {
+  position: relative;
+  gap: 11px;
+  color: #effbf4;
+  text-decoration: none;
+}
+
+.navbar-logo::after {
+  content: "ECHELON INSTITUTE";
+  color: rgba(185, 240, 221, 0.58);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.navbar-wordmark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(185, 240, 221, 0.58);
+  border-radius: 12px;
+  color: #082326;
+  background: linear-gradient(145deg, #b9f0dd, #83d8bd);
+  box-shadow: 0 0 28px rgba(131, 216, 189, 0.16);
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.navbar-logo:hover .navbar-wordmark {
+  transform: rotate(-5deg) translateY(-2px);
+  box-shadow: 0 10px 35px rgba(131, 216, 189, 0.3);
+}
+
+.navbar-links {
+  gap: clamp(17px, 2.5vw, 34px);
+}
+
+.navbar-link {
+  color: rgba(240, 250, 244, 0.75);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+}
+
+.navbar-link:hover {
+  color: #b9f0dd;
+}
+
+.navbar-link::after {
+  bottom: 16px;
+  background: linear-gradient(90deg, #83d8bd, #f2c878, #83d8bd);
+}
+
+.nav-arrow {
+  color: #83d8bd;
+}
+
+.department-dropdown-menu {
+  top: 75px;
+  width: 300px;
+  padding: 9px;
+  border: 1px solid rgba(185, 240, 221, 0.24);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(8, 48, 52, 0.98), rgba(5, 27, 32, 0.99));
+  box-shadow: 0 28px 80px rgba(2, 19, 24, 0.44), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.department-dropdown-menu::before {
+  background: linear-gradient(90deg, transparent, #b9f0dd, transparent);
+}
+
+.department-dropdown-menu a {
+  border-bottom-color: rgba(185, 240, 221, 0.1);
+  border-radius: 9px;
+  color: rgba(240, 250, 244, 0.68);
+  font-size: 10px;
+  transition: color 0.3s ease, background 0.3s ease, padding-left 0.3s ease, transform 0.3s ease;
+}
+
+.department-dropdown-menu a:hover {
+  color: #effbf4;
+  background: rgba(131, 216, 189, 0.1);
+  transform: translateX(3px);
+}
+
+.department-dropdown-menu a::before {
+  background: linear-gradient(180deg, #b9f0dd, #83d8bd);
+}
+
+.conference-button {
+  min-width: 128px;
+  height: 38px;
+  border-color: rgba(185, 240, 221, 0.46);
+  border-radius: 999px;
+  color: #b9f0dd;
+  background: rgba(131, 216, 189, 0.08);
+}
+
+.conference-button:hover {
+  color: #082326;
+  background: linear-gradient(135deg, #83d8bd, #f2c878);
+  box-shadow: 0 0 28px rgba(131, 216, 189, 0.25);
+}
+
+@media (max-width: 1100px) {
+  .navbar-logo::after {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   SCROLLED STATE (Home page only)
+   Home.jsx toggles body.home-scrolled after 80px of scroll and
+   removes it again on unmount, so this never touches other routes.
+   ========================================================================== */
+
+body.home-scrolled .navbar {
+  height: 66px;
+  background:
+    linear-gradient(110deg, rgba(5, 23, 29, 0.88), rgba(8, 48, 52, 0.8) 58%, rgba(8, 29, 35, 0.88));
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  box-shadow: 0 10px 34px rgba(3, 20, 26, 0.32);
+}
+
+body.home-scrolled .navbar-wordmark {
+  transform: scale(0.92);
+}

@@ -7,6 +7,14 @@ import AboutSidebar from "./AboutSidebar";
 import "./AboutEchelon/AboutEchelon.css";
 import "./Director/Director.css";
 
+import {
+  directorHero,
+  directorIntro,
+  directorMessage,
+  directorPrinciples,
+  directorClosing,
+} from "../data/about/director";
+
 function Director() {
   useEffect(() => {
     window.scrollTo({
@@ -24,52 +32,43 @@ function Director() {
       ===================================================== */}
 
       <section className="director-hero">
-
         <div className="director-hero-grid" />
         <div className="director-hero-glow" />
 
         <div className="director-hero-content">
-
           <span className="director-eyebrow">
-            ECHELON INSTITUTE OF TECHNOLOGY
+            {directorHero.eyebrow}
           </span>
 
           <h1>
-            DIRECTOR'S
-            <span>MESSAGE</span>
+            {directorHero.title}
+            <span>{directorHero.titleAccent}</span>
           </h1>
 
-          <p>
-            Education that goes beyond classrooms,
-            nurturing innovation, integrity and purpose.
-          </p>
+          <p>{directorHero.description}</p>
 
           <div className="director-hero-meta">
-            <span>FROM THE DIRECTOR'S DESK</span>
+            <span>{directorHero.metaPrimary}</span>
             <i />
-            <span>EIT · FARIDABAD</span>
+            <span>{directorHero.metaSecondary}</span>
           </div>
-
         </div>
 
         <div className="director-hero-index">
-          01
+          {directorHero.index}
         </div>
 
         <div className="director-scroll">
-          <span>READ MESSAGE</span>
+          <span>{directorHero.scrollText}</span>
           <div />
         </div>
-
       </section>
-
 
       {/* =====================================================
           MAIN AREA + SHARED ABOUT SIDEBAR
       ===================================================== */}
 
       <div className="director-layout">
-
         <AboutSidebar />
 
         <main className="director-main">
@@ -79,71 +78,54 @@ function Director() {
           =================================================== */}
 
           <section className="director-intro">
-
             <div className="director-section-label">
-              <span>01</span>
-              FROM THE DIRECTOR'S DESK
+              <span>{directorIntro.sectionNumber}</span>
+              {directorIntro.sectionLabel}
             </div>
 
             <div className="director-intro-grid">
 
               <div className="director-profile">
-
                 <div className="director-profile-frame">
 
                   <div className="director-profile-number">
-                    EIT
+                    {directorIntro.profile.number}
                   </div>
 
                   <div className="director-profile-initial">
-                    AKP
+                    {directorIntro.profile.initials}
                   </div>
 
                   <div className="director-profile-bottom">
-                    <span>DIRECTOR</span>
-                    <span>EIT · FARIDABAD</span>
+                    <span>{directorIntro.profile.role}</span>
+                    <span>{directorIntro.profile.location}</span>
                   </div>
 
                 </div>
-
               </div>
 
-
               <div className="director-intro-copy">
-
                 <span className="director-kicker">
-                  LEADERSHIP
+                  {directorIntro.kicker}
                 </span>
 
                 <h2>
-                  A message from
-                  <em> Prof. (Dr.) Arvind Kumar Pandey.</em>
+                  {directorIntro.heading}
+                  <em>{directorIntro.headingAccent}</em>
                 </h2>
 
                 <p className="director-lead">
-                  At EIT, we are committed to delivering an
-                  education that goes beyond traditional classrooms
-                  and textbooks.
+                  {directorIntro.lead}
                 </p>
 
                 <div className="director-signature-block">
-
-                  <strong>
-                    Prof. (Dr.) Arvind Kumar Pandey
-                  </strong>
-
-                  <span>
-                    Director
-                  </span>
-
+                  <strong>{directorIntro.name}</strong>
+                  <span>{directorIntro.designation}</span>
                 </div>
-
               </div>
 
             </div>
-
           </section>
-
 
           {/* ===================================================
               MESSAGE
@@ -152,112 +134,77 @@ function Director() {
           <section className="director-message-section">
 
             <div className="director-message-header">
-
               <div className="director-section-label">
-                <span>02</span>
-                THE MESSAGE
+                <span>{directorMessage.sectionNumber}</span>
+                {directorMessage.sectionLabel}
               </div>
 
               <div className="director-message-index">
-                EIT / DIRECTOR
+                {directorMessage.index}
               </div>
-
             </div>
-
 
             <div className="director-message-layout">
 
               <aside className="director-message-aside">
-
                 <Quote size={30} />
 
                 <span>
-                  EDUCATION
-                  <br />
-                  INNOVATION
-                  <br />
-                  PURPOSE
+                  {directorMessage.themes.map((theme) => (
+                    <React.Fragment key={theme}>
+                      {theme}
+                      <br />
+                    </React.Fragment>
+                  ))}
                 </span>
-
               </aside>
-
 
               <article className="director-message-content">
 
-                <p className="message-opening">
-                  At EIT, we are committed to delivering an
-                  education that goes beyond traditional classrooms
-                  and textbooks. We strive to nurture not only
-                  competent professionals, but also confident,
-                  responsible, and visionary individuals who can
-                  lead with innovation, empathy, and integrity.
-                </p>
-
-                <p>
-                  Our academic framework is thoughtfully designed
-                  to blend theoretical knowledge with practical
-                  experience. Through hands-on learning, strong
-                  industry connect, research-driven projects, and
-                  a focus on innovation, we empower our students to
-                  meet real-world challenges with confidence and
-                  creativity.
-                </p>
+                {directorMessage.paragraphsBeforeHighlight.map(
+                  (paragraph, index) => (
+                    <p
+                      key={`before-${index}`}
+                      className={
+                        paragraph.type === "opening"
+                          ? "message-opening"
+                          : undefined
+                      }
+                    >
+                      {paragraph.text}
+                    </p>
+                  )
+                )}
 
                 <div className="director-highlight">
+                  <span>{directorMessage.highlight.number}</span>
 
-                  <span>03</span>
-
-                  <p>
-                    We strive to nurture competent professionals
-                    who are confident, responsible and visionary,
-                    prepared to lead with innovation, empathy and
-                    integrity.
-                  </p>
-
+                  <p>{directorMessage.highlight.text}</p>
                 </div>
 
-                <p>
-                  We believe that every student carries unique
-                  potential. At EIT, we create an environment that
-                  encourages curiosity, critical thinking, and a
-                  lifelong passion for learning.
-                </p>
-
-                <p>
-                  Equally, we uphold the values of honesty,
-                  collaboration, and social responsibility, qualities
-                  that are essential in shaping thoughtful leaders
-                  and global citizens.
-                </p>
-
-                <p>
-                  Whether you aspire to become an engineer,
-                  entrepreneur, or leader in any field, EIT offers
-                  the guidance, resources, and opportunities to help
-                  you achieve your goals and make a meaningful
-                  impact.
-                </p>
+                {directorMessage.paragraphsAfterHighlight.map(
+                  (paragraph, index) => (
+                    <p key={`after-${index}`}>
+                      {paragraph.text}
+                    </p>
+                  )
+                )}
 
                 <div className="director-final-statement">
 
                   <div className="final-statement-number">
-                    04
+                    {directorMessage.finalStatement.number}
                   </div>
 
                   <p>
-                    We invite you to be part of this enriching
-                    journey. Together, let's shape the future
-                    through learning, innovation, and purpose.
+                    {directorMessage.finalStatement.text}
                   </p>
 
                 </div>
 
               </article>
-
             </div>
-
           </section>
-
 
           {/* ===================================================
               DIRECTOR'S PRINCIPLES
@@ -266,82 +213,39 @@ function Director() {
           <section className="director-principles">
 
             <div className="director-section-label">
-              <span>03</span>
-              THE EIT APPROACH
+              <span>{directorPrinciples.sectionNumber}</span>
+              {directorPrinciples.sectionLabel}
             </div>
 
             <div className="director-principles-heading">
 
               <h2>
-                Learning beyond
-                <em> the classroom.</em>
+                {directorPrinciples.heading}
+                <em>{directorPrinciples.headingAccent}</em>
               </h2>
 
-              <p>
-                An academic environment built around practical
-                experience, innovation and the development of
-                responsible leaders.
-              </p>
+              <p>{directorPrinciples.description}</p>
 
             </div>
 
-
             <div className="director-principles-grid">
 
-              <article className="director-principle-card">
+              {directorPrinciples.items.map((item) => (
+                <article
+                  className="director-principle-card"
+                  key={item.number}
+                >
+                  <span>{item.number}</span>
 
-                <span>01</span>
+                  <h3>{item.title}</h3>
 
-                <h3>
-                  Experience
-                </h3>
-
-                <p>
-                  Blending theoretical knowledge with hands-on
-                  learning and practical experience to prepare
-                  students for real-world challenges.
-                </p>
-
-              </article>
-
-
-              <article className="director-principle-card">
-
-                <span>02</span>
-
-                <h3>
-                  Innovation
-                </h3>
-
-                <p>
-                  Encouraging research-driven projects, creativity
-                  and innovation while building strong connections
-                  with industry.
-                </p>
-
-              </article>
-
-
-              <article className="director-principle-card">
-
-                <span>03</span>
-
-                <h3>
-                  Purpose
-                </h3>
-
-                <p>
-                  Developing confident and responsible individuals
-                  guided by curiosity, integrity, collaboration and
-                  social responsibility.
-                </p>
-
-              </article>
+                  <p>{item.description}</p>
+                </article>
+              ))}
 
             </div>
 
           </section>
-
 
           {/* ===================================================
               CLOSING
@@ -351,37 +255,30 @@ function Director() {
 
             <div className="director-closing-line" />
 
-            <span>
-              ECHELON INSTITUTE OF TECHNOLOGY
-            </span>
+            <span>{directorClosing.eyebrow}</span>
 
             <h2>
-              Learn.
+              {directorClosing.heading}
               <br />
-              Innovate.
+              {directorClosing.headingLineTwo}
               <br />
-              <em>Lead.</em>
+              <em>{directorClosing.headingAccent}</em>
             </h2>
 
-            <p>
-              Shaping the future through learning, innovation
-              and purpose.
-            </p>
+            <p>{directorClosing.description}</p>
 
             <Link
-              to="/about-eit"
+              to={directorClosing.buttonLink}
               className="director-closing-button"
             >
-              Back to About EIT
+              {directorClosing.buttonText}
               <ArrowUpRight size={18} />
             </Link>
 
           </section>
 
         </main>
-
       </div>
-
     </div>
   );
 }

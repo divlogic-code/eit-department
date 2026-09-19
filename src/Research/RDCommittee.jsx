@@ -1,2 +1,84 @@
-import ResearchSidebar from "./ResearchSidebar";import "./ResearchShared.css";import "./RDCommittee/RDCommittee.css";
-export default function RDCommittee(){return <><ResearchSidebar/><main className="research-page"><div className="research-container"><section className="research-hero"><div className="research-kicker">Research & Development</div><h1 className="research-title">Research & Development Committee</h1></section><section className="research-section"><h2>About Research & Development</h2><p>The Research and Development (R & D) Committee at Echelon Institute of Technology, Faridabad, is committed to cultivating a vibrant and progressive research ecosystem that promotes innovation, critical thinking, and entrepreneurial spirit among faculty and students. The committee plays a strategic role in designing, implementing, and overseeing research-related policies and initiatives across all departments.</p><p>Its core objective is to build and sustain a strong research culture that aligns with national priorities and global academic and industrial benchmarks. By facilitating interdisciplinary research, encouraging industry collaborations, supporting intellectual property creation, and promoting scholarly publications, the R&D Committee acts as a catalyst for academic excellence and institutional growth.</p></section><section className="research-section"><h2>Dean, Research & Development</h2><div className="research-card"><strong>Prof. (Dr.) Parmod Singh</strong>Dean, R&D</div><h3>R1 – Research & Development</h3><ul><li>Oversee institutional R&D ecosystem, planning, monitoring, promoting innovation, publications, collaborations, incubation.</li><li>Weekly Review Meetings chaired by Dean with Head of Innovation Cell, Head of Incubation Cell, departmental Research Coordinators.</li><li>Monthly Student Research Meeting with Student Research Coordinators.</li><li>Project Museum for significant innovative student/faculty projects.</li><li>Student Chapters of Professional Societies such as IEEE and ISTE.</li><li>College Research Journal, with faculty encouraged to publish at least one paper per semester.</li><li>Coordinate IIC calendar execution and uploading.</li><li>Select promising projects for incubation and market-ready product development.</li><li>Maintain documentation of projects, MOUs, outreach, grants and technology transfers.</li><li>Collaborate on conferences, FDPs and workshops.</li></ul></section><section className="research-section"><h2>Department Research Coordinator</h2><h3>R2 – Department Research Coordinator</h3><ul><li>Lead and supervise departmental research and innovation.</li><li>Conduct Project Orientation Programs and identify interdisciplinary and women-centric projects.</li><li>Manage project allotment from 3rd semester through final year, with real-world/startup applications.</li><li>Guide title finalization, synopsis, reviews, final demo, report, marking and project diary.</li><li>Coordinate evaluation and external participation and map outcomes to POs.</li><li>Conduct odd-semester technical events with rubrics, project lists, assessments, winners and certificates.</li><li>Ensure final reports and final-year project publication in national/international journals.</li><li>Support conference participation and proceedings.</li><li>Establish or upgrade one COE/research lab per department annually and encourage Industry-on-Campus live labs.</li><li>Apply for grants such as AICTE/DST and encourage at least one patent/copyright per semester.</li></ul></section><section className="research-section"><h2>R&D Committee Members</h2><div className="research-grid">{[["Dr. Arvind Kumar Pandey","Director","Chairman"],["Dr. Anurag Dwivedi","Professor, Electronics & Communication Engineering","Dean (R&D)"],["Dr. Pramod Singh","Professor, Electronics & Communication Engineering","Member"],["Dr. Ashish Kumar Thakur","Professor, Mechanical Engineering","Member"],["Dr. Sakshi Gandhi","Assistant Professor, Humanities & Applied Science","Member"],["Ms. Neha Kathuria","Assistant Professor, Computer Science & Engineering","Member"],["Mr. Sujeet Kumar","Assistant Professor, Department of Computer Applications","Member"],["Ms. Abhilasha","Assistant Professor, Department of Management Studies","Member"],["Mr. Himank Sharma","Assistant Professor, Civil Engineering","Member"]].map((m,i)=><div className="research-card" key={i}><strong>{m[0]}</strong><div>{m[1]}</div><small>{m[2]}</small></div>)}</div></section></div></main></>}
+import ResearchSidebar from "./ResearchSidebar";
+import "./ResearchShared.css";
+import "./RDCommittee/RDCommittee.css";
+
+import rdCommittee from "../data/research/rdCommittee";
+
+export default function RDCommittee() {
+  return (
+    <>
+      <ResearchSidebar />
+
+      <main className="research-page">
+        <div className="research-container">
+          <section className="research-hero">
+            <div className="research-kicker">
+              {rdCommittee.hero.kicker}
+            </div>
+
+            <h1 className="research-title">
+              {rdCommittee.hero.title}
+            </h1>
+          </section>
+
+          <section className="research-section">
+            <h2>{rdCommittee.about.title}</h2>
+
+            {rdCommittee.about.paragraphs.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </section>
+
+          <section className="research-section">
+            <h2>{rdCommittee.dean.title}</h2>
+
+            <div className="research-card">
+              <strong>{rdCommittee.dean.name}</strong>
+              {rdCommittee.dean.role}
+            </div>
+
+            <h3>{rdCommittee.r1.title}</h3>
+
+            <ul>
+              {rdCommittee.r1.items.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="research-section">
+            <h2>{rdCommittee.departmentResearchCoordinator.title}</h2>
+
+            <h3>
+              {rdCommittee.departmentResearchCoordinator.subtitle}
+            </h3>
+
+            <ul>
+              {rdCommittee.departmentResearchCoordinator.items.map(
+                (item, index) => (
+                  <li key={index}>{item}</li>
+                )
+              )}
+            </ul>
+          </section>
+
+          <section className="research-section">
+            <h2>R&D Committee Members</h2>
+
+            <div className="research-grid">
+              {rdCommittee.committeeMembers.map((member, index) => (
+                <div className="research-card" key={index}>
+                  <strong>{member.name}</strong>
+
+                  <div>{member.role}</div>
+
+                  <small>{member.position}</small>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      </main>
+    </>
+  );
+}

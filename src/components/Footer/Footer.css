@@ -10,24 +10,24 @@
     background:
         radial-gradient(
             circle at 85% 10%,
-            rgba(255, 70, 90, 0.20),
+            rgba(77, 171, 255, 0.22),
             transparent 30%
         ),
         radial-gradient(
             circle at 10% 90%,
-            rgba(160, 20, 45, 0.20),
+            rgba(41, 224, 160, 0.18),
             transparent 32%
         ),
         linear-gradient(
             135deg,
-            #21060d 0%,
-            #4b0b18 42%,
-            #26050e 100%
+            #060a16 0%,
+            #0d1830 42%,
+            #070c18 100%
         );
 
     color: #ffffff;
 
-    border-top: 1px solid rgba(255, 82, 105, 0.45);
+    border-top: 1px solid rgba(91, 127, 255, 0.35);
 
     /* Footer stays above fixed sidebars */
     z-index: 1000;
@@ -57,16 +57,16 @@
         linear-gradient(
             90deg,
             transparent 0%,
-            #7f1028 15%,
-            #ff4965 35%,
-            #ff9aa9 50%,
-            #ff4965 65%,
-            #7f1028 85%,
+            #0d1830 15%,
+            #4dabff 35%,
+            #a8e8d0 50%,
+            #4dabff 65%,
+            #0d1830 85%,
             transparent 100%
         );
 
     box-shadow:
-        0 0 18px rgba(255, 55, 85, 0.55);
+        0 0 18px rgba(77, 171, 255, 0.45);
 
     opacity: 0.95;
 }
@@ -92,7 +92,7 @@
     background:
         radial-gradient(
             circle,
-            rgba(220, 35, 65, 0.18),
+            rgba(41, 224, 160, 0.16),
             transparent 68%
         );
 
@@ -146,7 +146,7 @@
         linear-gradient(
             90deg,
             transparent,
-            rgba(255, 90, 110, 0.28),
+            rgba(91, 127, 255, 0.25),
             transparent
         );
 }
@@ -168,7 +168,7 @@
 .footer-left p {
     margin: 0;
 
-    color: rgba(255, 235, 238, 0.70);
+    color: rgba(230, 236, 250, 0.7);
 
     font-size: 0.88rem;
 
@@ -192,7 +192,7 @@
    ========================================================= */
 
 .footer-left strong {
-    color: #ff7185;
+    color: #4dabff;
 
     font-weight: 700;
 
@@ -215,12 +215,12 @@
     background:
         linear-gradient(
             90deg,
-            #ff4965,
+            #4dabff,
             transparent
         );
 
     box-shadow:
-        0 0 8px rgba(255, 73, 101, 0.35);
+        0 0 8px rgba(77, 171, 255, 0.35);
 }
 
 
@@ -266,7 +266,7 @@
             rgba(255, 255, 255, 0.025)
         );
 
-    border: 1px solid rgba(255, 115, 135, 0.18);
+    border: 1px solid rgba(91, 127, 255, 0.22);
 
     backdrop-filter: blur(14px);
 
@@ -299,16 +299,16 @@
     background:
         linear-gradient(
             135deg,
-            #b31235,
-            #e52d4f
+            #1450e6,
+            #29e0a0
         );
 
-    border-color: #ff7185;
+    border-color: #4dabff;
 
     box-shadow:
-        0 12px 30px rgba(207, 30, 60, 0.35),
-        0 0 0 5px rgba(255, 73, 101, 0.07),
-        0 0 22px rgba(255, 60, 85, 0.20);
+        0 12px 30px rgba(41, 224, 160, 0.3),
+        0 0 0 5px rgba(77, 171, 255, 0.08),
+        0 0 22px rgba(41, 224, 160, 0.2);
 }
 
 

@@ -1,4 +1,10 @@
-import { ArrowUpRight, Building2, GraduationCap, Landmark, Users } from "lucide-react";
+import {
+  ArrowUpRight,
+  Building2,
+  GraduationCap,
+  Landmark,
+  Users,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import React, { useEffect, useRef } from "react";
 
@@ -7,140 +13,26 @@ import AboutSidebar from "./AboutSidebar";
 import "./AboutEchelon/AboutEchelon.css";
 import "./BoardOfGovernors/BoardOfGovernors.css";
 
+import {
+  boardHero,
+  boardIntro,
+  governanceStats,
+  governors,
+  boardMembersSection,
+  governancePerspective,
+  boardClosing,
+} from "../data/about/boardOfGovernors";
 
-const governors = [
-  {
-    number: "01",
-    name: "Shri Prabhat Agarwal",
-    position: "Chairman, Echelon Institute of Technology",
-    role: "Chairman",
-    type: "Institutional Leadership",
-  },
-  {
-    number: "02",
-    name: "Dr. Arvind Kumar Pandey",
-    position: "Director, Echelon Institute of Technology",
-    role: "Member Secretary",
-    type: "Institutional Leadership",
-  },
-  {
-    number: "03",
-    name: "Shri Manan Sharma",
-    position:
-      "Director, Manas Hospital (A unit of Sharma Medical Centre Pvt Ltd)",
-    role: "Member",
-    type: "Professional Leadership",
-  },
-  {
-    number: "04",
-    name: "Mr. Debashish Majumdar",
-    position:
-      "Principal Architect, Line and Form Architects’ Services Pvt. Ltd., Delhi",
-    role: "Member",
-    type: "Professional Leadership",
-  },
-  {
-    number: "05",
-    name: "Prof. Keya Dharamvir",
-    position:
-      "Professor, Physics & Coordinator Nanoscience, Panjab University, Chandigarh",
-    role: "Member",
-    type: "Academic Leadership",
-  },
-  {
-    number: "06",
-    name: "Dr. S.S Tyagi",
-    position: "Dean Affiliation, Gurugram University, Gurugram, Haryana",
-    role: "Academic Member",
-    type: "Academic Leadership",
-  },
-  {
-    number: "07",
-    name: "Shri Suresh Gupta",
-    position:
-      "National Treasurer, Akhil Bhartiya Pravaasee Kaaryakarta Shiksha Sanskriti Utthan Nyas",
-    role: "Academic Member",
-    type: "Academic Leadership",
-  },
-  {
-    number: "08",
-    name: "Dr. Komal Bhatia",
-    position:
-      "Professor, J.C. Bose University of Science & Technology, Faridabad, Haryana",
-    role: "University Nominee",
-    type: "University Representation",
-  },
-  {
-    number: "09",
-    name: "Dr. Naresh Gupta",
-    position: "Founder, Accuracap Consultant Private Limited",
-    role: "Industry Member",
-    type: "Industry Leadership",
-  },
-  {
-    number: "10",
-    name: "Dr. N. Guruprasad",
-    position:
-      "Dean Academics, Don Bosco Institute of Technology, Bengaluru",
-    role: "Academic Member",
-    type: "Academic Leadership",
-  },
-  {
-    number: "11",
-    name: "Mr. Rajesh Garg",
-    position: "Retired Additional District Judge, Palwal",
-    role: "Member",
-    type: "Professional Leadership",
-  },
-  {
-    number: "12",
-    name: "Mr. Kiran DM",
-    position: "President, Sewa Bridge Foundation",
-    role: "Member",
-    type: "Social Leadership",
-  },
-  {
-    number: "13",
-    name: "Dr. Vikesh Kumar",
-    position:
-      "Professor-CSE, Echelon Institute of Technology, Faridabad",
-    role: "Member",
-    type: "Institutional Academic",
-  },
-  {
-    number: "14",
-    name: "Dr. Sima Kumari",
-    position:
-      "Professor & Dean, Department of Management Studies, Echelon Institute of Technology",
-    role: "Member",
-    type: "Institutional Academic",
-  },
-];
+function getStatIcon(icon) {
+  const icons = {
+    users: Users,
+    graduation: GraduationCap,
+    building: Building2,
+    landmark: Landmark,
+  };
 
-
-const governanceStats = [
-  {
-    number: "14",
-    label: "Board Members",
-    icon: Users,
-  },
-  {
-    number: "06",
-    label: "Academic Members",
-    icon: GraduationCap,
-  },
-  {
-    number: "01",
-    label: "Industry Member",
-    icon: Building2,
-  },
-  {
-    number: "01",
-    label: "University Nominee",
-    icon: Landmark,
-  },
-];
-
+  return icons[icon] || Users;
+}
 
 function BoardOfGovernors() {
   const membersRef = useRef(null);
@@ -182,104 +74,70 @@ function BoardOfGovernors() {
 
   return (
     <div className="board-page">
-
-      {/* =====================================================
-          HERO
-      ===================================================== */}
-
+      {/* HERO */}
       <section className="board-hero">
-
         <div className="board-hero-grid" />
-
         <div className="board-hero-glow" />
 
         <div className="board-hero-content">
-
           <span className="board-eyebrow">
-            ECHELON INSTITUTE OF TECHNOLOGY
+            {boardHero.eyebrow}
           </span>
 
           <h1>
-            BOARD OF
-            <span>GOVERNORS</span>
+            {boardHero.title}
+            <span>{boardHero.titleAccent}</span>
           </h1>
 
-          <p>
-            A distinguished governing body bringing together
-            institutional leadership, academic expertise, professional
-            experience and industry perspective.
-          </p>
+          <p>{boardHero.description}</p>
 
           <div className="board-hero-meta">
             <i />
-            <span>INSTITUTIONAL GOVERNANCE</span>
+            <span>{boardHero.meta}</span>
           </div>
-
         </div>
 
         <div className="board-hero-index">
-          03
+          {boardHero.index}
         </div>
 
         <div className="board-scroll">
-          <span>EXPLORE THE BOARD</span>
+          <span>{boardHero.scrollText}</span>
           <div />
         </div>
-
       </section>
 
-
-      {/* =====================================================
-          CONTENT
-      ===================================================== */}
-
+      {/* CONTENT */}
       <div className="board-layout">
-
         <AboutSidebar />
 
         <main className="board-main">
-
-
-          {/* =================================================
-              INTRODUCTION
-          ================================================= */}
-
+          {/* INTRODUCTION */}
           <section className="board-intro">
-
             <div className="board-section-label">
-              <span>01</span>
-              GOVERNANCE
+              <span>{boardIntro.sectionNumber}</span>
+              {boardIntro.sectionLabel}
             </div>
 
             <div className="board-intro-heading">
-
               <div>
                 <span className="board-kicker">
-                  THE GOVERNING COUNCIL
+                  {boardIntro.kicker}
                 </span>
 
                 <h2>
-                  Leadership with
-                  <em> perspective.</em>
+                  {boardIntro.heading}
+                  <em>{boardIntro.headingAccent}</em>
                 </h2>
               </div>
 
-              <p>
-                The Board of Governors brings together leaders from
-                education, industry, professional practice and the
-                wider community to provide institutional guidance and
-                perspective.
-              </p>
-
+              <p>{boardIntro.description}</p>
             </div>
 
-
-            {/* Stats */}
-
+            {/* STATS */}
             <div className="board-stats">
-
               {governanceStats.map((stat) => {
-                const Icon = stat.icon;
+                const Icon = getStatIcon(stat.icon);
 
                 return (
                   <div
@@ -296,66 +154,50 @@ function BoardOfGovernors() {
                   </div>
                 );
               })}
-
             </div>
-
           </section>
 
-
-          {/* =================================================
-              MEMBERS
-          ================================================= */}
-
+          {/* MEMBERS */}
           <section className="board-members">
-
             <div className="board-members-header">
-
               <div className="board-section-label">
-                <span>02</span>
-                BOARD MEMBERS
+                <span>{boardMembersSection.sectionNumber}</span>
+                {boardMembersSection.sectionLabel}
               </div>
 
               <div className="board-members-count">
-                14 MEMBERS
+                {boardMembersSection.count}
               </div>
-
             </div>
-
 
             <div className="board-members-intro">
-
               <h2>
-                The people behind
-                <em> the governance.</em>
+                {boardMembersSection.heading}
+                <em>{boardMembersSection.headingAccent}</em>
               </h2>
 
-              <p>
-                A collective of experienced leaders and academics
-                supporting the institutional direction of Echelon
-                Institute of Technology.
-              </p>
-
+              <p>{boardMembersSection.description}</p>
             </div>
 
-
             <div
-                className="board-members-grid"
-                ref={membersRef}
+              className="board-members-grid"
+              ref={membersRef}
             >
-
               {governors.map((member) => (
                 <article
-                    className={`board-member-card ${
-                        member.number === "01" ? "board-member-featured" : ""
-                    }`}
-                    key={member.number}
-                    style={{
-                        "--card-delay": `${(Number(member.number) - 1) * 70}ms`,
-                    }}
+                  className={`board-member-card ${
+                    member.number === "01"
+                      ? "board-member-featured"
+                      : ""
+                  }`}
+                  key={member.number}
+                  style={{
+                    "--card-delay": `${
+                      (Number(member.number) - 1) * 70
+                    }ms`,
+                  }}
                 >
-
                   <div className="board-member-top">
-
                     <span className="board-member-number">
                       {member.number}
                     </span>
@@ -363,113 +205,68 @@ function BoardOfGovernors() {
                     <span className="board-member-type">
                       {member.type}
                     </span>
-
                   </div>
-
 
                   <div className="board-member-content">
+                    <h3>{member.name}</h3>
 
-                    <h3>
-                      {member.name}
-                    </h3>
-
-                    <p>
-                      {member.position}
-                    </p>
-
+                    <p>{member.position}</p>
                   </div>
-
 
                   <div className="board-member-footer">
-
-                    <span>
-                      {member.role}
-                    </span>
+                    <span>{member.role}</span>
 
                     <ArrowUpRight size={17} />
-
                   </div>
-
                 </article>
               ))}
-
             </div>
-
           </section>
 
-
-          {/* =================================================
-              GOVERNANCE PERSPECTIVE
-          ================================================= */}
-
+          {/* GOVERNANCE PERSPECTIVE */}
           <section className="board-perspective">
-
             <div className="board-perspective-number">
-              03
+              {governancePerspective.sectionNumber}
             </div>
 
             <div className="board-perspective-content">
-
-              <span>
-                A MULTIDISCIPLINARY PERSPECTIVE
-              </span>
+              <span>{governancePerspective.eyebrow}</span>
 
               <h2>
-                Different disciplines.
+                {governancePerspective.heading}
                 <br />
-                One <em>direction.</em>
+                {governancePerspective.headingLineTwo}{" "}
+                <em>{governancePerspective.headingAccent}</em>
               </h2>
 
-              <p>
-                The composition of the Board reflects a broad range of
-                academic, professional, institutional, industry and
-                social perspectives. Together, these voices contribute
-                to the governance and continued development of the
-                institution.
-              </p>
-
+              <p>{governancePerspective.description}</p>
             </div>
-
           </section>
 
-
-          {/* =================================================
-              CLOSING
-          ================================================= */}
-
+          {/* CLOSING */}
           <section className="board-closing">
-
             <div className="board-closing-line" />
 
-            <span>
-              ECHELON INSTITUTE OF TECHNOLOGY
-            </span>
+            <span>{boardClosing.eyebrow}</span>
 
             <h2>
-              Govern.
+              {boardClosing.heading}
               <br />
-              <em>Guide.</em>
+              <em>{boardClosing.headingAccent}</em>
             </h2>
 
-            <p>
-              Strong institutions are shaped by thoughtful leadership,
-              diverse perspectives and a clear sense of purpose.
-            </p>
+            <p>{boardClosing.description}</p>
 
             <Link
-              to="/about-eit"
+              to={boardClosing.buttonLink}
               className="board-closing-button"
             >
-              BACK TO ABOUT EIT
+              {boardClosing.buttonText}
               <ArrowUpRight size={16} />
             </Link>
-
           </section>
-
         </main>
-
       </div>
-
     </div>
   );
 }

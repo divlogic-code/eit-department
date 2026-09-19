@@ -1,6 +1,39 @@
-import PlacementSidebar from "./PlacementSidebar";import "./MegaJobFair/MegaJobFair.css";
-export default function MegaJobFair(){return <div className="placement-page MegaJobFair-content"><PlacementSidebar/><main><section className="placement-hero"><span>TRAINING & PLACEMENT</span><h1>Mega Job Fair</h1><p>A large-scale platform connecting job-ready graduates with industry.</p></section><section className="placement-container">
-<div className="placement-dark"><h2>50+ Renowned Companies</h2><p>EIT proudly hosted a Mega Job Fair to bridge academic learning and industry employment. The event brought companies across diverse sectors together with talented, job-ready graduates.</p></div>
-<div className="placement-grid"><div className="placement-card"><h2>50+</h2><p>Renowned companies</p></div><div className="placement-card"><h2>100+</h2><p>Companies cited for employment opportunity collaboration</p></div><div className="placement-card"><h2>On-the-spot</h2><p>Interviews and offer rollouts</p></div></div>
-<div className="placement-card"><p>Beyond placements, the fair fostered career guidance, resume-building sessions, and expert talks. EIT is proud to institutionalize this Mega Job Fair as an annual flagship event.</p></div>
-</section></main></div>}
+import PlacementSidebar from "./PlacementSidebar";
+import megaJobFair from "../data/placement/megaJobFair";
+import "./MegaJobFair/MegaJobFair.css";
+
+export default function MegaJobFair() {
+  return (
+    <div className="placement-page MegaJobFair-content">
+      <PlacementSidebar />
+
+      <main>
+        <section className="placement-hero">
+          <span>{megaJobFair.hero.eyebrow}</span>
+          <h1>{megaJobFair.hero.title}</h1>
+          <p>{megaJobFair.hero.description}</p>
+        </section>
+
+        <section className="placement-container">
+          <div className="placement-dark">
+            <h2>{megaJobFair.overview.title}</h2>
+            <p>{megaJobFair.overview.description}</p>
+          </div>
+
+          <div className="placement-grid">
+            {megaJobFair.highlights.map((item) => (
+              <div className="placement-card" key={item.title}>
+                <h2>{item.title}</h2>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="placement-card">
+            <p>{megaJobFair.footerNote}</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}

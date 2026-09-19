@@ -1,9 +1,107 @@
-import PlacementSidebar from "./PlacementSidebar";import "./ProcessOfPlacement/ProcessOfPlacement.css";
-export default function ProcessOfPlacement(){return <div className="placement-page ProcessOfPlacement-content"><PlacementSidebar/><main><section className="placement-hero"><span>TRAINING & PLACEMENT</span><h1>Placement Process</h1><p>A structured pathway from industry engagement to onboarding.</p></section><section className="placement-container">
-<div className="placement-card"><span className="eyebrow">01 / COMPANY ENGAGEMENT</span><h2>Company Engagement & Collaboration</h2><p>The process begins with proactive engagement and relationship-building with top organizations. Customized placement brochures showcase student profiles, academic strengths, and institutional achievements. Companies respond with JDs, eligibility criteria, selection processes, compensation, and requirements. The T&P Cell schedules drives according to mutual availability.</p></div>
-<div className="placement-card"><span className="eyebrow">02 / PREPARATION</span><h2>Future-Ready Pre-Placement Preparation</h2><ul><li><b>Aptitude Mastery:</b> Quantitative aptitude, verbal ability, and logical reasoning.</li><li><b>21st-Century Soft Skills:</b> Communication, teamwork, leadership, GDs, and interviews.</li><li><b>Technical Readiness:</b> Workshops, coding practice, and domain-specific training.</li><li><b>Skills & Certifications:</b> Industry-recognized certification and skill enhancement.</li><li><b>Professional Branding:</b> Resume-building, LinkedIn optimization, and mock interviews.</li></ul></div>
-<div className="placement-grid"><div className="placement-dark"><h2>03 / Eligibility</h2><ul><li>Final-year B.Tech, M.Tech, BCA, MCA, BBA, MBA.</li><li>Meet recruiter cut-offs.</li><li>Clean disciplinary record.</li></ul></div><div className="placement-dark"><h2>04 / Registration</h2><ul><li>Complete T&P registration.</li><li>Submit consent for company drives.</li><li>Submit standardized resume.</li></ul></div></div>
-<div className="placement-card"><h2>05 / Holistic Campus Recruitment Framework</h2><p><b>PPTs:</b> Company culture, roles, expectations.</p><p><b>Assessments:</b> Aptitude or technical tests.</p><p><b>Group Discussions:</b> Communication, collaboration, critical thinking.</p><p><b>Personal Interviews:</b> Technical evaluation and HR interaction.</p></div>
-<div className="placement-grid"><div className="placement-card"><h2>06 / Offer Management</h2><p>Selected students receive formal offer letters. Written acceptance is required within the stipulated timeframe. EIT follows a One Student–One Offer policy unless otherwise stated.</p></div><div className="placement-card"><h2>07 / Post-Placement Support</h2><p>End-to-end onboarding, documentation, joining assistance, alumni mentorship, and career counseling.</p></div></div>
-<div className="placement-card"><h2>08 / Code of Conduct</h2><ul><li>100% attendance in pre-placement training and recruitment activities.</li><li>Formal dress code during drives and interviews.</li><li>Professional behavior, punctuality, and commitment.</li><li>Violation or misrepresentation results in disqualification.</li></ul></div>
-</section></main></div>}
+import PlacementSidebar from "./PlacementSidebar";
+import processOfPlacement from "../data/placement/processOfPlacement";
+import "./ProcessOfPlacement/ProcessOfPlacement.css";
+
+export default function ProcessOfPlacement() {
+  const [
+    companyEngagement,
+    preparation,
+    eligibility,
+    registration,
+    recruitment,
+    offerManagement,
+    postPlacement,
+    codeOfConduct,
+  ] = processOfPlacement.steps;
+
+  return (
+    <div className="placement-page ProcessOfPlacement-content">
+      <PlacementSidebar />
+
+      <main>
+        <section className="placement-hero">
+          <span>{processOfPlacement.hero.eyebrow}</span>
+          <h1>{processOfPlacement.hero.title}</h1>
+          <p>{processOfPlacement.hero.description}</p>
+        </section>
+
+        <section className="placement-container">
+          <div className="placement-card">
+            <span className="eyebrow">{companyEngagement.eyebrow}</span>
+            <h2>{companyEngagement.title}</h2>
+            <p>{companyEngagement.description}</p>
+          </div>
+
+          <div className="placement-card">
+            <span className="eyebrow">{preparation.eyebrow}</span>
+            <h2>{preparation.title}</h2>
+
+            <ul>
+              {preparation.items.map((item) => (
+                <li key={item.title}>
+                  <b>{item.title}:</b> {item.description}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="placement-grid">
+            {[eligibility, registration].map((section) => (
+              <div className="placement-dark" key={section.number}>
+                <h2>
+                  {section.number} / {section.title}
+                </h2>
+
+                <ul>
+                  {section.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="placement-card">
+            <h2>
+              {recruitment.number} / {recruitment.title}
+            </h2>
+
+            {recruitment.items.map((item) => (
+              <p key={item.title}>
+                <b>{item.title}:</b> {item.description}
+              </p>
+            ))}
+          </div>
+
+          <div className="placement-grid">
+            <div className="placement-card">
+              <h2>
+                {offerManagement.number} / {offerManagement.title}
+              </h2>
+              <p>{offerManagement.description}</p>
+            </div>
+
+            <div className="placement-card">
+              <h2>
+                {postPlacement.number} / {postPlacement.title}
+              </h2>
+              <p>{postPlacement.description}</p>
+            </div>
+          </div>
+
+          <div className="placement-card">
+            <h2>
+              {codeOfConduct.number} / {codeOfConduct.title}
+            </h2>
+
+            <ul>
+              {codeOfConduct.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}

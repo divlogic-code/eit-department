@@ -1,0 +1,43 @@
+:root {
+  /* =========================================
+     SPACING SCALE
+  ========================================= */
+
+  --eit-space-1: 4px;
+  --eit-space-2: 8px;
+  --eit-space-3: 12px;
+  --eit-space-4: 16px;
+  --eit-space-5: 20px;
+  --eit-space-6: 24px;
+  --eit-space-7: 32px;
+  --eit-space-8: 40px;
+  --eit-space-9: 50px;
+  --eit-space-10: 60px;
+  --eit-space-11: 70px;
+  --eit-space-12: 80px;
+  --eit-space-13: 100px;
+  --eit-space-14: 120px;
+
+  /* =========================================
+     LAYOUT
+  ========================================= */
+
+  --eit-content-width: 1200px;
+  --eit-content-width-wide: 1400px;
+
+  --eit-page-padding:
+    clamp(25px, 7vw, 110px);
+
+  --eit-section-padding:
+    clamp(70px, 8vw, 120px);
+
+  /* =========================================
+     NAVIGATION
+  ========================================= */
+
+  --eit-navbar-height: 82px;
+  --eit-navbar-height-mobile: 70px;
+
+  --eit-sidebar-width: 270px;
+  --eit-sidebar-width-mobile: 230px;
+}

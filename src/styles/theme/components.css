@@ -1,0 +1,195 @@
+/* =========================================
+   GLOBAL CONTAINER
+========================================= */
+
+.eit-container {
+  width: min(100% - 40px, var(--eit-content-width));
+  margin-inline: auto;
+}
+
+
+/* =========================================
+   SECTION
+========================================= */
+
+.eit-section {
+  position: relative;
+
+  padding:
+    var(--eit-section-padding)
+    var(--eit-page-padding);
+}
+
+
+/* =========================================
+   EYEBROW
+========================================= */
+
+.eit-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  color: var(--eit-gold-400);
+
+  font-size: var(--eit-text-xs);
+  font-weight: var(--eit-weight-bold);
+
+  letter-spacing: var(--eit-tracking-wideest);
+
+  text-transform: uppercase;
+}
+
+.eit-eyebrow::before {
+  content: "";
+
+  width: 40px;
+  height: 1px;
+
+  background: currentColor;
+}
+
+
+/* =========================================
+   DISPLAY HEADING
+========================================= */
+
+.eit-display {
+  color: var(--eit-text-primary);
+
+  font-family: var(--eit-font-display);
+
+  font-weight: var(--eit-weight-regular);
+
+  line-height: var(--eit-leading-heading);
+
+  letter-spacing: var(--eit-tracking-tight);
+}
+
+
+/* =========================================
+   DARK SURFACE
+========================================= */
+
+.eit-dark {
+  background: var(--eit-bg-dark);
+
+  color: var(--eit-text-light);
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.eit-card {
+  background: var(--eit-bg-card);
+
+  border: 1px solid var(--eit-border-light);
+
+  box-shadow:
+    0 20px 50px
+    rgba(23, 60, 49, 0.08);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.eit-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 30px 70px
+    rgba(23, 60, 49, 0.14);
+}
+
+
+/* =========================================
+   GOLD ACCENT
+========================================= */
+
+.eit-gold {
+  color: var(--eit-gold-500);
+}
+
+
+/* =========================================
+   RUBY ACCENT
+========================================= */
+
+.eit-ruby {
+  color: var(--eit-ruby-600);
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.eit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 13px 24px;
+
+  border: 1px solid var(--eit-gold-500);
+
+  background: var(--eit-emerald-700);
+
+  color: var(--eit-text-light);
+
+  font-family: var(--eit-font-body);
+  font-size: var(--eit-text-sm);
+  font-weight: var(--eit-weight-bold);
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.eit-button:hover {
+  transform: translateY(-2px);
+
+  background: var(--eit-sapphire-700);
+
+  border-color: var(--eit-gold-300);
+}
+
+
+/* =========================================
+   GOLD DIVIDER
+========================================= */
+
+.eit-divider {
+  width: 70px;
+  height: 1px;
+
+  background: var(--eit-gold-500);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 650px) {
+  .eit-container {
+    width: min(100% - 30px, var(--eit-content-width));
+  }
+
+  .eit-section {
+    padding:
+      70px
+      25px;
+  }
+}

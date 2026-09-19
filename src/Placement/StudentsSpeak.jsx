@@ -1,27 +1,7 @@
 import { ArrowUpRight, PlayCircle } from "lucide-react";
 import AdmissionsSidebar from "../Admissions/AdmissionsSidebar";
+import studentsSpeak from "../data/placement/studentsSpeak";
 import "./StudentsSpeak/StudentsSpeak.css";
-
-const studentVideos = [
-  {
-    name: "Student Experience",
-    description:
-      "Hear directly from students about their campus experience, learning environment, and placement journey.",
-    videoId: "",
-  },
-  {
-    name: "Placement Experience",
-    description:
-      "Students share their experience with placement preparation, industry exposure, and recruitment opportunities.",
-    videoId: "",
-  },
-  {
-    name: "Campus Experience",
-    description:
-      "Explore student perspectives on academics, activities, infrastructure, and life at Echelon.",
-    videoId: "",
-  },
-];
 
 function StudentsSpeak() {
   return (
@@ -36,42 +16,35 @@ function StudentsSpeak() {
           loop
           playsInline
         >
-          <source src="/videos/college-campus.mp4" type="video/mp4" />
+          <source src={studentsSpeak.hero.video} type="video/mp4" />
         </video>
 
         <div className="students-speak-hero-overlay" />
 
         <div className="students-speak-hero-content">
           <span className="students-speak-eyebrow">
-            PLACEMENT & CAREER DEVELOPMENT
+            {studentsSpeak.hero.eyebrow}
           </span>
 
-          <h1>Students Speak</h1>
+          <h1>{studentsSpeak.hero.title}</h1>
 
-          <p>
-            Discover the experiences, perspectives, and placement journeys
-            shared by students of Echelon Institute of Technology.
-          </p>
+          <p>{studentsSpeak.hero.description}</p>
         </div>
       </section>
 
       <main className="students-speak-content">
         <section className="students-speak-intro">
           <span className="students-speak-section-label">
-            STUDENT VOICES
+            {studentsSpeak.intro.label}
           </span>
 
-          <h2>Hear It From Our Students</h2>
+          <h2>{studentsSpeak.intro.title}</h2>
 
-          <p>
-            Student experiences offer a genuine perspective on campus life,
-            academics, industry exposure, professional development, and
-            placements at Echelon Institute of Technology.
-          </p>
+          <p>{studentsSpeak.intro.description}</p>
         </section>
 
         <section className="students-speak-grid">
-          {studentVideos.map((student, index) => (
+          {studentsSpeak.videos.map((student, index) => (
             <article className="student-video-card" key={student.name}>
               <div className="student-video-media">
                 {student.videoId ? (
@@ -123,16 +96,12 @@ function StudentsSpeak() {
         <section className="students-speak-note">
           <div>
             <span className="students-speak-section-label">
-              STUDENT PERSPECTIVE
+              {studentsSpeak.note.label}
             </span>
 
-            <h2>Real Experiences. Real Journeys.</h2>
+            <h2>{studentsSpeak.note.title}</h2>
 
-            <p>
-              Student testimonials provide an authentic window into the
-              academic and professional journey at Echelon Institute of
-              Technology.
-            </p>
+            <p>{studentsSpeak.note.description}</p>
           </div>
         </section>
       </main>

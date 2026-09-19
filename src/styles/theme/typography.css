@@ -1,0 +1,20 @@
+:root {
+  --eit-text-xs: 11px;
+  --eit-text-sm: 13px;
+  --eit-text-md: 17px;
+  --eit-text-lg: 22px;
+
+  --eit-display-xl: clamp(56px, 8vw, 118px);
+  --eit-display-lg: clamp(46px, 6vw, 86px);
+  --eit-display-md: clamp(34px, 4vw, 58px);
+
+  --eit-leading-tight: 0.95;
+  --eit-leading-body: 1.75;
+
+  --eit-weight-regular: 400;
+  --eit-weight-medium: 500;
+  --eit-weight-semibold: 600;
+
+  --eit-tracking-tight: -0.04em;
+  --eit-tracking-wide: 0.14em;
+}

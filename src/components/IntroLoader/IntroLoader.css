@@ -1,0 +1,664 @@
+.intro-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(255, 255, 255, 0.58),
+      transparent 42%
+    ),
+    #f3eee1;
+
+  color: #4f5b2a;
+
+  font-family:
+    "Inter",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  isolation: isolate;
+    transform: translateY(0);
+  opacity: 1;
+
+  transition:
+    transform 0.9s cubic-bezier(0.77, 0, 0.175, 1),
+    opacity 0.7s ease;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.intro-content {
+  position: relative;
+  z-index: 5;
+
+  width: min(900px, 88vw);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.intro-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.intro-logo {
+  width: min(430px, 52vw);
+  max-height: 125px;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+.intro-tagline {
+  margin-top: 12px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(14px, 1.3vw, 19px);
+
+  font-weight: 500;
+
+  letter-spacing: -0.02em;
+
+  color: #343b24;
+}
+
+.intro-institute {
+  margin-top: 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.42em;
+
+  color: #8b9a6e;
+
+  white-space: nowrap;
+}
+
+.intro-institute span {
+  width: 58px;
+  height: 1px;
+
+  background: rgba(79, 91, 42, 0.35);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.intro-hero {
+  margin-top: 68px;
+}
+
+.intro-hero h1 {
+  margin: 0;
+
+  font-size: clamp(27px, 3.2vw, 47px);
+
+  font-weight: 300;
+
+  letter-spacing: 0.30em;
+
+  line-height: 1.15;
+
+  color: #4f5b2a;
+
+  white-space: nowrap;
+}
+
+.intro-hero p {
+  margin: 19px 0 0;
+
+  font-size: 12px;
+
+  font-weight: 400;
+
+  letter-spacing: 0.38em;
+
+  color: #8b9a6e;
+}
+
+.intro-hero p span {
+  margin: 0 10px;
+
+  color: #218dae;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.intro-progress {
+  margin-top: 60px;
+
+  width: min(570px, 70vw);
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+}
+
+.intro-progress-track {
+  position: relative;
+
+  width: 100%;
+  height: 8px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: rgba(79, 91, 42, 0.09);
+}
+
+.intro-progress-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    #b38a27 0%,
+    #d6ad43 45%,
+    #e1bf68 100%
+  );
+
+  box-shadow:
+    0 0 14px rgba(179, 138, 39, 0.22);
+
+  transition: width 0.05s linear;
+}
+
+.intro-progress-number {
+  min-width: 45px;
+
+  font-size: 13px;
+
+  letter-spacing: 0.08em;
+
+  color: #697647;
+
+  text-align: left;
+}
+
+.progress-hidden {
+  opacity: 0;
+  transform: translateY(-8px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ENTER
+========================================================= */
+
+.intro-enter {
+  margin-top: 80px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 28px;
+
+  cursor: default;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.intro-enter.enter-visible {
+  opacity: 1;
+
+  pointer-events: auto;
+
+  cursor: pointer;
+
+  transform: translateY(0);
+}
+
+.intro-enter-line {
+  width: 105px;
+  height: 1px;
+
+  background: rgba(79, 91, 42, 0.55);
+
+  transition:
+    width 0.35s ease,
+    background 0.35s ease;
+}
+
+.intro-enter-text {
+  font-family:
+    "Inter",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  font-size: 19px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.27em;
+
+  color: #4f5b2a;
+
+  transition:
+    color 0.35s ease,
+    letter-spacing 0.35s ease;
+}
+
+.intro-enter:hover .intro-enter-line {
+  width: 125px;
+
+  background: #b38a27;
+}
+
+.intro-enter:hover .intro-enter-text {
+  color: #b38a27;
+
+  letter-spacing: 0.34em;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.intro-footer {
+  margin-top: 46px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 11px;
+
+  color: #8b9a6e;
+}
+
+.intro-fields {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.35em;
+
+  white-space: nowrap;
+}
+
+.intro-fields b {
+  font-size: 7px;
+
+  font-weight: 400;
+
+  color: #218dae;
+}
+
+.intro-location {
+  font-size: 10px;
+
+  letter-spacing: 0.42em;
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.intro-scroll {
+  margin-top: 32px;
+
+  width: 27px;
+  height: 45px;
+
+  border: 1px solid rgba(79, 91, 42, 0.55);
+
+  border-radius: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #4f5b2a;
+}
+
+
+/* =========================================================
+   SIDE LINES
+========================================================= */
+
+.intro-side-line {
+  position: absolute;
+
+  top: 27%;
+
+  width: 1px;
+  height: 43%;
+
+  background: rgba(79, 91, 42, 0.26);
+
+  z-index: 2;
+}
+
+.intro-side-line-left {
+  left: 3%;
+}
+
+.intro-side-line-right {
+  right: 3%;
+}
+
+.intro-dot {
+  position: absolute;
+
+  left: 50%;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+}
+
+.intro-dot-green {
+  top: 42%;
+
+  background: #718449;
+}
+
+.intro-dot-blue {
+  top: 58%;
+
+  background: #1591dc;
+}
+
+
+/* =========================================================
+   DECORATIVE ARCS
+========================================================= */
+
+.intro-arc {
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.intro-arc-top-left {
+  top: -150px;
+  left: -80px;
+}
+
+.intro-arc-bottom-right {
+  right: -80px;
+  bottom: -150px;
+}
+
+.intro-arc-green {
+  border: 1px solid rgba(79, 91, 42, 0.8);
+}
+
+.intro-arc-blue {
+  width: 370px;
+  height: 370px;
+
+  border: 1px solid rgba(21, 145, 220, 0.85);
+}
+
+
+/* =========================================================
+   COMPLETION STATE
+========================================================= */
+
+.intro-loader.is-complete .intro-content {
+  animation: intro-content-ready 0.8s ease forwards;
+}
+
+@keyframes intro-content-ready {
+  from {
+    opacity: 0.82;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+  .intro-hero {
+    margin-top: 55px;
+  }
+
+  .intro-progress {
+    margin-top: 48px;
+  }
+
+  .intro-enter {
+    margin-top: 65px;
+  }
+
+  .intro-side-line {
+    height: 36%;
+  }
+
+  .intro-arc {
+    width: 230px;
+    height: 230px;
+  }
+
+  .intro-arc-blue {
+    width: 290px;
+    height: 290px;
+  }
+}
+
+
+@media (max-width: 650px) {
+  .intro-content {
+    width: 90vw;
+  }
+
+  .intro-logo {
+    width: min(330px, 70vw);
+  }
+
+  .intro-tagline {
+    font-size: 12px;
+  }
+
+  .intro-institute {
+    gap: 10px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.28em;
+  }
+
+  .intro-institute span {
+    width: 28px;
+  }
+
+  .intro-hero {
+    margin-top: 50px;
+  }
+
+  .intro-hero h1 {
+    font-size: clamp(20px, 6vw, 31px);
+
+    letter-spacing: 0.16em;
+  }
+
+  .intro-hero p {
+    font-size: 8px;
+
+    letter-spacing: 0.25em;
+  }
+
+  .intro-progress {
+    width: 75vw;
+
+    margin-top: 42px;
+
+    gap: 12px;
+  }
+
+  .intro-progress-track {
+    height: 6px;
+  }
+
+  .intro-progress-number {
+    font-size: 10px;
+  }
+
+  .intro-enter {
+    margin-top: 58px;
+
+    gap: 15px;
+  }
+
+  .intro-enter-line {
+    width: 45px;
+  }
+
+  .intro-enter-text {
+    font-size: 14px;
+  }
+
+  .intro-fields {
+    font-size: 7px;
+
+    letter-spacing: 0.18em;
+
+    gap: 7px;
+  }
+
+  .intro-location {
+    font-size: 8px;
+
+    letter-spacing: 0.3em;
+  }
+
+  .intro-side-line {
+    display: none;
+  }
+
+  .intro-arc {
+    width: 170px;
+    height: 170px;
+  }
+
+  .intro-arc-blue {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-progress,
+  .intro-enter,
+  .intro-enter-line,
+  .intro-enter-text {
+    transition: none;
+  }
+
+  .intro-loader.is-complete .intro-content {
+    animation: none;
+  }
+}
+/* =========================================================
+   EXIT TRANSITION
+========================================================= */
+
+.intro-loader.is-exiting {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-loader.is-exiting .intro-content {
+  transform: translateY(-35px);
+  opacity: 0.85;
+  transition:
+    transform 0.8s cubic-bezier(0.77, 0, 0.175, 1),
+    opacity 0.6s ease;
+}
+
+.intro-loader.is-exiting .intro-arc-top-left {
+  transform: translate(-30px, -30px);
+  opacity: 0;
+}
+
+.intro-loader.is-exiting .intro-arc-bottom-right {
+  transform: translate(30px, 30px);
+  opacity: 0;
+}
+
+.intro-loader.is-exiting .intro-side-line {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}

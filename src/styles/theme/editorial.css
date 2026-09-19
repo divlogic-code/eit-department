@@ -1,0 +1,92 @@
+html {
+  background: var(--eit-bg);
+}
+
+body {
+  margin: 0;
+  background: var(--eit-bg);
+  color: var(--eit-text);
+  font-family: var(--eit-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.eit-editorial-section {
+  position: relative;
+  padding: clamp(100px, 14vw, 220px)
+           clamp(25px, 7vw, 110px);
+  background: var(--eit-bg);
+}
+
+.eit-editorial-container {
+  width: min(100%, 1320px);
+  margin-inline: auto;
+}
+
+.eit-editorial-label {
+  display: inline-block;
+
+  margin-bottom: 28px;
+
+  color: var(--eit-gold);
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eit-editorial-title {
+  max-width: 1100px;
+
+  margin: 0;
+
+  color: var(--eit-text);
+
+  font-family: var(--eit-font-display);
+  font-size: var(--eit-display-lg);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: var(--eit-tracking-tight);
+}
+
+.eit-editorial-lead {
+  max-width: 1000px;
+
+  margin-top: 40px;
+
+  color: var(--eit-text-muted);
+
+  font-size: clamp(24px, 3vw, 42px);
+  line-height: 1.25;
+}
+
+.eit-editorial-copy {
+  max-width: 900px;
+
+  margin-top: 45px;
+
+  color: var(--eit-text-soft);
+
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.eit-editorial-copy + .eit-editorial-copy {
+  margin-top: 24px;
+}
+
+.eit-editorial-divider {
+  width: 100%;
+  height: 1px;
+  margin: 70px 0;
+
+  background: var(--eit-border);
+}
+
+.eit-editorial-number {
+  color: var(--eit-text-muted);
+
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}

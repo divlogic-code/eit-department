@@ -1,0 +1,62 @@
+:root {
+
+  /* =====================================================
+     EIT NEW COLOR SYSTEM
+     ===================================================== */
+
+  --eit-olive-950: #4F5B2A;
+  --eit-olive-900: #5E6B35;
+  --eit-olive-800: #718449;
+  --eit-olive-700: #91AC67;
+  --eit-olive-600: #8B9A6E;
+
+  --eit-teal-700: #218DAE;
+  --eit-teal-600: #1591DC;
+
+  --eit-blue-700: #4382DF;
+  --eit-blue-600: #1591DC;
+
+  /* =====================================================
+     BACKGROUNDS
+     ===================================================== */
+
+  --eit-bg-light: #F3F6EC;
+  --eit-bg-soft: #EDF2E4;
+  --eit-bg-white: #FAFCF7;
+
+  --eit-bg-dark: #4F5B2A;
+
+  /* =====================================================
+     GLASS
+     ===================================================== */
+
+  --eit-glass-light: rgba(250, 252, 247, 0.48);
+  --eit-glass-dark: rgba(79, 91, 42, 0.16);
+
+  --eit-border: rgba(79, 91, 42, 0.16);
+  --eit-border-strong: rgba(79, 91, 42, 0.28);
+
+  --eit-border-blue: rgba(67, 130, 223, 0.42);
+  --eit-border-teal: rgba(33, 141, 174, 0.42);
+
+  /* =====================================================
+     TEXT
+     ===================================================== */
+
+  --eit-text-primary: #4F5B2A;
+  --eit-text-secondary: #65704C;
+  --eit-text-muted: #8B9A6E;
+
+  --eit-text-light: #F8FAF3;
+  --eit-text-light-muted: rgba(248, 250, 243, 0.72);
+
+  /* =====================================================
+     ACCENTS
+     ===================================================== */
+
+  --eit-accent-primary: #91AC67;
+  --eit-accent-secondary: #218DAE;
+  --eit-accent-blue: #4382DF;
+  --eit-accent-bright: #1591DC;
+
+}

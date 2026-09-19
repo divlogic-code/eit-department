@@ -1,7 +1,70 @@
-import PlacementSidebar from "./PlacementSidebar";import "./PolicyOfPlacement/PolicyOfPlacement.css";
-export default function PolicyOfPlacement(){return <div className="placement-page PolicyOfPlacement-content"><PlacementSidebar/><main><section className="placement-hero"><span>TRAINING & PLACEMENT</span><h1>Placement Policy</h1><p>A structured, transparent, and equitable placement ecosystem.</p></section><section className="placement-container">
-<div className="placement-dark"><h2>Purpose Statement</h2><p>The Placement Policy of Echelon Institute of Technology is designed to ensure a structured, transparent, and equitable placement ecosystem for all registered students. It governs the process from student registration to final job offer while upholding fairness, integrity, and industry alignment.</p></div>
-<div className="placement-card"><h2>Key Definitions</h2><p><b>Division of T&P:</b> Central body responsible for internships and career opportunities.</p><p><b>Placement Consent Form:</b> Formal expression of interest for campus placement.</p><p><b>On-Campus Placement:</b> Employment offers through structured recruitment drives managed by T&P.</p><p><b>Off-Campus Placement:</b> Opportunities secured independently outside institutional involvement.</p><p><b>Placement Drive:</b> Selection procedure hosted by EIT with visiting organizations.</p><p><b>JD:</b> Job profile outlining role, compensation, eligibility, and selection protocols.</p><p><b>CTC:</b> Total annual remuneration package.</p><p><b>Registered Students:</b> Final-year students formally enrolled in the placement process.</p><p><b>PPT:</b> Recruiter orientation on roles, culture, and selection stages.</p><p><b>Code of Conduct:</b> Behavioral and ethical standards throughout the placement cycle.</p></div>
-<div className="placement-grid"><div className="placement-card"><h2>Eligibility & Registration</h2><ul><li>Final-year B.Tech, M.Tech, BCA, MCA, BBA, and MBA students.</li><li>No active academic backlogs at registration, subject to company criteria.</li><li>Minimum 60% aggregate unless stated otherwise by recruiters.</li><li>Clean academic and disciplinary record.</li><li>Register with T&P at the start of the odd semester.</li><li>Submit academic credentials, resume, and required documents.</li></ul></div><div className="placement-card"><h2>Recruitment & Offers</h2><ul><li>Recruitment may include PPTs, assessments, GDs, technical and HR interviews.</li><li>Attendance at all stages is mandatory.</li><li>One Student–One Offer applies unless stated exceptions are met.</li><li>Next offer may be considered for ≥1.5× higher CTC, specialization alignment, or when more than 55% of the batch is placed.</li><li>Offer acceptance must be within deadline.</li></ul></div></div>
-<div className="placement-card"><h2>Code of Conduct & Attendance</h2><p>Maintain punctuality and professional decorum, formal attire, ID card and hardcopy resume. Placement rounds, training, guest lectures, and company sessions require mandatory attendance.</p><ul><li>1st instance: Formal warning.</li><li>2nd instance: Final warning.</li><li>3rd instance: De-registration, with re-enrollment subject to fee and approval.</li></ul></div>
-</section></main></div>}
+import PlacementSidebar from "./PlacementSidebar";
+import policyOfPlacement from "../data/placement/policyOfPlacement";
+import "./PolicyOfPlacement/PolicyOfPlacement.css";
+
+export default function PolicyOfPlacement() {
+  return (
+    <div className="placement-page PolicyOfPlacement-content">
+      <PlacementSidebar />
+
+      <main>
+        <section className="placement-hero">
+          <span>{policyOfPlacement.hero.eyebrow}</span>
+          <h1>{policyOfPlacement.hero.title}</h1>
+          <p>{policyOfPlacement.hero.description}</p>
+        </section>
+
+        <section className="placement-container">
+          <div className="placement-dark">
+            <h2>{policyOfPlacement.purpose.title}</h2>
+            <p>{policyOfPlacement.purpose.description}</p>
+          </div>
+
+          <div className="placement-card">
+            <h2>{policyOfPlacement.definitions.title}</h2>
+
+            {policyOfPlacement.definitions.items.map((item) => (
+              <p key={item.term}>
+                <b>{item.term}:</b> {item.description}
+              </p>
+            ))}
+          </div>
+
+          <div className="placement-grid">
+            <div className="placement-card">
+              <h2>{policyOfPlacement.eligibility.title}</h2>
+
+              <ul>
+                {policyOfPlacement.eligibility.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="placement-card">
+              <h2>{policyOfPlacement.recruitment.title}</h2>
+
+              <ul>
+                {policyOfPlacement.recruitment.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="placement-card">
+            <h2>{policyOfPlacement.conduct.title}</h2>
+
+            <p>{policyOfPlacement.conduct.description}</p>
+
+            <ul>
+              {policyOfPlacement.conduct.instances.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}

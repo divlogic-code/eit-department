@@ -15,106 +15,36 @@ import AboutSidebar from "./AboutSidebar";
 import "./AboutEchelon/AboutEchelon.css";
 import "./Affiliations/Affiliations.css";
 
-const aicteApprovals = [
-  {
-    year: "2026–27",
-    title: "Approval Letter 2026–27",
-    url: "https://eitfaridabad.com/pdf/approval/EOA-Report-26-27.PDF",
-    latest: true,
-  },
-  {
-    year: "2025–26",
-    title: "Approval Letter 2025–2026",
-    url: "https://eitfaridabad.com/pdf/approval/AICTE%20EOA%202025-2026_IPU.PDF",
-  },
-  {
-    year: "2024–25",
-    title: "Approval Letter 2024–25",
-    url: "https://eitfaridabad.com/pdf/approval/approval-letter-2024-25.pdf",
-  },
-  {
-    year: "2023–24",
-    title: "Approval Letter 2023–24",
-    url: "https://eitfaridabad.com/pdf/approval/approval-letter-2023-24.pdf",
-  },
-  {
-    year: "2022–23",
-    title: "Approval Letter 2022–23",
-    url: "https://eitfaridabad.com/pdf/approval/approval-letter-2022-23.pdf",
-  },
-  {
-    year: "2021–22",
-    title: "Approval Letter 2021–22",
-    url: "https://eitfaridabad.com/pdf/approval/approval-letter-2021-26=2.pdf",
-  },
-  {
-    year: "2020–21",
-    title: "Approval Letter 2020–21",
-    url: "https://eitfaridabad.com/pdf/approval/approval-letter-2020-21.pdf",
-  },
-  {
-    year: "2019–20",
-    title: "Approval Letter 2019–20",
-    url: "https://eitfaridabad.com/pdf/approval/approval-letter-2019-20.pdf",
-  },
-  {
-    year: "2018–19",
-    title: "Approval Letter 2018–19",
-    url: "https://eitfaridabad.com/pdf/approval/approval-letter-2018-19.pdf",
-  },
-];
+import {
+  affiliationHero,
+  affiliationIntro,
+  affiliationStats,
+  aicteApprovals,
+  universityAffiliations,
+  accreditationDocuments,
+  affiliationSections,
+  affiliationClosing,
+} from "../data/about/affiliation";
 
-const universityAffiliations = [
-  {
-    year: "2024",
-    title: "Affiliation Letter 2024",
-    url: "https://eitfaridabad.com/pdf/approval/EIT%20Affiliation%20Letter%202024.pdf",
-  },
-  {
-    year: "2023",
-    title: "Affiliation Letter 2023",
-    url: "https://eitfaridabad.com/pdf/approval/EIT%20Affiliation%20Letter%202023.pdf",
-  },
-  {
-    year: "2022",
-    title: "Affiliation Letter 2022",
-    url: "https://eitfaridabad.com/pdf/approval/EIT%20Affiliation%20Letter%202022.pdf",
-  },
-  {
-    year: "2021",
-    title: "Affiliation Letter 2021",
-    url: "https://eitfaridabad.com/pdf/approval/Affliation%20letter%202021-22.pdf",
-  },
-  {
-    year: "2018",
-    title: "Affiliation Letter 2018",
-    url: "https://eitfaridabad.com/pdf/approval/Affiliation%20Letter%202018.pdf",
-  },
-];
+function getStatIcon(icon) {
+  const icons = {
+    shield: ShieldCheck,
+    graduation: GraduationCap,
+    award: Award,
+    file: FileCheck2,
+  };
 
-const accreditationDocuments = [
-  {
-    number: "01",
-    title: "NBA Accreditation Letter 2025",
-    description: "National Board of Accreditation document.",
-    url: "https://eitfaridabad.com/pdf/approval/NBA-Letter.pdf",
-    icon: Award,
-  },
-  {
-    number: "02",
-    title: "ECE DCS Report",
-    description: "Electronics & Communication Engineering DCS report.",
-    url: "https://eitfaridabad.com/pdf/approval/ECE-DCS-Report.pdf",
-    icon: FileCheck2,
-  },
-  {
-    number: "03",
-    title: "ME DCS Report",
-    description: "Mechanical Engineering DCS report.",
-    url: "https://eitfaridabad.com/pdf/approval/ME-DCS-Report.pdf",
-    icon: FileCheck2,
-  },
-];
+  return icons[icon] || FileCheck2;
+}
+
+function getDocumentIcon(icon) {
+  const icons = {
+    award: Award,
+    file: FileCheck2,
+  };
+
+  return icons[icon] || FileCheck2;
+}
 
 function DocumentButton({ url }) {
   return (
@@ -142,10 +72,9 @@ function Affiliations() {
   }, []);
 
   useEffect(() => {
-    const elements =
-      sectionsRef.current?.querySelectorAll(
-        ".affiliation-reveal, .approval-card, .affiliation-card, .accreditation-card"
-      );
+    const elements = sectionsRef.current?.querySelectorAll(
+      ".affiliation-reveal, .approval-card, .affiliation-card, .accreditation-card"
+    );
 
     if (!elements?.length) return;
 
@@ -178,29 +107,28 @@ function Affiliations() {
 
         <div className="affiliations-hero-content">
           <span className="affiliations-eyebrow">
-            ECHELON INSTITUTE OF TECHNOLOGY
+            {affiliationHero.eyebrow}
           </span>
 
           <h1>
-            AFFILIATIONS
-            <span>&amp; APPROVALS</span>
+            {affiliationHero.title}
+            <span>{affiliationHero.titleAccent}</span>
           </h1>
 
-          <p>
-            Institutional approvals, university affiliations and accreditation
-            documents that form the official record of EIT.
-          </p>
+          <p>{affiliationHero.description}</p>
 
           <div className="affiliations-hero-meta">
             <i />
-            <span>APPROVALS • AFFILIATIONS • ACCREDITATION</span>
+            <span>{affiliationHero.meta}</span>
           </div>
         </div>
 
-        <div className="affiliations-hero-index">04</div>
+        <div className="affiliations-hero-index">
+          {affiliationHero.index}
+        </div>
 
         <div className="affiliations-scroll">
-          <span>EXPLORE DOCUMENTS</span>
+          <span>{affiliationHero.scrollText}</span>
           <div />
         </div>
       </section>
@@ -212,60 +140,40 @@ function Affiliations() {
           {/* INTRO */}
           <section className="affiliations-intro affiliation-reveal">
             <div className="affiliation-section-label">
-              <span>01</span>
-              INSTITUTIONAL RECORD
+              <span>{affiliationIntro.sectionNumber}</span>
+              {affiliationIntro.sectionLabel}
             </div>
 
             <div className="affiliations-intro-heading">
               <div>
                 <span className="affiliation-kicker">
-                  OFFICIAL DOCUMENTATION
+                  {affiliationIntro.kicker}
                 </span>
 
                 <h2>
-                  Recognition,
-                  <em> recorded.</em>
+                  {affiliationIntro.heading}
+                  <em>{affiliationIntro.headingAccent}</em>
                 </h2>
               </div>
 
-              <p>
-                Explore the official approval, affiliation and accreditation
-                documents associated with Echelon Institute of Technology.
-              </p>
+              <p>{affiliationIntro.description}</p>
             </div>
 
             <div className="affiliations-stats">
-              <div className="affiliation-stat">
-                <div className="affiliation-stat-icon">
-                  <ShieldCheck size={20} strokeWidth={1.5} />
-                </div>
-                <strong>09</strong>
-                <span>AICTE APPROVALS</span>
-              </div>
+              {affiliationStats.map((stat) => {
+                const Icon = getStatIcon(stat.icon);
 
-              <div className="affiliation-stat">
-                <div className="affiliation-stat-icon">
-                  <GraduationCap size={20} strokeWidth={1.5} />
-                </div>
-                <strong>05</strong>
-                <span>AFFILIATION LETTERS</span>
-              </div>
+                return (
+                  <div className="affiliation-stat" key={stat.label}>
+                    <div className="affiliation-stat-icon">
+                      <Icon size={20} strokeWidth={1.5} />
+                    </div>
 
-              <div className="affiliation-stat">
-                <div className="affiliation-stat-icon">
-                  <Award size={20} strokeWidth={1.5} />
-                </div>
-                <strong>03</strong>
-                <span>ACCREDITATION DOCUMENTS</span>
-              </div>
-
-              <div className="affiliation-stat">
-                <div className="affiliation-stat-icon">
-                  <FileCheck2 size={20} strokeWidth={1.5} />
-                </div>
-                <strong>17</strong>
-                <span>DOCUMENTS</span>
-              </div>
+                    <strong>{stat.number}</strong>
+                    <span>{stat.label}</span>
+                  </div>
+                );
+              })}
             </div>
           </section>
 
@@ -273,31 +181,28 @@ function Affiliations() {
           <section className="approval-section">
             <div className="approval-section-header affiliation-reveal">
               <div className="affiliation-section-label">
-                <span>02</span>
-                AICTE APPROVALS
+                <span>{affiliationSections.aicte.sectionNumber}</span>
+                {affiliationSections.aicte.label}
               </div>
 
               <div className="approval-section-count">
-                2018 — 2026
+                {affiliationSections.aicte.count}
               </div>
             </div>
 
             <div className="approval-heading affiliation-reveal">
               <div>
                 <span className="affiliation-kicker">
-                  APPROVALS THROUGH THE YEARS
+                  {affiliationSections.aicte.kicker}
                 </span>
 
                 <h2>
-                  AICTE
-                  <em> approvals.</em>
+                  {affiliationSections.aicte.heading}
+                  <em>{affiliationSections.aicte.headingAccent}</em>
                 </h2>
               </div>
 
-              <p>
-                Year-wise approval letters are presented in chronological
-                order, with the latest approval placed first.
-              </p>
+              <p>{affiliationSections.aicte.description}</p>
             </div>
 
             <div className="approval-list">
@@ -333,31 +238,28 @@ function Affiliations() {
           <section className="university-section">
             <div className="university-section-header affiliation-reveal">
               <div className="affiliation-section-label">
-                <span>03</span>
-                UNIVERSITY AFFILIATIONS
+                <span>{affiliationSections.university.sectionNumber}</span>
+                {affiliationSections.university.label}
               </div>
 
               <div className="university-section-count">
-                05 DOCUMENTS
+                {affiliationSections.university.count}
               </div>
             </div>
 
             <div className="university-heading affiliation-reveal">
               <div>
                 <span className="affiliation-kicker">
-                  AFFILIATION RECORD
+                  {affiliationSections.university.kicker}
                 </span>
 
                 <h2>
-                  University
-                  <em> affiliation.</em>
+                  {affiliationSections.university.heading}
+                  <em>{affiliationSections.university.headingAccent}</em>
                 </h2>
               </div>
 
-              <p>
-                A chronological collection of the university affiliation
-                letters available through the institution's official records.
-              </p>
+              <p>{affiliationSections.university.description}</p>
             </div>
 
             <div className="university-grid">
@@ -373,10 +275,7 @@ function Affiliations() {
                     <span>0{index + 1}</span>
 
                     <div className="affiliation-card-icon">
-                      <GraduationCap
-                        size={20}
-                        strokeWidth={1.5}
-                      />
+                      <GraduationCap size={20} strokeWidth={1.5} />
                     </div>
                   </div>
 
@@ -403,36 +302,33 @@ function Affiliations() {
           <section className="accreditation-section">
             <div className="accreditation-section-header affiliation-reveal">
               <div className="affiliation-section-label">
-                <span>04</span>
-                ACCREDITATION
+                <span>{affiliationSections.accreditation.sectionNumber}</span>
+                {affiliationSections.accreditation.label}
               </div>
 
               <div className="accreditation-section-count">
-                03 DOCUMENTS
+                {affiliationSections.accreditation.count}
               </div>
             </div>
 
             <div className="accreditation-heading affiliation-reveal">
               <div>
                 <span className="affiliation-kicker">
-                  ACCREDITATION RECORDS
+                  {affiliationSections.accreditation.kicker}
                 </span>
 
                 <h2>
-                  Evidence of
-                  <em> standards.</em>
+                  {affiliationSections.accreditation.heading}
+                  <em>{affiliationSections.accreditation.headingAccent}</em>
                 </h2>
               </div>
 
-              <p>
-                Accreditation and programme-level documentation available from
-                EIT's official records.
-              </p>
+              <p>{affiliationSections.accreditation.description}</p>
             </div>
 
             <div className="accreditation-grid">
               {accreditationDocuments.map((document, index) => {
-                const Icon = document.icon;
+                const Icon = getDocumentIcon(document.icon);
 
                 return (
                   <article
@@ -477,24 +373,21 @@ function Affiliations() {
               <Building2 size={26} strokeWidth={1.3} />
             </div>
 
-            <span>ECHELON INSTITUTE OF TECHNOLOGY</span>
+            <span>{affiliationClosing.eyebrow}</span>
 
             <h2>
-              Recognised.
+              {affiliationClosing.heading}
               <br />
-              <em>Documented.</em>
+              <em>{affiliationClosing.headingAccent}</em>
             </h2>
 
-            <p>
-              Institutional records provide a continuing record of approvals,
-              affiliations and accreditation associated with EIT.
-            </p>
+            <p>{affiliationClosing.description}</p>
 
             <Link
-              to="/about-eit"
+              to={affiliationClosing.buttonLink}
               className="affiliations-closing-button"
             >
-              BACK TO ABOUT EIT
+              {affiliationClosing.buttonText}
               <ArrowUpRight size={16} />
             </Link>
           </section>
@@ -505,3 +398,4 @@ function Affiliations() {
 }
 
 export default Affiliations;
+

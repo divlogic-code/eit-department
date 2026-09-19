@@ -1,3 +1,15 @@
+@import "./theme/colors.css";
+@import "./theme/typography.css";
+@import "./theme/spacing.css";
+@import "./theme/components.css";
+@import "./theme/effects.css";
+@import "./theme/cards.css";
+@import "./theme/buttons.css";
+@import "./theme/sections.css";
+@import "./theme/animations.css";
+@import "./theme/modern-overrides.css";
+
+
 /* =========================================
    GLOBAL
 ========================================= */
@@ -12,8 +24,15 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
 body {
-  background: #eee5d2;
+  background: transparent;
+
   color: #173c31;
 
   font-family:
@@ -24,9 +43,131 @@ body {
   overflow-x: hidden;
 }
 
+#root {
+  width: 100%;
+  min-height: 100vh;
+
+  background: transparent;
+}
+
+
+/* =========================================
+   APP
+========================================= */
+
 .app {
   min-height: 100vh;
-  background: #eee5d2;
+
+  background: transparent;
+}
+
+
+/* =========================================
+   GLOBAL FIXED PAGE BACKGROUND VIDEO
+========================================= */
+
+.site-background-video {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  background: #123047;
+}
+
+
+/* =========================================
+   BACKGROUND VIDEO
+========================================= */
+
+.site-background-video video {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  min-width: 100%;
+  min-height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center center;
+
+  border: 0;
+  border-radius: 0;
+
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   BACKGROUND VIDEO OVERLAY
+========================================= */
+
+.site-background-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  background: rgba(18, 48, 71, 0.18);
+}
+
+
+/* =========================================
+   MAIN SITE CONTENT
+========================================= */
+
+.eit-site-content {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background: transparent !important;
+}
+
+
+/* =========================================
+   ROUTE CONTENT
+========================================= */
+
+.eit-route-page {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+
+  background: transparent !important;
 }
 
 
@@ -151,8 +292,14 @@ body {
 
   transform: translateX(0);
 
-  animation: luxuryLight 14s ease-in-out infinite alternate;
+  animation:
+    luxuryLight
+    14s
+    ease-in-out
+    infinite
+    alternate;
 }
+
 
 @keyframes luxuryLight {
   from {
@@ -194,6 +341,7 @@ body {
 
 .hero-small-title {
   display: flex;
+
   align-items: center;
 
   gap: 18px;
@@ -211,8 +359,12 @@ body {
   text-transform: uppercase;
 
   animation:
-    heroFade 1s ease forwards;
+    heroFade
+    1s
+    ease
+    forwards;
 }
+
 
 .hero-small-title::before {
   content: "";
@@ -248,7 +400,8 @@ body {
   text-wrap: balance;
 
   animation:
-    heroTitle 1.2s
+    heroTitle
+    1.2s
     cubic-bezier(0.16, 1, 0.3, 1)
     forwards;
 }
@@ -264,14 +417,19 @@ body {
 @keyframes heroFade {
   from {
     opacity: 0;
-    transform: translateY(25px);
+
+    transform:
+      translateY(25px);
   }
 
   to {
     opacity: 1;
-    transform: translateY(0);
+
+    transform:
+      translateY(0);
   }
 }
+
 
 @keyframes heroTitle {
   from {
@@ -306,9 +464,11 @@ body {
   bottom: 55px;
   left: 50%;
 
-  transform: translateX(-50%);
+  transform:
+    translateX(-50%);
 
-  color: rgba(255, 255, 255, 0.65);
+  color:
+    rgba(255, 255, 255, 0.65);
 
   font-size: 8px;
 
@@ -318,8 +478,13 @@ body {
 
   white-space: nowrap;
 
-  animation: scrollPulse 2s ease-in-out infinite;
+  animation:
+    scrollPulse
+    2s
+    ease-in-out
+    infinite;
 }
+
 
 @keyframes scrollPulse {
   0%,
@@ -363,12 +528,17 @@ body {
 }
 
 
-/* SECTION */
+/* =========================================
+   DEPARTMENT SECTION
+========================================= */
 
 .department-section {
   max-width: 1100px;
 
-  margin: 0 auto 100px;
+  margin:
+    0
+    auto
+    100px;
 }
 
 
@@ -399,7 +569,8 @@ body {
     "Times New Roman",
     serif;
 
-  font-size: clamp(38px, 5vw, 72px);
+  font-size:
+    clamp(38px, 5vw, 72px);
 
   font-weight: 400;
 
@@ -427,31 +598,258 @@ body {
 .department-card {
   padding: 35px;
 
-  background: rgba(250, 246, 237, 0.75);
+  background:
+    rgba(
+      250,
+      246,
+      237,
+      0.75
+    );
 
   border:
     1px solid
-    rgba(23, 60, 49, 0.1);
+    rgba(
+      23,
+      60,
+      49,
+      0.1
+    );
 
   box-shadow:
     0 20px 50px
-    rgba(23, 60, 49, 0.08);
+    rgba(
+      23,
+      60,
+      49,
+      0.08
+    );
 
   transition:
     transform 0.4s ease,
     box-shadow 0.4s ease;
 }
 
+
 .department-card:hover {
-  transform: translateY(-8px);
+  transform:
+    translateY(-8px);
 
   box-shadow:
     0 30px 70px
-    rgba(23, 60, 49, 0.14);
+    rgba(
+      23,
+      60,
+      49,
+      0.14
+    );
 }
 
 
 /* =========================================
+   EIT GLASS CARDS
+========================================= */
+
+.eit-card,
+.eit-glass-card,
+.home-content-card,
+.home-card,
+.innovation-card,
+.innovation-feature,
+.podcast-card,
+.testimonial-card,
+.celebrity-card,
+.community-card,
+.event-card,
+.alumni-card,
+.department-card,
+.faculty-card,
+.research-card,
+.placement-card,
+.content-card {
+
+  background:
+    rgba(
+      250,
+      252,
+      247,
+      0.46
+    ) !important;
+
+  border:
+    1px solid
+    rgba(
+      79,
+      91,
+      42,
+      0.18
+    ) !important;
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+  box-shadow:
+    0 18px 50px
+    rgba(
+      79,
+      91,
+      42,
+      0.10
+    ),
+
+    inset
+    0 1px 0
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    ) !important;
+}
+
+
+.eit-card:hover,
+.eit-glass-card:hover,
+.home-content-card:hover,
+.department-card:hover,
+.faculty-card:hover {
+
+  background:
+    rgba(
+      250,
+      252,
+      247,
+      0.64
+    ) !important;
+
+  border-color:
+    rgba(
+      67,
+      130,
+      223,
+      0.40
+    ) !important;
+
+  box-shadow:
+    0 24px 60px
+    rgba(
+      67,
+      130,
+      223,
+      0.13
+    ),
+
+    inset
+    0 1px 0
+    rgba(
+      255,
+      255,
+      255,
+      0.8
+    ) !important;
+}
+
+
+/* =========================================================
+   HOME PAGE TRANSPARENCY
+   ========================================================= */
+
+/*
+   The Home page must allow the global fixed video
+   to remain visible behind its sections.
+*/
+
+.home-page {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background:
+    transparent !important;
+}
+
+
+/*
+   Remove the old local homepage video layer.
+   The actual video now belongs to App.jsx.
+*/
+
+.home-background-video {
+  display: none;
+}
+
+
+/*
+   Home content remains above the video.
+*/
+
+.home-page .home-section,
+.home-page section {
+  background:
+    transparent !important;
+}
+
+
+/*
+   Prevent an accidental stacking context
+   from trapping the global video.
+*/
+
+.home-page {
+  isolation: auto !important;
+}
+
+
+/* =========================================================
+   ABOUT EIT TRANSPARENCY
+   ========================================================= */
+
+.about-eit-page {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background:
+    transparent !important;
+
+  overflow-x: hidden;
+
+  isolation: auto !important;
+}
+
+
+/*
+   The About video is now handled globally
+   by PageBackgroundVideo in App.jsx.
+*/
+
+.about-background-video,
+.about-eit-background-video {
+  display: none !important;
+}
+
+
+/*
+   About sections must not paint a solid page-sized
+   background over the global video.
+*/
+
+.about-eit-page > section,
+.about-eit-page section {
+  background:
+    transparent !important;
+}
+
+
+/* =========================================================
    MOBILE
 ========================================= */
 
@@ -461,16 +859,24 @@ body {
     margin-left: 0;
   }
 
+
   .sidebar {
     width: 230px;
   }
+
 
   .hero-content {
     padding: 50px;
   }
 
+
   .hero-title {
-    font-size: clamp(55px, 10vw, 90px);
+    font-size:
+      clamp(
+        55px,
+        10vw,
+        90px
+      );
   }
 }
 
@@ -481,25 +887,41 @@ body {
     padding-top: 70px;
   }
 
+
   .hero {
-    height: calc(100vh - 70px);
+    height:
+      calc(100vh - 70px);
   }
+
 
   .hero-content {
     padding: 35px;
   }
 
+
   .hero-title {
-    font-size: clamp(48px, 14vw, 75px);
+    font-size:
+      clamp(
+        48px,
+        14vw,
+        75px
+      );
+
     letter-spacing: -3px;
   }
 
+
   .department-content {
-    padding: 70px 25px;
+    padding:
+      70px
+      25px;
   }
+
 
   .sidebar {
     top: 70px;
-    height: calc(100vh - 70px);
+
+    height:
+      calc(100vh - 70px);
   }
 }

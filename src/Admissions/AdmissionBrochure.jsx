@@ -9,42 +9,22 @@ import {
 } from "lucide-react";
 
 import AdmissionsSidebar from "./AdmissionsSidebar";
+import admissionBrochure from "../data/admissions/admissionBrochure";
+
 import "./AdmissionBrochure/AdmissionBrochure.css";
 
-const brochures = [
-  {
-    number: "01",
-    icon: LibraryBig,
-    label: "Information Brochure",
-    title: "Information Brochure 2026–2027",
-    description:
-      "Explore the latest information about Echelon Institute of Technology and its academic environment.",
-    href: "https://eitfaridabad.com/pdf/Mini-Prospectus.pdf",
-    button: "VIEW BROCHURE",
-  },
-  {
-    number: "02",
-    icon: GraduationCap,
-    label: "Bachelor Programmes",
-    title: "Admission Brochure for Academic Session 2025–2026",
-    description:
-      "Official admission brochure covering undergraduate programmes and admission information.",
-    href: "https://eitfaridabad.com/pdf/Admission-Brochure-ug-2025-26.pdf",
-    button: "VIEW UG BROCHURE",
-  },
-  {
-    number: "03",
-    icon: BookOpen,
-    label: "Master Programmes",
-    title: "Admission Brochure for Academic Session 2025–2026",
-    description:
-      "Official admission brochure covering postgraduate programmes and admission information.",
-    href: "https://eitfaridabad.com/pdf/Admission-Brochure-pg-2025-26.pdf",
-    button: "VIEW PG BROCHURE",
-  },
-];
+const icons = {
+  library: LibraryBig,
+  graduation: GraduationCap,
+  book: BookOpen,
+  location: MapPin,
+  phone: Phone,
+  mail: Mail,
+};
 
 function AdmissionBrochure() {
+  const { hero, section, brochures, contact } = admissionBrochure;
+
   return (
     <div className="admission-brochure-page">
 
@@ -62,10 +42,7 @@ function AdmissionBrochure() {
           playsInline
           preload="auto"
         >
-          <source
-            src="/videos/college-campus.mp4"
-            type="video/mp4"
-          />
+          <source src={hero.video} type="video/mp4" />
         </video>
 
         <div className="admission-brochure-hero-overlay" />
@@ -73,19 +50,16 @@ function AdmissionBrochure() {
         <div className="admission-brochure-hero-content">
 
           <span className="admission-brochure-eyebrow">
-            ADMISSIONS
+            {hero.eyebrow}
           </span>
 
           <h1>
-            Admission
+            {hero.title}
             <br />
-            <em>Brochure</em>
+            <em>{hero.titleAccent}</em>
           </h1>
 
-          <p>
-            Everything you need to know about beginning
-            your journey at Echelon Institute of Technology.
-          </p>
+          <p>{hero.description}</p>
 
         </div>
 
@@ -100,20 +74,17 @@ function AdmissionBrochure() {
 
           <div>
             <span className="admission-brochure-kicker">
-              OFFICIAL DOCUMENTS
+              {section.kicker}
             </span>
 
             <h2>
-              Your admission
+              {section.title}
               <br />
-              <em>guidebook.</em>
+              <em>{section.titleAccent}</em>
             </h2>
           </div>
 
-          <p>
-            Access the official information and admission
-            brochures provided for prospective students.
-          </p>
+          <p>{section.description}</p>
 
         </div>
 
@@ -121,7 +92,7 @@ function AdmissionBrochure() {
         <div className="admission-brochure-grid">
 
           {brochures.map((brochure) => {
-            const Icon = brochure.icon;
+            const Icon = icons[brochure.icon];
 
             return (
               <article
@@ -146,13 +117,9 @@ function AdmissionBrochure() {
                   {brochure.label}
                 </span>
 
-                <h3>
-                  {brochure.title}
-                </h3>
+                <h3>{brochure.title}</h3>
 
-                <p>
-                  {brochure.description}
-                </p>
+                <p>{brochure.description}</p>
 
 
                 <a
@@ -182,14 +149,12 @@ function AdmissionBrochure() {
 
           <div className="admission-brochure-contact-heading">
 
-            <span>
-              NEED ASSISTANCE?
-            </span>
+            <span>{contact.eyebrow}</span>
 
             <h2>
-              Speak with our
+              {contact.title}
               <br />
-              <em>admissions team.</em>
+              <em>{contact.titleAccent}</em>
             </h2>
 
           </div>
@@ -197,48 +162,31 @@ function AdmissionBrochure() {
 
           <div className="admission-brochure-contact-details">
 
-            <div className="admission-brochure-contact-item">
+            {contact.details.map((item) => {
+              const Icon = icons[item.icon];
 
-              <MapPin size={21} strokeWidth={1.5} />
+              return (
+                <div
+                  className="admission-brochure-contact-item"
+                  key={item.icon}
+                >
+                  <Icon size={21} strokeWidth={1.5} />
 
-              <div>
-                <small>VISIT US</small>
-                <p>
-                  Faridabad-121101
-                  <br />
-                  Delhi NCR, Haryana
-                </p>
-              </div>
+                  <div>
+                    <small>{item.label}</small>
 
-            </div>
-
-
-            <div className="admission-brochure-contact-item">
-
-              <Phone size={21} strokeWidth={1.5} />
-
-              <div>
-                <small>CALL US</small>
-                <p>
-                  +91-9999753763
-                </p>
-              </div>
-
-            </div>
-
-
-            <div className="admission-brochure-contact-item">
-
-              <Mail size={21} strokeWidth={1.5} />
-
-              <div>
-                <small>EMAIL US</small>
-                <p>
-                  admissions@eitfaridabad.co.in
-                </p>
-              </div>
-
-            </div>
+                    <p>
+                      {item.text.map((line, index) => (
+                        <span key={index}>
+                          {line}
+                          {index < item.text.length - 1 && <br />}
+                        </span>
+                      ))}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
 
           </div>
 

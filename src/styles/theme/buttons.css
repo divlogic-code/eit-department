@@ -1,0 +1,74 @@
+.eit-button,
+.eit-pill-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 52px;
+  padding: 0 28px;
+
+  border: 1px solid var(--eit-gold-500);
+  border-radius: var(--eit-radius-pill);
+
+  background: var(--eit-emerald-700);
+  color: var(--eit-text-light);
+
+  font-family: var(--eit-font-body);
+  font-size: var(--eit-text-sm);
+  font-weight: var(--eit-weight-bold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  will-change: transform;
+
+  transition:
+    background var(--eit-transition-fast),
+    color var(--eit-transition-fast),
+    border-color var(--eit-transition-fast),
+    box-shadow var(--eit-transition-fast);
+}
+
+.eit-button:hover,
+.eit-pill-button:hover {
+  background: var(--eit-sapphire-700);
+  color: var(--eit-text-light);
+  border-color: var(--eit-gold-300);
+  box-shadow: 0 12px 30px rgba(7, 28, 23, 0.18);
+}
+
+.eit-button-gold {
+  background: var(--eit-gold-500);
+  color: var(--eit-emerald-950);
+}
+
+.eit-button-gold:hover {
+  background: var(--eit-gold-300);
+  color: var(--eit-emerald-950);
+}
+
+.eit-button-outline {
+  background: transparent;
+  color: var(--eit-emerald-700);
+}
+
+.eit-button-outline:hover {
+  background: var(--eit-emerald-700);
+  color: var(--eit-text-light);
+}
+
+.eit-button-glass {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--eit-text-light);
+  border-color: rgba(255, 255, 255, 0.35);
+  backdrop-filter: var(--eit-blur-sm);
+  -webkit-backdrop-filter: var(--eit-blur-sm);
+}
+
+.eit-button-glass:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--eit-gold-400);
+  color: var(--eit-gold-300);
+}

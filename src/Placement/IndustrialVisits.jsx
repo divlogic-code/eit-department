@@ -1,4 +1,29 @@
-import PlacementSidebar from "./PlacementSidebar";import "./IndustrialVisits/IndustrialVisits.css";
-export default function IndustrialVisits(){return <div className="placement-page IndustrialVisits-content"><PlacementSidebar/><main><section className="placement-hero"><span>TRAINING & PLACEMENT</span><h1>Industrial Visits</h1><p>Taking learning beyond the classroom into real-world industry environments.</p></section><section className="placement-container">
-<div className="placement-card"><h2>Learning Through Industry Exposure</h2><p>The Institute facilitates regular industrial visits across all courses to immerse students in hands-on learning and real-time industry dynamics. These experiential trips serve as a vital link between classroom concepts and actual industrial applications, enabling students to explore emerging technologies, operational systems, and workplace cultures.</p><p>By engaging directly with industry experts and observing live processes, students gain enriched practical insights that elevate their academic foundation and empower them for successful professional journeys.</p></div>
-</section></main></div>}
+import PlacementSidebar from "./PlacementSidebar";
+import industrialVisits from "../data/placement/industrialVisits";
+import "./IndustrialVisits/IndustrialVisits.css";
+
+export default function IndustrialVisits() {
+  return (
+    <div className="placement-page IndustrialVisits-content">
+      <PlacementSidebar />
+
+      <main>
+        <section className="placement-hero">
+          <span>{industrialVisits.hero.eyebrow}</span>
+          <h1>{industrialVisits.hero.title}</h1>
+          <p>{industrialVisits.hero.description}</p>
+        </section>
+
+        <section className="placement-container">
+          <div className="placement-card">
+            <h2>{industrialVisits.content.title}</h2>
+
+            {industrialVisits.content.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}

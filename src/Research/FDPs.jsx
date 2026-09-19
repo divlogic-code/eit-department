@@ -1,2 +1,49 @@
-import ResearchSidebar from "./ResearchSidebar";import "./ResearchShared.css";import "./FDPs/FDPs.css";
-export default function FDPs(){return <><ResearchSidebar/><main className="research-page"><div className="research-container"><section className="research-hero"><div className="research-kicker">Faculty Development</div><h1 className="research-title">FDPs & Funding Agencies</h1></section><section className="research-section">{[["AICTE Training And Learning (ATAL) Academy","https://www.aicte-india.org/atal"],["NITTTR, Chandigarh","https://fdp.nitttrchd.ac.in/backingup/"],["NITTTR, Chennai","https://www.nitttrc.ac.in/"],["NITTTR, Bhopal","https://nitttrbpl.ac.in/"],["NITTTR, Kolkatta","http://www.nitttrkol.ac.in/"]].map((x,i)=><div className="research-number" key={i}><span>{i+1}</span><div><strong>{x[0]}</strong><br/><a className="research-link" href={x[1]} target="_blank" rel="noreferrer">Visit resource ↗</a></div></div>)}</section></div></main></>}
+import ResearchSidebar from "./ResearchSidebar";
+import "./ResearchShared.css";
+import "./FDPs/FDPs.css";
+
+import fdps from "../data/research/fdps";
+
+export default function FDPs() {
+  return (
+    <>
+      <ResearchSidebar />
+
+      <main className="research-page">
+        <div className="research-container">
+          <section className="research-hero">
+            <div className="research-kicker">
+              {fdps.hero.kicker}
+            </div>
+
+            <h1 className="research-title">
+              {fdps.hero.title}
+            </h1>
+          </section>
+
+          <section className="research-section">
+            {fdps.resources.map((resource, index) => (
+              <div className="research-number" key={resource.name}>
+                <span>{index + 1}</span>
+
+                <div>
+                  <strong>{resource.name}</strong>
+                  <br />
+
+                  <a
+                    className="research-link"
+                    href={resource.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Visit resource ↗
+                  </a>
+                </div>
+              </div>
+            ))}
+          </section>
+        </div>
+      </main>
+    </>
+  );
+}

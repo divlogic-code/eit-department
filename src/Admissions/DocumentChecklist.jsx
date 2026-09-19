@@ -6,101 +6,24 @@ import {
 } from "lucide-react";
 
 import AdmissionsSidebar from "./AdmissionsSidebar";
+import documentChecklist from "../data/admissions/documentChecklist";
+
 import "./DocumentChecklist/DocumentChecklist.css";
 
-const documents = [
-  {
-    number: "01",
-    document: "Admission Form",
-    requirement: "Original",
-  },
-  {
-    number: "02",
-    document: "Allotment letter",
-    requirement: "Original",
-  },
-  {
-    number: "03",
-    document: "Entrance Test Score Card / Admit Card",
-    requirement: "3 Copies",
-  },
-  {
-    number: "04",
-    document: "Fee Receipt Paid in IPU of Rs 96000/-",
-    requirement: "Copies",
-  },
-  {
-    number: "05",
-    document: "Fee Receipt (Be Deposited in the college)",
-    requirement: "1 Copy",
-  },
-  {
-    number: "06",
-    document: "Student Photo (passport size)",
-    requirement: "4 Copies",
-  },
-  {
-    number: "07",
-    document: "Aadhar card",
-    requirement: "3 Copies",
-  },
-  {
-    number: "08",
-    document: "10th Marksheet",
-    requirement: "3 Copies",
-  },
-  {
-    number: "09",
-    document: "12th Marksheet",
-    requirement: "3 Copies",
-  },
-  {
-    number: "10",
-    document: "Graduation Marksheet (if applicable)",
-    requirement: "3 Copies",
-  },
-  {
-    number: "11",
-    document: "Migration Certificate",
-    requirement: "Original + 3 Copies",
-  },
-  {
-    number: "12",
-    document: "Parivar Pehchan Patra (PPP id only for Haryana Resident)",
-    requirement: "3 Copies",
-  },
-  {
-    number: "13",
-    document: "Character Certificate",
-    requirement: "Original + 3 Copies",
-  },
-  {
-    number: "14",
-    document:
-      "Medical Fitness certificate & Blood Group (Original) Attested from Govt. Hospital",
-    requirement: "Original + 3 Copies",
-  },
-  {
-    number: "15",
-    document: "Gap-Year Affidavit if any",
-    requirement: "Original",
-  },
-  {
-    number: "16",
-    document: "Category Certificate, if any (SC/ST/OBC/EWS etc.)",
-    requirement: "3 Copies",
-  },
-];
-
 export default function DocumentChecklist() {
+  const {
+    hero,
+    intro,
+    checklist,
+    note,
+  } = documentChecklist;
+
   return (
     <div className="document-checklist-page">
 
       <AdmissionsSidebar />
 
-      {/* =====================================================
-          HERO
-      ===================================================== */}
+      {/* HERO */}
 
       <section className="document-checklist-hero">
 
@@ -113,7 +36,7 @@ export default function DocumentChecklist() {
           preload="auto"
         >
           <source
-            src="/videos/college-campus.mp4"
+            src={hero.video}
             type="video/mp4"
           />
         </video>
@@ -123,77 +46,77 @@ export default function DocumentChecklist() {
         <div className="document-checklist-hero-content">
 
           <span className="document-checklist-eyebrow">
-            ADMISSIONS · SESSION 2025–26
+            {hero.eyebrow}
           </span>
 
           <h1>
-            Document
+            {hero.title}
             <br />
-            <em>Check List</em>
+            <em>{hero.titleAccent}</em>
           </h1>
 
           <p>
-            Keep your admission documents ready and make
-            your reporting process smooth and efficient.
+            {hero.description}
           </p>
 
         </div>
 
         <div className="document-checklist-hero-number">
-          03
+          {hero.number}
         </div>
 
       </section>
 
 
-      {/* =====================================================
-          INTRO
-      ===================================================== */}
+      {/* INTRO */}
 
       <main className="document-checklist-main">
 
         <section className="document-checklist-intro">
 
           <div className="document-checklist-intro-icon">
-            <ClipboardCheck size={25} strokeWidth={1.5} />
+            <ClipboardCheck
+              size={25}
+              strokeWidth={1.5}
+            />
           </div>
 
           <div>
+
             <span className="document-checklist-section-label">
-              ADMISSION DOCUMENTATION
+              {intro.label}
             </span>
 
             <h2>
-              Documents required at the time of admission
+              {intro.title}
             </h2>
 
             <p>
-              Students are advised to arrange the following
-              documents before reporting to the institute.
-              Please ensure that the required originals and
-              copies are available according to the checklist.
+              {intro.description}
             </p>
+
           </div>
 
         </section>
 
 
-        {/* =====================================================
-            CHECKLIST
-        ===================================================== */}
+        {/* CHECKLIST */}
 
         <section className="document-checklist-section">
 
           <div className="document-checklist-header">
 
             <div>
-              <span>DOCUMENTS</span>
-              <h2>Admission Checklist</h2>
+              <span>{checklist.label}</span>
+              <h2>{checklist.title}</h2>
             </div>
 
             <div className="document-checklist-count">
-              <strong>16</strong>
-              <span>REQUIRED<br />ITEMS</span>
+              <strong>{checklist.count}</strong>
+
+              <span>
+                {checklist.countLabel}
+              </span>
             </div>
 
           </div>
@@ -207,7 +130,8 @@ export default function DocumentChecklist() {
               <span>Requirement</span>
             </div>
 
-            {documents.map((item) => (
+
+            {checklist.documents.map((item) => (
               <div
                 className="document-checklist-row"
                 key={item.number}
@@ -218,12 +142,16 @@ export default function DocumentChecklist() {
                 </span>
 
                 <div className="document-checklist-document">
+
                   <FileCheck2
                     size={17}
                     strokeWidth={1.6}
                   />
 
-                  <span>{item.document}</span>
+                  <span>
+                    {item.document}
+                  </span>
+
                 </div>
 
                 <span className="document-checklist-requirement">
@@ -238,29 +166,33 @@ export default function DocumentChecklist() {
         </section>
 
 
-        {/* =====================================================
-            REMINDER
-        ===================================================== */}
+        {/* REMINDER */}
 
         <section className="document-checklist-note">
 
           <div className="document-checklist-note-icon">
-            <ShieldCheck size={22} strokeWidth={1.7} />
+
+            <ShieldCheck
+              size={22}
+              strokeWidth={1.7}
+            />
+
           </div>
 
           <div>
-            <span>BE PREPARED</span>
+
+            <span>
+              {note.label}
+            </span>
 
             <h3>
-              Carry originals wherever specified
+              {note.title}
             </h3>
 
             <p>
-              The checklist distinguishes between original
-              documents and photocopies. Make sure every
-              document is prepared in the quantity mentioned
-              above before reporting for admission.
+              {note.description}
             </p>
+
           </div>
 
           <ArrowUpRight

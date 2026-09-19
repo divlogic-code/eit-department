@@ -1,0 +1,61 @@
+[data-gsap="reveal"],
+[data-gsap="heading"],
+[data-gsap="text-reveal"],
+[data-gsap="fade-up"],
+[data-gsap="stagger"] > * {
+  will-change: transform, opacity;
+}
+
+[data-gsap="magnetic"] {
+  will-change: transform;
+}
+
+.eit-hover-lift {
+  transition: transform var(--eit-transition-base);
+}
+
+.eit-hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+.eit-image-zoom {
+  overflow: hidden;
+}
+
+.eit-image-zoom img {
+  transform: scale(1.01);
+  transition: transform 0.9s cubic-bezier(0.2, 0.65, 0.25, 1);
+}
+
+.eit-image-zoom:hover img {
+  transform: scale(1.08);
+}
+
+.eit-glow-hover {
+  transition:
+    box-shadow var(--eit-transition-base),
+    border-color var(--eit-transition-base);
+}
+
+.eit-glow-hover:hover {
+  box-shadow:
+    0 0 0 1px rgba(190, 159, 80, 0.18),
+    0 25px 70px rgba(0, 0, 0, 0.14);
+  border-color: var(--eit-border-gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-gsap],
+  [data-gsap] > * {
+    will-change: auto;
+  }
+}

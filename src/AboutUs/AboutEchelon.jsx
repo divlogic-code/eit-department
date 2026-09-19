@@ -1,106 +1,198 @@
-import { useEffect, useState } from "react";
-import { ArrowUpRight, ChevronRight } from "lucide-react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
+import { createPortal } from "react-dom";
+
+import {
+  ArrowUpRight,
+  ChevronRight,
+} from "lucide-react";
+
 import { Link } from "react-router-dom";
 
 import "./AboutEchelon/AboutEchelon.css";
 
-const sidebarItems = [
-  {
-    label: "About Echelon",
-    type: "section",
-    target: "about-eit",
-  },
-  {
-    label: "Vision & Mission",
-    type: "section",
-    target: "vision-mission",
-  },
-  {
-    label: "Chairman's Message",
-    type: "route",
-    target: "/chairman",
-  },
-  {
-    label: "Director's Message",
-    type: "route",
-    target: "/director",
-  },
-  {
-    label: "Organisational Structure",
-    type: "section",
-    target: "organisational-structure",
-  },
-  {
-    label: "Board Of Governors",
-    type: "route",
-    target: "/board-of-governors",
-  },
-  {
-    label: "Affiliations & Approvals",
-    type: "route",
-    target: "/affiliations",
-  },
-  {
-    label: "Philosophy We Live By",
-    type: "route",
-    target: "/philosophy",
-  },
-];
+import {
+  sidebarItems,
+  heroData,
+  aboutData,
+  highlights,
+  qualityPolicyData,
+  visionMissionData,
+  organisationalStructureData,
+  closingData,
+} from "../data/about/aboutContent";
 
-const highlights = [
-  {
-    number: "01",
-    title: "Quality Education",
-    text: "Offering industry-aligned academic programs that focus on developing technical expertise, problem-solving abilities, and leadership qualities.",
-  },
-  {
-    number: "02",
-    title: "Research & Innovation",
-    text: "Promoting a research-driven environment that encourages creativity, interdisciplinary collaboration, and technological advancements.",
-  },
-  {
-    number: "03",
-    title: "Industry Collaboration",
-    text: "Building strong partnerships with leading industries to offer practical exposure, internships, and training opportunities that bridge the gap between academics and the professional world.",
-  },
-  {
-    number: "04",
-    title: "Holistic Development",
-    text: "Fostering ethical values, leadership skills, and social responsibility to create well-rounded individuals prepared to make a positive impact.",
-  },
-];
+/* =========================================================
+   ABOUT PAGE BACKGROUND VIDEO
 
-const qualityPoints = [
-  "Deliver experiential and outcome-based education that nurtures critical thinking, problem-solving, and leadership skills.",
-  "Promote research, innovation, and industry collaboration to bridge the gap between academics and real-world applications.",
-  "Develop ethically responsible, self-motivated, and socially conscious professionals equipped for global challenges.",
-  "Uphold continuous quality assurance through stakeholder engagement, regular assessments, and best governance practices.",
-];
+   IMPORTANT:
+   The video is rendered directly into document.body.
+   This prevents parent containers, route wrappers,
+   transforms, overflow rules, or stacking contexts
+   from trapping the video inside the About page.
 
-const missions = [
-  {
-    id: "M-1",
-    text: "Having a culture of inspiration, exploration, and invention through effective, experiential teaching-learning giving rise to ever-evolving knowledge and wisdom.",
-  },
-  {
-    id: "M-2",
-    text: "To have self-inspired students ever engaged in continually working upon & sharpening and deepening computational, creative, innovative, & leadership consciousness.",
-  },
-  {
-    id: "M-3",
-    text: "Having students established in self-reflective consciousness, committed to personal, social and human integrity, and engaged in deep inquiry and conversation, giving rise to shared, intersubjective human values and consciousness.",
-  },
-];
+   Scroll position controls video position.
+   Video NEVER autoplay.
+========================================================= */
 
-function AboutEchelon() {
-  const [activeSection, setActiveSection] = useState("about-eit");
-  const [showSidebar, setShowSidebar] = useState(false);
+function AboutBackgroundVideo() {
+  const videoRef = useRef(null);
+  const animationFrameRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    let mounted = true;
+
+    const updateVideo = () => {
+      if (!mounted) return;
+
+      if (
+        !video.duration ||
+        !Number.isFinite(video.duration)
+      ) {
+        animationFrameRef.current =
+          requestAnimationFrame(updateVideo);
+
+        return;
+      }
+
+      const scrollTop = window.scrollY;
+
+      const maxScroll =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+      const progress =
+        maxScroll > 0
+          ? Math.min(
+              Math.max(
+                scrollTop / maxScroll,
+                0
+              ),
+              1
+            )
+          : 0;
+
+      const targetTime =
+        progress * video.duration;
+
+      if (
+        Math.abs(
+          video.currentTime - targetTime
+        ) > 0.01
+      ) {
+        try {
+          video.currentTime = targetTime;
+        } catch {
+          /* Ignore seek errors while metadata is updating */
+        }
+      }
+
+      animationFrameRef.current =
+        requestAnimationFrame(updateVideo);
+    };
+
+    const startVideoControl = () => {
+      if (
+        animationFrameRef.current
+      ) {
+        cancelAnimationFrame(
+          animationFrameRef.current
+        );
+      }
+
+      video.pause();
+
+      animationFrameRef.current =
+        requestAnimationFrame(updateVideo);
+    };
+
+    const handleLoadedMetadata = () => {
+      video.pause();
+      video.currentTime = 0;
+      startVideoControl();
+    };
+
+    video.pause();
+
+    if (video.readyState >= 1) {
+      startVideoControl();
+    } else {
+      video.addEventListener(
+        "loadedmetadata",
+        handleLoadedMetadata
+      );
+    }
+
+    return () => {
+      mounted = false;
+
+      video.removeEventListener(
+        "loadedmetadata",
+        handleLoadedMetadata
+      );
+
+      if (
+        animationFrameRef.current
+      ) {
+        cancelAnimationFrame(
+          animationFrameRef.current
+        );
+      }
+
+      video.pause();
+    };
+  }, []);
+
+  const video = (
+    <video
+      ref={videoRef}
+      className="about-background-video"
+      muted
+      playsInline
+      preload="auto"
+      aria-hidden="true"
+    >
+      <source
+        src="/videos/1.mp4"
+        type="video/mp4"
+      />
+    </video>
+  );
 
   /*
-   * ============================================================
-   * SCROLL HANDLER
-   * ============================================================
-   */
+    Render directly into <body>.
+
+    This is the important part that prevents the video
+    from being trapped inside the About page wrapper.
+  */
+  return createPortal(
+    video,
+    document.body
+  );
+}
+
+/* =========================================================
+   ABOUT ECHELON PAGE
+========================================================= */
+
+function AboutEchelon() {
+  const [activeSection, setActiveSection] =
+    useState("about-eit");
+
+  const [showSidebar, setShowSidebar] =
+    useState(false);
+
+  /* =======================================================
+     SCROLL HANDLER
+  ======================================================= */
 
   useEffect(() => {
     const sectionIds = [
@@ -112,643 +204,932 @@ function AboutEchelon() {
     const handleScroll = () => {
       const scrollY = window.scrollY;
 
-      /*
-       * --------------------------------------------------------
-       * SIDEBAR VISIBILITY
-       * --------------------------------------------------------
-       *
-       * Hidden at the hero.
-       * Appears after the user has moved away from the hero.
-       */
-      const hero = document.querySelector(".about-eit-hero");
+      const hero =
+        document.querySelector(
+          ".about-eit-hero"
+        );
 
       if (hero) {
-        const heroBottom = hero.getBoundingClientRect().bottom;
+        const heroBottom =
+          hero.getBoundingClientRect()
+            .bottom;
 
-        setShowSidebar(heroBottom <= 80);
+        setShowSidebar(
+          heroBottom <= 80
+        );
       } else {
-        setShowSidebar(scrollY > 180);
+        setShowSidebar(
+          scrollY > 180
+        );
       }
 
-      /*
-       * --------------------------------------------------------
-       * ACTIVE SECTION
-       * --------------------------------------------------------
-       */
+      const scrollPosition =
+        scrollY + 180;
 
-      const scrollPosition = scrollY + 180;
-
-      let currentSection = "about-eit";
+      let currentSection =
+        "about-eit";
 
       sectionIds.forEach((id) => {
-        const section = document.getElementById(id);
+        const section =
+          document.getElementById(id);
 
         if (!section) return;
 
         const sectionTop =
-          section.getBoundingClientRect().top + scrollY;
+          section.getBoundingClientRect()
+            .top + scrollY;
 
-        if (sectionTop <= scrollPosition) {
+        if (
+          sectionTop <= scrollPosition
+        ) {
           currentSection = id;
         }
       });
 
-      setActiveSection(currentSection);
+      setActiveSection(
+        currentSection
+      );
     };
 
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    });
+    window.addEventListener(
+      "scroll",
+      handleScroll,
+      {
+        passive: true,
+      }
+    );
 
     handleScroll();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
     };
   }, []);
 
-  /*
-   * ============================================================
-   * SECTION SCROLL
-   * ============================================================
-   */
+  /* =======================================================
+     SECTION SCROLL
+  ======================================================= */
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
+    const element =
+      document.getElementById(id);
 
     if (!element) return;
 
     const offset = 100;
 
     const elementPosition =
-      element.getBoundingClientRect().top +
-      window.scrollY;
+      element.getBoundingClientRect()
+        .top + window.scrollY;
 
     window.scrollTo({
-      top: elementPosition - offset,
+      top:
+        elementPosition - offset,
       behavior: "smooth",
     });
 
     setActiveSection(id);
   };
 
+  /* =======================================================
+     PAGE
+  ======================================================= */
+
   return (
-    <div className="about-eit-page">
+    <>
+      {/* ==================================================
+          GLOBAL FIXED BACKGROUND VIDEO
+      ================================================== */}
 
-      {/* =====================================================
-          HERO
-      ===================================================== */}
+      <AboutBackgroundVideo />
 
-      <section className="about-eit-hero">
+      {/* ==================================================
+          ABOUT PAGE
+      ================================================== */}
 
-        <div className="about-eit-hero-grid" />
+      <div className="about-eit-page">
 
-        <div className="about-eit-hero-glow" />
+        {/* ==================================================
+            HERO
+        ================================================== */}
 
-        <div className="about-eit-hero-content">
+        <section className="about-eit-hero">
 
-          <span className="about-eit-eyebrow">
-            ECHELON INSTITUTE OF TECHNOLOGY
-          </span>
+          <div className="about-eit-hero-grid" />
 
-          <h1>
-            ABOUT
-            <span>EIT</span>
-          </h1>
+          <div className="about-eit-hero-glow" />
 
-          <p>
-            Empowering minds, inspiring creativity, and building
-            the future of technology and education.
-          </p>
+          <div className="about-eit-hero-content">
 
-          <div className="about-eit-hero-meta">
-            <span>EST. 2007</span>
-            <i />
-            <span>FARIDABAD · DELHI NCR</span>
-          </div>
+            <span className="about-eit-eyebrow">
+              {heroData.eyebrow}
+            </span>
 
-        </div>
+            <h1>
+              ABOUT
+              <span>EIT</span>
+            </h1>
 
-        <div className="about-eit-hero-index">
-          01
-        </div>
+            <p>
+              {heroData.description}
+            </p>
 
-        <div className="about-eit-scroll">
-          <span>EXPLORE</span>
-          <div />
-        </div>
+            <div className="about-eit-hero-meta">
 
-      </section>
+              <span>
+                {heroData.established}
+              </span>
 
-      {/* =====================================================
-          PAGE BODY
-      ===================================================== */}
+              <i />
 
-      <div className="about-eit-layout">
+              <span>
+                {heroData.location}
+              </span>
 
-        {/* ===================================================
-            SIDEBAR
-        =================================================== */}
-
-        <aside
-          className={`about-eit-sidebar ${
-            showSidebar ? "sidebar-visible" : ""
-          }`}
-        >
-
-          <div className="about-eit-sidebar-inner">
-
-            <div className="about-eit-sidebar-heading">
-              <span>ABOUT US</span>
-              <small>EIT</small>
-            </div>
-
-            <div className="about-eit-sidebar-line" />
-
-            <nav>
-
-              {sidebarItems.map((item) => {
-
-                const active =
-                  item.type === "section" &&
-                  activeSection === item.target;
-
-                if (item.type === "route") {
-                  return (
-                    <Link
-                      key={item.label}
-                      to={item.target}
-                      className="about-eit-sidebar-link"
-                    >
-                      <span>{item.label}</span>
-                      <ChevronRight size={16} />
-                    </Link>
-                  );
-                }
-
-                return (
-                  <button
-                    key={item.label}
-                    type="button"
-                    onClick={() =>
-                      scrollToSection(item.target)
-                    }
-                    className={`about-eit-sidebar-link ${
-                      active ? "active" : ""
-                    }`}
-                  >
-                    <span>{item.label}</span>
-                    <ChevronRight size={16} />
-                  </button>
-                );
-              })}
-
-            </nav>
-
-            <div className="about-eit-sidebar-footer">
-              <span>ECHELON</span>
-              <span>2007 — PRESENT</span>
             </div>
 
           </div>
 
-        </aside>
+          <div className="about-eit-hero-index">
+            {heroData.index}
+          </div>
 
-        {/* ===================================================
-            CONTENT
-        =================================================== */}
+          <div className="about-eit-scroll">
 
-        <main className="about-eit-content">
+            <span>
+              {heroData.scrollLabel}
+            </span>
+
+            <div />
+
+          </div>
+
+        </section>
+
+        {/* ==================================================
+            PAGE BODY
+        ================================================== */}
+
+        <div className="about-eit-layout">
 
           {/* =================================================
-              ABOUT ECHELON
+              SIDEBAR
           ================================================= */}
 
-          <section
-            id="about-eit"
-            className="about-eit-section"
+          <aside
+            className={`about-eit-sidebar ${
+              showSidebar
+                ? "sidebar-visible"
+                : ""
+            }`}
           >
 
-            <div className="about-eit-section-label">
-              <span>01</span>
-              ABOUT ECHELON
-            </div>
+            <div className="about-eit-sidebar-inner">
 
-            <div className="about-eit-intro-heading">
+              <div className="about-eit-sidebar-heading">
 
-              <h2>
-                A culture of
-                <em> inspiration,</em>
-                <br />
-                exploration and growth.
-              </h2>
+                <span>
+                  ABOUT US
+                </span>
 
-              <div className="about-eit-year">
-                <small>ESTABLISHED</small>
-                <strong>2007</strong>
+                <small>
+                  EIT
+                </small>
+
+              </div>
+
+              <div className="about-eit-sidebar-line" />
+
+              <nav>
+
+                {sidebarItems.map(
+                  (item) => {
+
+                    const active =
+                      item.type ===
+                        "section" &&
+                      activeSection ===
+                        item.target;
+
+                    if (
+                      item.type ===
+                      "route"
+                    ) {
+                      return (
+                        <Link
+                          key={item.label}
+                          to={item.target}
+                          className="about-eit-sidebar-link"
+                        >
+
+                          <span>
+                            {item.label}
+                          </span>
+
+                          <ChevronRight
+                            size={16}
+                          />
+
+                        </Link>
+                      );
+                    }
+
+                    return (
+                      <button
+                        key={item.label}
+                        type="button"
+                        onClick={() =>
+                          scrollToSection(
+                            item.target
+                          )
+                        }
+                        className={`about-eit-sidebar-link ${
+                          active
+                            ? "active"
+                            : ""
+                        }`}
+                      >
+
+                        <span>
+                          {item.label}
+                        </span>
+
+                        <ChevronRight
+                          size={16}
+                        />
+
+                      </button>
+                    );
+                  }
+                )}
+
+              </nav>
+
+              <div className="about-eit-sidebar-footer">
+
+                <span>
+                  ECHELON
+                </span>
+
+                <span>
+                  2007 - PRESENT
+                </span>
+
               </div>
 
             </div>
 
-            <div className="about-eit-intro-grid">
+          </aside>
 
-              <div className="about-eit-copy">
+          {/* =================================================
+              CONTENT
+          ================================================= */}
 
-                <p className="about-eit-lead">
-                  Echelon Institute of Technology (EIT),
-                  Faridabad, established in 2007, is a premier
-                  institution dedicated to academic excellence,
-                  innovation, and holistic development.
-                </p>
+          <main className="about-eit-content">
 
-                <p>
-                  EIT is affiliated to Guru Gobind Singh
-                  Indraprastha University, Delhi and is approved
-                  by AICTE, Ministry of Education, Government of
-                  India.
-                </p>
+            {/* ===============================================
+                ABOUT ECHELON
+            =============================================== */}
 
-                <p>
-                  At EIT, we strive to nurture technical and
-                  managerial leaders who drive change and
-                  innovation through a culture of inspiration,
-                  exploration, and continuous learning.
-                </p>
+            <section
+              id="about-eit"
+              className="about-eit-section"
+            >
 
-                <p>
-                  We place a strong emphasis on experiential and
-                  outcome-based education, providing students with
-                  the practical skills and knowledge necessary to
-                  thrive in an ever-evolving global landscape.
-                </p>
+              <div className="about-eit-section-label">
+
+                <span>
+                  {aboutData.sectionNumber}
+                </span>
+
+                {aboutData.sectionLabel}
 
               </div>
 
-              <div className="about-eit-establishment">
+              <div className="about-eit-intro-heading">
 
-                <div className="about-eit-establishment-circle circle-one" />
-                <div className="about-eit-establishment-circle circle-two" />
-                <div className="about-eit-establishment-circle circle-three" />
+                <h2>
 
-                <div className="about-eit-establishment-core">
-                  <span>EIT</span>
-                  <strong>07</strong>
-                  <small>ESTABLISHED</small>
+                  {aboutData.heading.firstLine}
+
+                  <em>
+                    {aboutData.heading.emphasized}
+                  </em>
+
+                  <br />
+
+                  {aboutData.heading.secondLine}
+
+                </h2>
+
+                <div className="about-eit-year">
+
+                  <small>
+                    {aboutData.established.label}
+                  </small>
+
+                  <strong>
+                    {aboutData.established.year}
+                  </strong>
+
                 </div>
 
-                <div className="about-eit-establishment-bottom">
-                  <span>FARIDABAD</span>
-                  <span>DELHI NCR</span>
+              </div>
+
+              <div className="about-eit-intro-grid">
+
+                <div className="about-eit-copy">
+
+                  {aboutData.paragraphs.map(
+                    (paragraph, index) => (
+
+                      <p
+                        key={index}
+                        className={
+                          paragraph.type ===
+                          "lead"
+                            ? "about-eit-lead"
+                            : undefined
+                        }
+                      >
+                        {paragraph.text}
+                      </p>
+
+                    )
+                  )}
+
                 </div>
 
-              </div>
+                <div className="about-eit-establishment">
 
-            </div>
+                  <div className="about-eit-establishment-circle circle-one" />
 
-            {/* KEY HIGHLIGHTS */}
+                  <div className="about-eit-establishment-circle circle-two" />
 
-            <div className="about-eit-highlights">
+                  <div className="about-eit-establishment-circle circle-three" />
 
-              <div className="about-eit-subheading">
-                <span>01.01</span>
-                <h3>Key Highlights</h3>
-              </div>
+                  <div className="about-eit-establishment-core">
 
-              <div className="about-eit-highlight-grid">
-
-                {highlights.map((item) => (
-                  <article
-                    className="about-eit-highlight-card"
-                    key={item.number}
-                  >
-
-                    <span className="highlight-number">
-                      {item.number}
+                    <span>
+                      {
+                        aboutData
+                          .establishmentVisual
+                          .institute
+                      }
                     </span>
 
-                    <div>
-                      <h4>{item.title}</h4>
-                      <p>{item.text}</p>
-                    </div>
+                    <strong>
+                      {
+                        aboutData
+                          .establishmentVisual
+                          .year
+                      }
+                    </strong>
 
-                    <ArrowUpRight
-                      className="highlight-icon"
-                      size={21}
-                    />
+                    <small>
+                      {
+                        aboutData
+                          .establishmentVisual
+                          .label
+                      }
+                    </small>
 
-                  </article>
-                ))}
+                  </div>
+
+                  <div className="about-eit-establishment-bottom">
+
+                    {
+                      aboutData
+                        .establishmentVisual
+                        .locations
+                        .map(
+                          (location) => (
+                            <span
+                              key={location}
+                            >
+                              {location}
+                            </span>
+                          )
+                        )
+                    }
+
+                  </div>
+
+                </div>
 
               </div>
 
-            </div>
+              {/* KEY HIGHLIGHTS */}
 
-            {/* QUALITY POLICY */}
+              <div className="about-eit-highlights">
 
-            <div className="about-eit-quality">
+                <div className="about-eit-subheading">
 
-              <div className="about-eit-quality-title">
+                  <span>
+                    01.01
+                  </span>
 
-                <span>01.02</span>
+                  <h3>
+                    Key Highlights
+                  </h3>
+
+                </div>
+
+                <div className="about-eit-highlight-grid">
+
+                  {highlights.map(
+                    (item) => (
+
+                      <article
+                        className="about-eit-highlight-card"
+                        key={item.number}
+                      >
+
+                        <span className="highlight-number">
+                          {item.number}
+                        </span>
+
+                        <div>
+
+                          <h4>
+                            {item.title}
+                          </h4>
+
+                          <p>
+                            {item.text}
+                          </p>
+
+                        </div>
+
+                        <ArrowUpRight
+                          className="highlight-icon"
+                          size={21}
+                        />
+
+                      </article>
+
+                    )
+                  )}
+
+                </div>
+
+              </div>
+
+              {/* QUALITY POLICY */}
+
+              <div className="about-eit-quality">
+
+                <div className="about-eit-quality-title">
+
+                  <span>
+                    {
+                      qualityPolicyData
+                        .sectionNumber
+                    }
+                  </span>
+
+                  <div>
+
+                    <small>
+                      {
+                        qualityPolicyData
+                          .eyebrow
+                      }
+                    </small>
+
+                    <h3>
+                      {
+                        qualityPolicyData
+                          .title
+                      }
+                    </h3>
+
+                  </div>
+
+                </div>
+
+                <div className="about-eit-quality-content">
+
+                  <p className="quality-lead">
+                    {
+                      qualityPolicyData
+                        .lead
+                    }
+                  </p>
+
+                  <div className="quality-list">
+
+                    {
+                      qualityPolicyData
+                        .points
+                        .map(
+                          (point, index) => (
+
+                            <div
+                              className="quality-list-item"
+                              key={index}
+                            >
+
+                              <span>
+                                0
+                                {index + 1}
+                              </span>
+
+                              <p>
+                                {point}
+                              </p>
+
+                            </div>
+
+                          )
+                        )
+                    }
+
+                  </div>
+
+                  <p className="quality-ending">
+                    {
+                      qualityPolicyData
+                        .ending
+                    }
+                  </p>
+
+                </div>
+
+              </div>
+
+            </section>
+
+            {/* ===============================================
+                VISION + MISSION
+            =============================================== */}
+
+            <section
+              id="vision-mission"
+              className="about-eit-section about-eit-vision-section"
+            >
+
+              <div className="about-eit-section-label">
+
+                <span>
+                  {
+                    visionMissionData
+                      .sectionNumber
+                  }
+                </span>
+
+                {
+                  visionMissionData
+                    .sectionLabel
+                }
+
+              </div>
+
+              <div className="about-eit-vision-card">
+
+                <div className="vision-card-label">
+
+                  {
+                    visionMissionData
+                      .vision
+                      .eyebrow
+                  }
+
+                </div>
+
+                <div className="vision-card-body">
+
+                  <div className="vision-quote">
+                    "
+                  </div>
+
+                  <blockquote>
+                    {
+                      visionMissionData
+                        .vision
+                        .quote
+                    }
+                  </blockquote>
+
+                </div>
+
+                <div className="vision-card-footer">
+
+                  <span>
+                    {
+                      visionMissionData
+                        .vision
+                        .footerLeft
+                    }
+                  </span>
+
+                  <span>
+                    {
+                      visionMissionData
+                        .vision
+                        .footerRight
+                    }
+                  </span>
+
+                </div>
+
+              </div>
+
+              <div className="about-eit-mission-heading">
 
                 <div>
-                  <small>OUR COMMITMENT</small>
-                  <h3>Quality Policy</h3>
-                </div>
 
-              </div>
+                  <span>
+                    {
+                      visionMissionData
+                        .mission
+                        .sectionNumber
+                    }
+                  </span>
 
-              <div className="about-eit-quality-content">
-
-                <p className="quality-lead">
-                  Echelon Institute of Technology (EIT) is
-                  committed to excellence in education,
-                  innovation, and holistic development by
-                  fostering a culture of inspiration,
-                  exploration, and continuous improvement.
-                </p>
-
-                <div className="quality-list">
-
-                  {qualityPoints.map((point, index) => (
-                    <div
-                      className="quality-list-item"
-                      key={index}
-                    >
-                      <span>
-                        0{index + 1}
-                      </span>
-
-                      <p>{point}</p>
-                    </div>
-                  ))}
+                  <h3>
+                    {
+                      visionMissionData
+                        .mission
+                        .title
+                    }
+                  </h3>
 
                 </div>
 
-                <p className="quality-ending">
-                  Through these commitments, we strive to empower
-                  students and faculty to achieve academic
-                  excellence, personal integrity, and lifelong
-                  learning, shaping future leaders who contribute
-                  meaningfully to society.
+                <p>
+                  {
+                    visionMissionData
+                      .mission
+                      .description
+                  }
                 </p>
 
               </div>
 
-            </div>
+              <div className="about-eit-mission-grid">
 
-          </section>
+                {
+                  visionMissionData
+                    .mission
+                    .items
+                    .map(
+                      (mission) => (
 
-          {/* =================================================
-              VISION + MISSION
-          ================================================= */}
+                        <article
+                          className="about-eit-mission-card"
+                          key={mission.id}
+                        >
 
-          <section
-            id="vision-mission"
-            className="about-eit-section about-eit-vision-section"
-          >
+                          <div className="mission-card-top">
+                            {mission.id}
+                          </div>
 
-            <div className="about-eit-section-label">
-              <span>02</span>
-              VISION & MISSION
-            </div>
+                          <div className="mission-card-line" />
 
-            <div className="about-eit-vision-card">
+                          <p>
+                            {mission.text}
+                          </p>
 
-              <div className="vision-card-label">
-                OUR VISION
+                          <div className="mission-card-footer">
+
+                            <span>
+                              ECHELON
+                            </span>
+
+                            <ArrowUpRight
+                              size={18}
+                            />
+
+                          </div>
+
+                        </article>
+
+                      )
+                    )
+                }
+
               </div>
 
-              <div className="vision-card-body">
+            </section>
 
-                <div className="vision-quote">
-                  “
+            {/* ===============================================
+                ORGANISATIONAL STRUCTURE
+            =============================================== */}
+
+            <section
+              id="organisational-structure"
+              className="about-eit-section about-eit-org-section"
+            >
+
+              <div className="about-eit-section-label">
+
+                <span>
+                  {
+                    organisationalStructureData
+                      .sectionNumber
+                  }
+                </span>
+
+                {
+                  organisationalStructureData
+                    .sectionLabel
+                }
+
+              </div>
+
+              <div className="about-eit-org-heading">
+
+                <h2>
+
+                  {
+                    organisationalStructureData
+                      .heading
+                      .firstLine
+                  }
+
+                  <em>
+                    {
+                      organisationalStructureData
+                        .heading
+                        .emphasized
+                    }
+                  </em>
+
+                </h2>
+
+                <p>
+                  {
+                    organisationalStructureData
+                      .description
+                  }
+                </p>
+
+              </div>
+
+              <div className="about-eit-org-chart">
+
+                <div className="org-primary">
+
+                  {
+                    organisationalStructureData
+                      .primary
+                      .map(
+                        (item, index) => (
+
+                          <React.Fragment
+                            key={item}
+                          >
+
+                            <div
+                              className={`org-box ${
+                                index === 0
+                                  ? "management"
+                                  : index === 1
+                                  ? "governors"
+                                  : "director"
+                              }`}
+                            >
+                              {item}
+                            </div>
+
+                            {
+                              index <
+                                organisationalStructureData
+                                  .primary
+                                  .length -
+                                  1 && (
+                                <div className="org-line" />
+                              )
+                            }
+
+                          </React.Fragment>
+
+                        )
+                      )
+                  }
+
                 </div>
 
-                <blockquote>
-                  Technical and Management leaders engaged in
-                  the evolution of life, being at the frontiers
-                  of the continuous technological and
-                  administrative breakthroughs, inspired by
-                  ongoing exploration of self, society, and
-                  nature through self-reflective consciousness
-                  by building a culture of inspiration,
-                  exploration and growth.
-                </blockquote>
+                <div className="org-branches">
+
+                  {
+                    organisationalStructureData
+                      .branches
+                      .map(
+                        (branch) => (
+
+                          <div
+                            className="org-branch"
+                            key={branch.title}
+                          >
+
+                            <strong>
+                              {branch.title}
+                            </strong>
+
+                            {
+                              branch.items.map(
+                                (item) => (
+                                  <span
+                                    key={item}
+                                  >
+                                    {item}
+                                  </span>
+                                )
+                              )
+                            }
+
+                          </div>
+
+                        )
+                      )
+                  }
+
+                </div>
+
+                <div className="org-footer">
+
+                  <span>
+                    {
+                      organisationalStructureData
+                        .footer
+                        .left
+                    }
+                  </span>
+
+                  <span>
+                    {
+                      organisationalStructureData
+                        .footer
+                        .right
+                    }
+                  </span>
+
+                </div>
 
               </div>
 
-              <div className="vision-card-footer">
-                <span>VISION · EIT</span>
-                <span>02</span>
-              </div>
+              {/* FINAL CTA */}
 
-            </div>
+              <div className="about-eit-closing">
 
-            <div className="about-eit-mission-heading">
+                <span>
+                  {closingData.period}
+                </span>
 
-              <div>
-                <span>02.01</span>
-                <h3>Mission</h3>
-              </div>
+                <h3>
 
-              <p>
-                Three principles shape the educational culture
-                and purpose of Echelon.
-              </p>
+                  {
+                    closingData
+                      .heading
+                      .firstLine
+                  }
 
-            </div>
+                  <br />
 
-            <div className="about-eit-mission-grid">
+                  {
+                    closingData
+                      .heading
+                      .secondLine
+                  }
 
-              {missions.map((mission) => (
-                <article
-                  className="about-eit-mission-card"
-                  key={mission.id}
+                  <em>
+                    {
+                      closingData
+                        .heading
+                        .emphasized
+                    }
+                  </em>
+
+                </h3>
+
+                <Link
+                  to={closingData.button.href}
+                  className="about-eit-closing-button"
                 >
 
-                  <div className="mission-card-top">
-                    {mission.id}
-                  </div>
+                  {closingData.button.label}
 
-                  <div className="mission-card-line" />
+                  <ArrowUpRight
+                    size={18}
+                  />
 
-                  <p>{mission.text}</p>
-
-                  <div className="mission-card-footer">
-                    <span>ECHELON</span>
-                    <ArrowUpRight size={18} />
-                  </div>
-
-                </article>
-              ))}
-
-            </div>
-
-          </section>
-
-          {/* =================================================
-              ORGANISATIONAL STRUCTURE
-          ================================================= */}
-
-          <section
-            id="organisational-structure"
-            className="about-eit-section about-eit-org-section"
-          >
-
-            <div className="about-eit-section-label">
-              <span>03</span>
-              ORGANISATIONAL STRUCTURE
-            </div>
-
-            <div className="about-eit-org-heading">
-
-              <h2>
-                The people
-                <em> behind EIT.</em>
-              </h2>
-
-              <p>
-                An institutional structure connecting leadership,
-                academics, administration and campus operations.
-              </p>
-
-            </div>
-
-            <div className="about-eit-org-chart">
-
-              <div className="org-primary">
-
-                <div className="org-box management">
-                  MANAGEMENT
-                </div>
-
-                <div className="org-line" />
-
-                <div className="org-box governors">
-                  BOARD OF GOVERNORS
-                </div>
-
-                <div className="org-line" />
-
-                <div className="org-box director">
-                  DIRECTOR
-                </div>
+                </Link>
 
               </div>
 
-              <div className="org-branches">
+            </section>
 
-                <div className="org-branch">
-                  <strong>
-                    ACADEMIC LEADERSHIP
-                  </strong>
+          </main>
 
-                  <span>Dean Academics</span>
-                  <span>Dean Student Welfare</span>
-                  <span>Dean R&amp;D</span>
-                  <span>Dean First Year</span>
-                  <span>HODs</span>
-                  <span>Faculty</span>
-                </div>
-
-                <div className="org-branch">
-                  <strong>
-                    ADMINISTRATION
-                  </strong>
-
-                  <span>Registrar</span>
-                  <span>Controller Examinations</span>
-                  <span>Assistant Registrar</span>
-                  <span>Administrative Officer</span>
-                  <span>HR Manager</span>
-                  <span>Account Officer</span>
-                </div>
-
-                <div className="org-branch">
-                  <strong>
-                    STUDENT &amp; RESEARCH
-                  </strong>
-
-                  <span>Dean R&amp;D</span>
-                  <span>IQAC Coordinator</span>
-                  <span>Proctorial Board</span>
-                  <span>Training &amp; Placement</span>
-                  <span>Research Activities</span>
-                  <span>Student Support</span>
-                </div>
-
-                <div className="org-branch">
-                  <strong>
-                    ACADEMIC SUPPORT
-                  </strong>
-
-                  <span>Laboratory Staff</span>
-                  <span>Library</span>
-                  <span>IT Manager</span>
-                  <span>DMS Faculty</span>
-                  <span>First Year Labs</span>
-                  <span>Technical Support</span>
-                </div>
-
-                <div className="org-branch">
-                  <strong>
-                    CAMPUS OPERATIONS
-                  </strong>
-
-                  <span>Security</span>
-                  <span>Transport</span>
-                  <span>Maintenance</span>
-                  <span>Hostel</span>
-                  <span>Canteen</span>
-                  <span>Accounts</span>
-                </div>
-
-              </div>
-
-              <div className="org-footer">
-                <span>
-                  ECHELON INSTITUTE OF TECHNOLOGY
-                </span>
-
-                <span>
-                  INSTITUTIONAL STRUCTURE
-                </span>
-              </div>
-
-            </div>
-
-            {/* =================================================
-                FINAL CTA
-            ================================================= */}
-
-            <div className="about-eit-closing">
-
-              <span>2007 — PRESENT</span>
-
-              <h3>
-                Empowering minds.
-                <br />
-                Inspiring <em>possibility.</em>
-              </h3>
-
-              <Link
-                to="/"
-                className="about-eit-closing-button"
-              >
-                Return to EIT
-                <ArrowUpRight size={18} />
-              </Link>
-
-            </div>
-
-          </section>
-
-        </main>
+        </div>
 
       </div>
-
-    </div>
+    </>
   );
 }
 

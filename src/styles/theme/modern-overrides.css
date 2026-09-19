@@ -1,0 +1,385 @@
+/* ==========================================================================
+   MODERN VISUAL SYSTEM
+   Shared polish for the existing EIT pages. This file is intentionally
+   additive so the existing page components and routes remain untouched.
+========================================================================== */
+
+:root {
+  --eit-ink-950: #07151a;
+  --eit-ink-900: #0c2228;
+  --eit-ink-800: #12343a;
+  --eit-mint-500: #83d8bd;
+  --eit-mint-300: #b9f0dd;
+  --eit-amber-400: #f2c878;
+  --eit-surface: #f6f7f3;
+  --eit-surface-muted: #e8efeb;
+  --eit-shadow-modern: 0 24px 70px rgba(9, 35, 39, 0.14);
+  --eit-shadow-deep: 0 30px 90px rgba(3, 20, 26, 0.25);
+}
+
+::selection {
+  color: var(--eit-ink-950);
+  background: var(--eit-mint-300);
+}
+
+body {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(131, 216, 189, 0.08), transparent 34rem),
+    var(--eit-surface);
+  color: var(--eit-ink-900);
+}
+
+a,
+button,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--eit-amber-400);
+  outline-offset: 4px;
+}
+
+.eit-route-page {
+  isolation: isolate;
+}
+
+/* ==========================================================================
+   SHARED PAGE MOTION
+========================================================================== */
+
+.eit-route-page {
+  animation: route-arrive 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.eit-route-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(131, 216, 189, 0.08), transparent 42%);
+  animation: ambient-breathe 8s ease-in-out 1s infinite;
+}
+
+@keyframes route-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ambient-breathe {
+  0%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+
+/* ==========================================================================
+   DEPARTMENT HERO
+========================================================================== */
+
+.hero {
+  isolation: isolate;
+  min-height: min(820px, calc(100vh - 82px));
+  background:
+    radial-gradient(circle at 76% 24%, rgba(131, 216, 189, 0.2), transparent 23rem),
+    linear-gradient(135deg, #06161b, #0e3035 58%, #07191f);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.3;
+  background-image:
+    linear-gradient(rgba(185, 240, 221, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(185, 240, 221, 0.09) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(90deg, black, transparent 76%);
+}
+
+.hero::after {
+  inset: -25% -15%;
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  animation: hero-sheen 16s ease-in-out infinite alternate;
+}
+
+@keyframes hero-sheen {
+  from {
+    transform: translate3d(-4%, -1%, 0) rotate(-2deg);
+  }
+  to {
+    transform: translate3d(6%, 2%, 0) rotate(2deg);
+  }
+}
+
+.hero-video {
+  opacity: 0.62;
+  filter: saturate(0.7) contrast(1.08);
+  animation: hero-video-drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes hero-video-drift {
+  from {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.1) translate3d(-1.5%, -1%, 0);
+  }
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(3, 16, 20, 0.97), rgba(4, 27, 32, 0.72) 42%, rgba(4, 22, 28, 0.24) 78%, rgba(3, 16, 21, 0.7)),
+    linear-gradient(180deg, rgba(3, 15, 22, 0.08), rgba(3, 15, 22, 0.94));
+}
+
+.hero-content {
+  max-width: 1180px;
+  padding-inline: clamp(28px, 9vw, 150px);
+}
+
+.hero-content::after {
+  content: "SCROLL TO EXPLORE";
+  position: absolute;
+  left: clamp(28px, 9vw, 150px);
+  bottom: 44px;
+  color: rgba(240, 250, 244, 0.58);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  animation: scroll-prompt 2.8s ease-in-out infinite;
+}
+
+@keyframes scroll-prompt {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
+
+.hero-small-title {
+  position: relative;
+  width: fit-content;
+  padding: 9px 14px 9px 0;
+  color: var(--eit-mint-300);
+  letter-spacing: 0.26em;
+}
+
+.hero-small-title::before {
+  width: 34px;
+  height: 1px;
+  background: var(--eit-mint-300);
+}
+
+.hero-title {
+  max-width: 900px;
+  text-shadow: 0 16px 50px rgba(0, 0, 0, 0.28);
+}
+
+/* ==========================================================================
+   DEPARTMENT CONTENT SURFACE
+========================================================================== */
+
+.department-content {
+  position: relative;
+  padding: clamp(80px, 10vw, 150px) clamp(22px, 7vw, 110px);
+  background:
+    radial-gradient(circle at 12% 4%, rgba(131, 216, 189, 0.18), transparent 24rem),
+    radial-gradient(circle at 90% 46%, rgba(242, 200, 120, 0.12), transparent 26rem),
+    linear-gradient(145deg, #f3f7f3 0%, #e8f0ec 52%, #f4f4ef 100%);
+}
+
+.department-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(15, 63, 64, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 63, 64, 0.07) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+.department-section {
+  position: relative;
+  z-index: 1;
+  max-width: 1220px;
+  margin: 0 auto clamp(80px, 12vw, 170px);
+  scroll-margin-top: 112px;
+}
+
+.department-section:last-child {
+  margin-bottom: 0;
+}
+
+.department-section h2,
+.department-section h3 {
+  text-wrap: balance;
+}
+
+.department-section p {
+  color: #526b69;
+}
+
+.section-number,
+.section-kicker,
+.outcomes-kicker {
+  color: #16816d;
+}
+
+.section-title span,
+.vision-title span,
+.outcomes-title span,
+.hod-heading em,
+.faculty-link-content em,
+.newsletter-heading em {
+  color: #16816d;
+  font-style: normal;
+}
+
+/* Lift every major block into a calm, staggered entrance without requiring
+   additional markup or changing the existing data-driven components. */
+.department-section {
+  animation: section-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 18%;
+}
+
+@keyframes section-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   SHARED INTERACTION LANGUAGE
+========================================================================== */
+
+.vision-card,
+.mission-card,
+.peo-card,
+.po-item,
+.pso-card,
+.lab-card,
+.overview-detail {
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.55s ease,
+    background 0.35s ease;
+}
+
+.vision-card:hover,
+.mission-card:hover,
+.peo-card:hover,
+.po-item:hover,
+.pso-card:hover,
+.lab-card:hover,
+.overview-detail:hover {
+  transform: translateY(-8px);
+  border-color: rgba(22, 129, 109, 0.34);
+  box-shadow: var(--eit-shadow-modern);
+}
+
+.vision-card::after,
+.mission-card::after,
+.lab-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(135deg, rgba(185, 240, 221, 0.17), transparent 45%);
+  transition: opacity 0.45s ease;
+}
+
+.vision-card:hover::after,
+.mission-card:hover::after,
+.lab-card:hover::after {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   MOBILE / REDUCED MOTION
+========================================================================== */
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 680px;
+  }
+
+  .hero-content {
+    padding-inline: 7vw;
+  }
+
+  .department-content {
+    padding-inline: 6vw;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero {
+    min-height: calc(100svh - 70px);
+  }
+
+  .hero-title {
+    letter-spacing: -0.06em;
+  }
+
+  .hero-content::after {
+    left: 7vw;
+    bottom: 34px;
+  }
+
+  .department-content {
+    padding: 72px 20px;
+  }
+
+  .department-section {
+    scroll-margin-top: 88px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eit-route-page,
+  .eit-route-page::before,
+  .hero::after,
+  .hero-video,
+  .hero-content::after,
+  .department-section {
+    animation: none !important;
+  }
+
+  .department-section {
+    opacity: 1;
+    transform: none;
+  }
+}

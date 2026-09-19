@@ -1,2 +1,53 @@
-import ResearchSidebar from "./ResearchSidebar";import "./ResearchShared.css";import "./EDC/EDC.css";
-export default function EDC(){return <><ResearchSidebar/><main className="research-page"><div className="research-container"><section className="research-hero"><div className="research-kicker">Entrepreneurship</div><h1 className="research-title">Entrepreneurship Development Cell</h1></section><section className="research-section"><h2>Objectives</h2><ul><li>Promote an entrepreneurial culture and provide resources and opportunities to students and faculty interested in starting ventures.</li><li>Create a supportive ecosystem via incubation centres, co-working spaces, and funding sources.</li><li>Empower entrepreneurs to take risks, innovate, and create products/services driving economic growth and jobs.</li><li>Focus on education and training.</li><li>Build relationships with industry partners and stakeholders.</li></ul></section><section className="research-section"><h2>EDC Committee</h2><div className="research-grid">{[["Dr. Arvind Kumar Pandey","Professor, ECE","Chairperson"],["Dr. Irfanullah Khan","Professor, DMS","Coordinator"],["Dr. Poonam Rani","Asst. Professor, HAS","Member"],["Ms. Shefali Madan","Assoc. Professor, CSE","Member"],["Dr. Stuti Saxena","Assoc. Professor, DCA","Member"],["Dr. Pramod Kumar Singh","Professor, ECE","Member"],["Dr. Sindhu Kumar","Assoc. Professor, ME & CE","Member"],["Mr. Mohit Kapil","Asst. Professor, DMS","Member"],["Mr. Sameer Jain","Entrepreneur, External","Member"],["Mr. Anoop Goyal","Entrepreneur, External","Member"],["Mr. Abhishek Sharma","Alumni & Entrepreneur, External","Member"],["Mr. Kapil","Alumni & Entrepreneur, External","Member"],["Dr. Virender Narula","Expert, External","Member"],["Bhumi Arora","Student, BBA","Representative"],["Nandini Gora","Student, BBA","Representative"],["Himanshu Pal","Student, CSE","Representative"],["Jai","Student, CSE","Representative"]].map((m,i)=><div className="research-card" key={i}><strong>{m[0]}</strong><div>{m[1]}</div><small>{m[2]}</small></div>)}</div></section></div></main></>}
+import ResearchSidebar from "./ResearchSidebar";
+import "./ResearchShared.css";
+import "./EDC/EDC.css";
+
+import edc from "../data/research/edc";
+
+export default function EDC() {
+  return (
+    <>
+      <ResearchSidebar />
+
+      <main className="research-page">
+        <div className="research-container">
+          <section className="research-hero">
+            <div className="research-kicker">
+              {edc.hero.kicker}
+            </div>
+
+            <h1 className="research-title">
+              {edc.hero.title}
+            </h1>
+          </section>
+
+          <section className="research-section">
+            <h2>Objectives</h2>
+
+            <ul>
+              {edc.objectives.map((objective, index) => (
+                <li key={index}>{objective}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="research-section">
+            <h2>EDC Committee</h2>
+
+            <div className="research-grid">
+              {edc.committee.map((member, index) => (
+                <div className="research-card" key={index}>
+                  <strong>{member.name}</strong>
+
+                  <div>{member.role}</div>
+
+                  <small>{member.position}</small>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      </main>
+    </>
+  );
+}

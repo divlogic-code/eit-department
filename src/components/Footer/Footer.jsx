@@ -15,6 +15,10 @@ function Footer() {
             © 2026 All Rights Reserved by{" "}
             <strong>Echelon Institute of Technology</strong>
           </p>
+          <p>
+            
+            <strong>Designed By - Divyanshu Bhardwaj</strong>
+          </p>
         </div>
 
         <div className="footer-right">

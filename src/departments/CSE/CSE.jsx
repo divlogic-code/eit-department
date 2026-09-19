@@ -1,164 +1,167 @@
 import DepartmentLayout from "../../components/DepartmentLayout/DepartmentLayout";
-import { departments } from "../../data/departments";
+import cse from "../../data/departments/cse";
 import "../../styles/HODCard.css";
-
-
+import "./CSE.css";
 
 const CSE = () => {
-  const department = departments.CSE;
-
-  const laboratories = [
-    ["Design and Algorithm Lab", 35],
-    ["Network Lab & IT Workshop", 35],
-    ["Programming Lab - I", 35],
-    ["Programming Lab - II", 35],
-    ["DBMS Lab", 35],
-    ["Project Lab", 50],
-    ["Research Lab", 20],
-  ];
-
   return (
-    <DepartmentLayout department={department}>
+    <DepartmentLayout department={cse}>
 
-        {/* 01 — OVERVIEW */}
-        <section id="section-0" className="department-section overview-section">
+      {/* 01 — OVERVIEW */}
 
-          <div className="overview-header">
+      <section
+        id="section-0"
+        className="department-section overview-section"
+      >
 
-            <div className="section-number">
-              01 / OVERVIEW
-            </div>
+        <div className="overview-header">
 
-            <h2 className="section-title">
-              Computer Science
-              <span>& Engineering</span>
-            </h2>
+          <div className="section-number">
+            {cse.overview.sectionNumber}
+          </div>
+
+          <h2 className="section-title">
+            {cse.overview.title}
+            <span>{cse.overview.titleAccent}</span>
+          </h2>
+
+        </div>
+
+
+        <div className="overview-content">
+
+          <div className="overview-intro">
+
+            <span className="overview-line"></span>
+
+            <p>
+              {cse.overview.intro}
+            </p>
 
           </div>
 
 
-          <div className="overview-content">
+          <div className="overview-details">
 
-            <div className="overview-intro">
-              <span className="overview-line"></span>
+            {cse.overview.details.map((detail) => (
+              <div
+                className="overview-detail"
+                key={detail.number}
+              >
 
-              <p>
-                The Department of Computer Science and Engineering is enriched
-                with competent and well qualified faculty members to bring out
-                the best in students. Ever since its inception, the Department
-                has always been on a high growth pace with a strong dedication
-                to provide engineering education.
-              </p>
-            </div>
-
-
-            <div className="overview-details">
-
-              <div className="overview-detail">
-                <span className="detail-number">01</span>
+                <span className="detail-number">
+                  {detail.number}
+                </span>
 
                 <p>
-                  The department has well equipped laboratories with internet,
-                  web application facilities accessible on LAN and Wi-Fi are
-                  available for students to provide them hands-on experience
-                  on latest softwares and technological tools used in the
-                  industries.
+                  {detail.text}
                 </p>
+
               </div>
-
-
-              <div className="overview-detail">
-                <span className="detail-number">02</span>
-
-                <p>
-                  Seminars, corporate training, workshops are conducted by
-                  experts to prepare students as future software professionals.
-                  PDP classes are conducted to pour add-ons to their technical
-                  skills. Many of our students graduated through campus, find
-                  placements in more than one organizations.
-                </p>
-              </div>
-
-            </div>
+            ))}
 
           </div>
 
+        </div>
 
-          <div className="overview-footer">
 
-            <span>COMPUTER SCIENCE & ENGINEERING</span>
+        <div className="overview-footer">
 
-            <span>ECHELON INSTITUTE OF TECHNOLOGY</span>
+          {cse.overview.footer.map((item) => (
+            <span key={item}>
+              {item}
+            </span>
+          ))}
 
-          </div>
+        </div>
 
-        </section>
+      </section>
 
 
       {/* 02 — HOD'S MESSAGE */}
-      <section id="section-1" className="department-section hod-section">
+
+      <section
+        id="section-1"
+        className="department-section hod-section"
+      >
 
         <div className="hod-top">
 
           <div className="section-number">
-            02 / HOD'S MESSAGE
+            {cse.hod.sectionNumber}
           </div>
 
           <div className="hod-heading">
-            <span>WORDS FROM</span>
+
+            <span>
+              {cse.hod.eyebrow}
+            </span>
+
             <h2>
-              The Head
-              <em>of Department</em>
+              {cse.hod.title}
+              <em>{cse.hod.titleAccent}</em>
             </h2>
+
           </div>
 
         </div>
+
 
         <div className="hod-layout">
 
           <div className="hod-profile">
 
             <div className="hod-portrait">
+
               <img
-                src="https://eitfaridabad.com/images/hod/cse-hod.png"
-                alt="Dr. Manisha Vashisht"
+                src={cse.hod.image}
+                alt={cse.hod.imageAlt}
                 className="hod-portrait-image"
                 loading="lazy"
               />
 
               <div className="hod-portrait-number">
-                02
+                {cse.hod.number}
               </div>
+
             </div>
 
+
             <div className="hod-name">
-              <span>HEAD OF DEPARTMENT</span>
+
+              <span>
+                {cse.hod.label}
+              </span>
+
               <h3>
-                Department of Computer Science
-                & Engineering
+                {cse.hod.department}
               </h3>
+
             </div>
 
           </div>
 
+
           <div className="hod-message">
 
-            <div className="quote-mark">“</div>
+            <div className="quote-mark">
+              “
+            </div>
 
             <p>
-              Department of Computer Science & Engineering commits to work
-              towards developing Engineers with a rich blend of competent,
-              technical, managerial and social skills and contribute to nation
-              building. Department places emphasis on all the important aspects
-              of computers such as Computer Networks, Mobile Communication,
-              Algorithm Design, Operating System, Advance Database Systems,
-              Theory of Computation, Computer Graphics, Machine Learning,
-              Data Science and many more.
+              {cse.hod.message}
             </p>
 
             <div className="hod-signature">
-              <span>CSE DEPARTMENT</span>
-              <strong>ECHELON INSTITUTE OF TECHNOLOGY</strong>
+
+              <span>
+                {cse.hod.signature[0]}
+              </span>
+
+              <strong>
+                {cse.hod.signature[1]}
+              </strong>
+
             </div>
 
           </div>
@@ -169,91 +172,111 @@ const CSE = () => {
 
 
       {/* 03 — VISION & MISSION */}
-      <section id="section-2" className="department-section vision-section">
+
+      <section
+        id="section-2"
+        className="department-section vision-section"
+      >
 
         <div className="vision-header">
 
           <div className="section-number">
-            03 / VISION & MISSION
+            {cse.visionMission.sectionNumber}
           </div>
 
           <h2 className="vision-title">
-            Direction
-            <span>& Purpose</span>
+            {cse.visionMission.title}
+            <span>{cse.visionMission.titleAccent}</span>
           </h2>
 
         </div>
 
+
         <div className="vision-grid">
 
           {/* VISION */}
+
           <article className="vision-card vision-main-card">
 
             <div className="vision-card-top">
-              <span>01</span>
-              <small>OUR VISION</small>
+
+              <span>
+                {cse.visionMission.vision.number}
+              </span>
+
+              <small>
+                {cse.visionMission.vision.label}
+              </small>
+
             </div>
 
             <div className="vision-icon">
-              ↗
+              {cse.visionMission.vision.icon}
             </div>
 
             <p>
-              To develop competent computer professionals who solve real-world
-              problems through continuous learning and adaptive to rapid changes
-              in computer science and engineering with ethical, social, and
-              managerial capabilities.
+              {cse.visionMission.vision.text}
             </p>
 
             <div className="vision-card-footer">
-              <span>CSE / VISION</span>
-              <span>01</span>
+
+              {cse.visionMission.vision.footer.map((item) => (
+                <span key={item}>
+                  {item}
+                </span>
+              ))}
+
             </div>
 
           </article>
 
 
           {/* MISSION */}
+
           <article className="mission-card">
 
             <div className="mission-heading">
-              <span>02</span>
+
+              <span>
+                {cse.visionMission.mission.number}
+              </span>
 
               <div>
-                <small>OUR MISSION</small>
+
+                <small>
+                  {cse.visionMission.mission.label}
+                </small>
+
                 <h3>
-                  What We
-                  <em>Commit To</em>
+                  {cse.visionMission.mission.title}
+                  <em>
+                    {cse.visionMission.mission.titleAccent}
+                  </em>
                 </h3>
+
               </div>
+
             </div>
+
 
             <div className="mission-list">
 
-              <div className="mission-item">
-                <span>01</span>
-                <p>
-                  To produce industry-ready professionals for successful careers
-                  in computer science and related domains.
-                </p>
-              </div>
+              {cse.visionMission.mission.items.map((item) => (
+                <div
+                  className="mission-item"
+                  key={item.number}
+                >
 
-              <div className="mission-item">
-                <span>02</span>
-                <p>
-                  To provide exposure to cutting-edge computational tools in the
-                  field of computer science and engineering.
-                </p>
-              </div>
+                  <span>
+                    {item.number}
+                  </span>
 
-              <div className="mission-item">
-                <span>03</span>
-                <p>
-                  To create competent and ethical computer professionals through
-                  quality education, innovative research, and exposure to
-                  entrepreneurship.
-                </p>
-              </div>
+                  <p>
+                    {item.text}
+                  </p>
+
+                </div>
+              ))}
 
             </div>
 
@@ -263,76 +286,86 @@ const CSE = () => {
 
       </section>
 
+
       {/* 04 — PEO / PO / PSO */}
-      <section id="section-3" className="department-section outcomes-section">
+
+      <section
+        id="section-3"
+        className="department-section outcomes-section"
+      >
 
         <div className="outcomes-header">
 
           <div className="section-number">
-            04 / PROGRAM OUTCOMES
+            {cse.outcomes.sectionNumber}
           </div>
 
           <div>
+
             <span className="outcomes-kicker">
-              ACADEMIC FRAMEWORK
+              {cse.outcomes.kicker}
             </span>
 
             <h2 className="outcomes-title">
-              What Our
-              <span>Graduates Become</span>
+              {cse.outcomes.title}
+              <span>{cse.outcomes.titleAccent}</span>
             </h2>
+
           </div>
 
         </div>
 
 
         {/* PEO */}
+
         <div className="outcome-block">
 
           <div className="outcome-label">
-            <span>01</span>
-            <small>PEOs</small>
+
+            <span>
+              {cse.outcomes.peo.number}
+            </span>
+
+            <small>
+              {cse.outcomes.peo.label}
+            </small>
+
           </div>
+
 
           <div className="outcome-content">
 
             <div className="outcome-heading">
-              <h3>Program Educational Objectives</h3>
+
+              <h3>
+                {cse.outcomes.peo.title}
+              </h3>
+
               <p>
-                The professional capabilities expected from our graduates
-                after completing the programme.
+                {cse.outcomes.peo.description}
               </p>
+
             </div>
+
 
             <div className="peo-grid">
 
-              <article className="peo-card">
-                <span>PEO 01</span>
-                <p>
-                  Graduates will establish themselves as competent mechanical
-                  engineering professionals by applying engineering knowledge
-                  and problem-solving skills in industry, research, or related
-                  fields.
-                </p>
-              </article>
+              {cse.outcomes.peo.items.map((item) => (
+                <article
+                  className="peo-card"
+                  key={item.number}
+                >
 
-              <article className="peo-card">
-                <span>PEO 02</span>
-                <p>
-                  Graduates will adapt to evolving industrial practices by
-                  upgrading their technical competencies and assuming roles
-                  of increased responsibility in engineering or allied sectors.
-                </p>
-              </article>
+                  <span>
+                    {item.number}
+                  </span>
 
-              <article className="peo-card">
-                <span>PEO 03</span>
-                <p>
-                  Graduates will demonstrate ethical conduct, teamwork, and
-                  social responsibility while contributing effectively to
-                  organizational and societal development.
-                </p>
-              </article>
+                  <p>
+                    {item.text}
+                  </p>
+
+                </article>
+              ))}
 
             </div>
 
@@ -342,95 +375,59 @@ const CSE = () => {
 
 
         {/* PO */}
+
         <div className="outcome-block po-block">
 
           <div className="outcome-label">
-            <span>02</span>
-            <small>POs</small>
+
+            <span>
+              {cse.outcomes.po.number}
+            </span>
+
+            <small>
+              {cse.outcomes.po.label}
+            </small>
+
           </div>
+
 
           <div className="outcome-content">
 
             <div className="outcome-heading">
-              <h3>Program Outcomes</h3>
+
+              <h3>
+                {cse.outcomes.po.title}
+              </h3>
+
               <p>
-                Core abilities developed through the engineering programme.
+                {cse.outcomes.po.description}
               </p>
+
             </div>
+
 
             <div className="po-list">
 
-              <div className="po-item">
-                <span>01</span>
-                <strong>Engineering Knowledge</strong>
-                <p>Apply engineering knowledge to solve complex engineering problems.</p>
-              </div>
+              {cse.outcomes.po.items.map((item) => (
+                <div
+                  className="po-item"
+                  key={item.number}
+                >
 
-              <div className="po-item">
-                <span>02</span>
-                <strong>Problem Analysis</strong>
-                <p>Identify, formulate and analyse complex engineering problems.</p>
-              </div>
+                  <span>
+                    {item.number}
+                  </span>
 
-              <div className="po-item">
-                <span>03</span>
-                <strong>Design / Development of Solutions</strong>
-                <p>Design solutions for complex engineering problems.</p>
-              </div>
+                  <strong>
+                    {item.title}
+                  </strong>
 
-              <div className="po-item">
-                <span>04</span>
-                <strong>Conduct Investigations</strong>
-                <p>Use research-based knowledge to investigate complex problems.</p>
-              </div>
+                  <p>
+                    {item.text}
+                  </p>
 
-              <div className="po-item">
-                <span>05</span>
-                <strong>Modern Tool Usage</strong>
-                <p>Create, select and apply appropriate techniques and modern engineering tools.</p>
-              </div>
-
-              <div className="po-item">
-                <span>06</span>
-                <strong>Engineer and Society</strong>
-                <p>Apply contextual knowledge to assess societal, health and safety impacts.</p>
-              </div>
-
-              <div className="po-item">
-                <span>07</span>
-                <strong>Environment and Sustainability</strong>
-                <p>Understand the impact of professional engineering solutions in environmental contexts.</p>
-              </div>
-
-              <div className="po-item">
-                <span>08</span>
-                <strong>Ethics</strong>
-                <p>Apply ethical principles and commit to professional responsibilities.</p>
-              </div>
-
-              <div className="po-item">
-                <span>09</span>
-                <strong>Individual and Team Work</strong>
-                <p>Function effectively as an individual and as a member of diverse teams.</p>
-              </div>
-
-              <div className="po-item">
-                <span>10</span>
-                <strong>Communication</strong>
-                <p>Communicate effectively on complex engineering activities.</p>
-              </div>
-
-              <div className="po-item">
-                <span>11</span>
-                <strong>Project Management and Finance</strong>
-                <p>Demonstrate knowledge of engineering management and economic principles.</p>
-              </div>
-
-              <div className="po-item">
-                <span>12</span>
-                <strong>Life-long Learning</strong>
-                <p>Recognize the need for lifelong learning and engage in independent learning.</p>
-              </div>
+                </div>
+              ))}
 
             </div>
 
@@ -440,42 +437,55 @@ const CSE = () => {
 
 
         {/* PSO */}
+
         <div className="outcome-block pso-block">
 
           <div className="outcome-label">
-            <span>03</span>
-            <small>PSOs</small>
+
+            <span>
+              {cse.outcomes.pso.number}
+            </span>
+
+            <small>
+              {cse.outcomes.pso.label}
+            </small>
+
           </div>
+
 
           <div className="outcome-content">
 
             <div className="outcome-heading">
-              <h3>Program Specific Outcomes</h3>
+
+              <h3>
+                {cse.outcomes.pso.title}
+              </h3>
+
               <p>
-                Specialized capabilities expected from graduates in their
-                professional domain.
+                {cse.outcomes.pso.description}
               </p>
+
             </div>
+
 
             <div className="pso-grid">
 
-              <article className="pso-card">
-                <div>PSO 01</div>
-                <p>
-                  Apply mechanical engineering principles, analytical methods,
-                  and modern tools to solve complex engineering problems across
-                  core and allied domains.
-                </p>
-              </article>
+              {cse.outcomes.pso.items.map((item) => (
+                <article
+                  className="pso-card"
+                  key={item.number}
+                >
 
-              <article className="pso-card">
-                <div>PSO 02</div>
-                <p>
-                  Develop and optimize mechanical systems, processes, and
-                  components by integrating design, manufacturing, and energy
-                  considerations.
-                </p>
-              </article>
+                  <div>
+                    {item.number}
+                  </div>
+
+                  <p>
+                    {item.text}
+                  </p>
+
+                </article>
+              ))}
 
             </div>
 
@@ -487,59 +497,70 @@ const CSE = () => {
 
 
       {/* 05 — FACULTY */}
+
       <section
         id="section-4"
         className="department-section faculty-link-section"
       >
+
         <div className="faculty-link-content">
 
           <div className="section-number">
-            05 / FACULTY
+            {cse.faculty.sectionNumber}
           </div>
 
           <span className="section-kicker">
-            THE PEOPLE BEHIND THE DEPARTMENT
+            {cse.faculty.kicker}
           </span>
 
           <h2>
-            Minds That
-            <em>Shape Minds</em>
+            {cse.faculty.title}
+            <em>{cse.faculty.titleAccent}</em>
           </h2>
 
           <p>
-            Meet the faculty of the Department of Computer Science & Engineering,
-            bringing together academic expertise, research, professional experience
-            and industry-oriented knowledge.
+            {cse.faculty.description}
           </p>
 
           <a
-            href="/cse/faculty"
+            href={cse.faculty.url}
             className="faculty-link-button"
           >
-            <span>EXPLORE FACULTY DIRECTORY</span>
-            <strong>↗</strong>
+
+            <span>
+              {cse.faculty.button}
+            </span>
+
+            <strong>
+              ↗
+            </strong>
+
           </a>
 
         </div>
+
       </section>
 
 
       {/* 06 — LABORATORIES */}
-      <section id="section-5" className="department-section labs-section">
+
+      <section
+        id="section-5"
+        className="department-section labs-section"
+      >
 
         <div className="section-heading">
 
           <span className="section-kicker">
-            06 / FACILITIES
+            {cse.laboratories.kicker}
           </span>
 
           <h2 className="section-title">
-            Department Laboratories
+            {cse.laboratories.title}
           </h2>
 
           <p className="labs-intro">
-            Practical learning environments equipped to develop technical
-            expertise, experimentation and industry-oriented skills.
+            {cse.laboratories.description}
           </p>
 
         </div>
@@ -547,11 +568,11 @@ const CSE = () => {
 
         <div className="labs-grid">
 
-          {laboratories.map(([name, capacity], index) => (
+          {cse.laboratories.items.map((lab, index) => (
 
             <article
               className="lab-card"
-              key={name}
+              key={lab.name}
             >
 
               <div className="lab-number">
@@ -562,7 +583,7 @@ const CSE = () => {
               <div className="lab-info">
 
                 <h3>
-                  {name}
+                  {lab.name}
                 </h3>
 
                 <div className="lab-capacity">
@@ -572,7 +593,7 @@ const CSE = () => {
                   </span>
 
                   <strong>
-                    {capacity}
+                    {lab.capacity}
                   </strong>
 
                 </div>
@@ -593,7 +614,8 @@ const CSE = () => {
       </section>
 
 
-            {/* 07 — DEPARTMENTAL NEWSLETTER */}
+      {/* 07 — DEPARTMENTAL NEWSLETTER */}
+
       <section
         id="section-6"
         className="department-section newsletter-section"
@@ -602,16 +624,18 @@ const CSE = () => {
         <div className="newsletter-header">
 
           <div className="section-number">
-            07 / NEWSLETTER
+            {cse.newsletter.sectionNumber}
           </div>
 
           <div className="newsletter-heading">
 
-            <span>DEPARTMENT ARCHIVE</span>
+            <span>
+              {cse.newsletter.eyebrow}
+            </span>
 
             <h2>
-              Inside
-              <em>the Department</em>
+              {cse.newsletter.title}
+              <em>{cse.newsletter.titleAccent}</em>
             </h2>
 
           </div>
@@ -622,41 +646,54 @@ const CSE = () => {
         <div className="newsletter-feature">
 
           <div className="newsletter-feature-number">
-            07
+            {cse.newsletter.number}
           </div>
+
 
           <div className="newsletter-feature-content">
 
             <span className="newsletter-label">
-              DEPARTMENTAL NEWSLETTER
+              {cse.newsletter.label}
             </span>
 
+
             <h3>
-              Ideas.
-              <br />
-              Research.
-              <br />
-              Progress.
+
+              {cse.newsletter.headline.map((line) => (
+                <span key={line}>
+                  {line}
+                  <br />
+                </span>
+              ))}
+
             </h3>
 
+
             <p>
-              Explore the activities, achievements, academic initiatives,
-              research, workshops and developments of the Department of
-              Computer Science & Engineering.
+              {cse.newsletter.description}
             </p>
 
+
             <a
-              href="#"
+              href={cse.newsletter.url}
               className="newsletter-button"
             >
-              <span>VIEW NEWSLETTER</span>
-              <strong>↗</strong>
+
+              <span>
+                {cse.newsletter.button}
+              </span>
+
+              <strong>
+                ↗
+              </strong>
+
             </a>
 
           </div>
 
+
           <div className="newsletter-decoration">
-            CSE
+            {cse.newsletter.decoration}
           </div>
 
         </div>
@@ -664,13 +701,11 @@ const CSE = () => {
 
         <div className="newsletter-footer">
 
-          <span>
-            COMPUTER SCIENCE & ENGINEERING
-          </span>
-
-          <span>
-            ECHELON INSTITUTE OF TECHNOLOGY
-          </span>
+          {cse.newsletter.footer.map((item) => (
+            <span key={item}>
+              {item}
+            </span>
+          ))}
 
         </div>
 
@@ -680,4 +715,4 @@ const CSE = () => {
   );
 };
 
-export default CSE; 
+export default CSE;

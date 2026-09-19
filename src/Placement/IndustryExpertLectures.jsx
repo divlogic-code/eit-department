@@ -1,5 +1,36 @@
-import PlacementSidebar from "./PlacementSidebar";import "./IndustryExpertLectures/IndustryExpertLectures.css";
-export default function IndustryExpertLectures(){return <div className="placement-page IndustryExpertLectures-content"><PlacementSidebar/><main><section className="placement-hero"><span>TRAINING & PLACEMENT</span><h1>Industry Expert Lecture Series</h1><p>Front-row access to the minds shaping tomorrow's industries.</p></section><section className="placement-container">
-<div className="placement-card"><p>At Echelon Institute of Technology, learning doesn't stop at the classroom door. The Industry Expert Lecture Series connects students directly with the minds shaping tomorrow's industries, bringing visionary speakers from global tech giants and trailblazing startups.</p><p>EIT welcomed technocrats, entrepreneurs, and domain experts for lectures on Artificial Intelligence, Machine Learning, Cloud Computing, Cybersecurity, Blockchain, Data Science, and Smart Networking Solutions.</p></div>
-<div className="placement-grid"><div className="placement-card"><h3>Emerging Technologies</h3><p>Next-generation technologies and disruptive innovation.</p></div><div className="placement-card"><h3>Live Interaction</h3><p>Q&A rounds and informal networking opportunities.</p></div><div className="placement-card"><h3>Career Connections</h3><p>Career strategies, startup thinking, mentorship, internships, and professional relationships.</p></div></div>
-</section></main></div>}
+import PlacementSidebar from "./PlacementSidebar";
+import industryExpertLectures from "../data/placement/industryExpertLectures";
+import "./IndustryExpertLectures/IndustryExpertLectures.css";
+
+export default function IndustryExpertLectures() {
+  return (
+    <div className="placement-page IndustryExpertLectures-content">
+      <PlacementSidebar />
+
+      <main>
+        <section className="placement-hero">
+          <span>{industryExpertLectures.hero.eyebrow}</span>
+          <h1>{industryExpertLectures.hero.title}</h1>
+          <p>{industryExpertLectures.hero.description}</p>
+        </section>
+
+        <section className="placement-container">
+          <div className="placement-card">
+            {industryExpertLectures.content.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+
+          <div className="placement-grid">
+            {industryExpertLectures.highlights.map((item) => (
+              <div className="placement-card" key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
